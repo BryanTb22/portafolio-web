@@ -91,6 +91,10 @@ section{padding-block:52px}
 .badge{justify-self:start;font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;background:var(--sun);color:#14161c;padding:3px 10px;border-radius:999px}
 .badge.ghost{background:transparent;padding:3px 0;visibility:hidden}
 
+.offer{margin-top:20px;background:var(--sun);color:#14161c;border-radius:16px;padding:14px 18px;font-size:1.05rem}
+.terms{list-style:none;margin:14px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px 20px;color:var(--muted);font-size:.95rem}
+.terms li::before{content:"✓ ";color:var(--accent);font-weight:700}
+
 /* PROCESO */
 .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;counter-reset:s}
 @media (max-width:860px){.steps{grid-template-columns:1fr 1fr}}
@@ -120,7 +124,7 @@ footer{padding-block:28px;color:var(--muted);font-size:.85rem}
       <h1>Tu negocio con <span class="hl">página propia</span>, lista para vender</h1>
       <p>Diseño páginas rápidas, bonitas y pensadas para celular, con tus productos, precios y un botón directo a tu WhatsApp. Tú me cuentas qué vendes; yo me encargo del resto.</p>
       <div class="cta-row">
-        <a class="btn btn-main" href="https://wa.me/51900000000?text=Hola%2C%20quiero%20cotizar%20una%20p%C3%A1gina%20web" target="_blank" rel="noopener">Cotizar por WhatsApp</a>
+        <a class="btn btn-main" href="https://wa.me/51952997030?text=Hola%2C%20quiero%20cotizar%20una%20p%C3%A1gina%20web" target="_blank" rel="noopener">Cotizar por WhatsApp</a>
         <a class="btn btn-ghost" href="#proyectos">Ver proyectos</a>
       </div>
     </div>
@@ -181,7 +185,7 @@ footer{padding-block:28px;color:var(--muted);font-size:.85rem}
         </article>
         <article class="project">
           <div class="prev b" aria-hidden="true">
-            <div class="prev-nav">Rayas Store <small>catálogo</small></div>
+            <div class="prev-nav">Rayas Store <small>rayas.trade</small></div>
             <div class="prev-grid"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
           </div>
           <div class="p-body">
@@ -192,7 +196,7 @@ footer{padding-block:28px;color:var(--muted);font-size:.85rem}
               <li>Diseño adaptado a celular</li>
               <li>Pedido directo por WhatsApp</li>
             </ul>
-            <a class="btn btn-ghost" href="#contacto">Pide una demo</a>
+            <a class="btn btn-ghost" href="https://rayas.trade" target="_blank" rel="noopener">Visitar la web</a>
           </div>
         </article>
       </div>
@@ -216,18 +220,18 @@ footer{padding-block:28px;color:var(--muted);font-size:.85rem}
             <li>Fotos, horarios y ubicación</li>
             <li>Botón a WhatsApp y redes</li>
           </ul>
-          <div class="price">Desde S/ —</div>
+          <div class="price">S/ 300</div>
         </div>
         <div class="pack top">
           <span class="badge">Más pedido</span>
           <h3>Catálogo</h3>
           <p class="for">Para negocios que venden productos.</p>
           <ul class="feats">
-            <li>Productos con foto y precio</li>
+            <li>Hasta 30 productos con foto y precio</li>
             <li>Pedido directo a WhatsApp</li>
             <li>Link listo para compartir</li>
           </ul>
-          <div class="price">Desde S/ —</div>
+          <div class="price">S/ 450</div>
         </div>
         <div class="pack">
           <span class="badge ghost">.</span>
@@ -237,9 +241,9 @@ footer{padding-block:28px;color:var(--muted);font-size:.85rem}
             <li>Varias secciones y tu logo</li>
             <li>Panel para editar productos</li>
             <li>Registro de pedidos</li>
-            <li>Dominio propio</li>
+            <li>Lista para tu dominio propio</li>
           </ul>
-          <div class="price">Desde S/ —</div>
+          <div class="price">S/ 900</div>
         </div>
         <div class="pack">
           <span class="badge ghost">.</span>
@@ -249,10 +253,18 @@ footer{padding-block:28px;color:var(--muted);font-size:.85rem}
             <li>Subo productos y fotos nuevas</li>
             <li>Cambio precios y promociones</li>
             <li>Arreglos pequeños</li>
+            <li>S/ 100 al mes para tiendas</li>
           </ul>
-          <div class="price">S/ — al mes</div>
+          <div class="price">Desde S/ 60 al mes</div>
         </div>
       </div>
+      <div class="offer"><b>Oferta de lanzamiento:</b> 30% de descuento para los 3 primeros clientes.</div>
+      <ul class="terms">
+        <li>50% de adelanto y 50% al entregar</li>
+        <li>2 rondas de cambios incluidas</li>
+        <li>Hosting gratis; el dominio propio se paga aparte</li>
+        <li>Producto extra en catálogo: S/ 5</li>
+      </ul>
     </div>
   </section>
 
@@ -266,7 +278,7 @@ footer{padding-block:28px;color:var(--muted);font-size:.85rem}
         <div class="step"><b>Me escribes</b><p>Me cuentas tu negocio y me pasas tu logo.</p></div>
         <div class="step"><b>Contenido</b><p>Me mandas fotos, precios y textos.</p></div>
         <div class="step"><b>Revisas</b><p>Te muestro la web en tu celular y ajustamos.</p></div>
-        <div class="step"><b>Publicamos</b><p>Te entrego tu link listo para compartir.</p></div>
+        <div class="step"><b>Publicamos</b><p>Tu link listo en 3 a 5 días (tiendas: 1 a 2 semanas).</p></div>
       </div>
     </div>
   </section>
@@ -275,9 +287,9 @@ footer{padding-block:28px;color:var(--muted);font-size:.85rem}
     <div class="wrap">
       <div class="box">
         <h2>¿Tienes un negocio? Hablemos.</h2>
-        <div class="num" id="wsp">+51 900 000 000</div>
+        <div class="num" id="wsp">+51 952 997 030</div>
         <div class="cta-row">
-          <a class="btn btn-light" href="https://wa.me/51900000000?text=Hola%2C%20quiero%20cotizar%20una%20p%C3%A1gina%20web" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+          <a class="btn btn-light" href="https://wa.me/51952997030?text=Hola%2C%20quiero%20cotizar%20una%20p%C3%A1gina%20web" target="_blank" rel="noopener">Escribir por WhatsApp</a>
           <button class="btn btn-line" id="copy" type="button">Copiar número</button>
         </div>
         <p id="copy-msg" aria-live="polite">Pagos por Yape, Plin, PayPal o Binance.</p>
