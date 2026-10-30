@@ -8,6 +8,7 @@
 <meta property="og:description" content="Catálogos, tiendas y webs de presentación con pedido por WhatsApp. Desde S/ 300.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://bryantb22.github.io/portafolio-web/">
+<meta property="og:image" content="https://bryantb22.github.io/portafolio-web/img/litlejacob.webp">
 <meta name="theme-color" content="#151614">
 <title>Estudio Web · Páginas web para negocios en Lima</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600&display=swap">
@@ -93,8 +94,11 @@ section > .wrap{padding-block:88px}
 .projects{display:grid;grid-template-columns:1fr 1fr;gap:28px}
 @media (max-width:760px){.projects{grid-template-columns:1fr}}
 .project{display:grid;gap:20px;text-decoration:none}
-.shot{aspect-ratio:4/3;max-width:100%;border:1px solid var(--line);border-radius:6px;background:var(--surface);padding:18px;display:grid;grid-template-rows:auto 1fr;gap:14px;overflow:hidden;transition:border-color .3s}
+.shot{aspect-ratio:16/10;max-width:100%;border:1px solid var(--line);border-radius:6px;background:var(--surface);padding:18px;display:grid;grid-template-rows:auto 1fr;gap:14px;overflow:hidden;transition:border-color .3s}
 .project:hover .shot{border-color:var(--ink)}
+.shot.pic{padding:0;display:block}
+.shot.pic img{width:100%;height:100%;object-fit:cover;object-position:top;display:block;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.project:hover .shot.pic img{transform:scale(1.02)}
 .bar{display:flex;gap:6px;align-items:center;font-size:.72rem;color:var(--muted)}
 .bar i{width:7px;height:7px;border-radius:50%;background:var(--line)}
 .bar span{margin-left:8px}
@@ -216,16 +220,13 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;
     <div class="wrap">
       <div class="head">
         <div><span class="eyebrow">Proyectos</span><h2>Trabajo reciente</h2></div>
-        <p>Tiendas reales que ya reciben pedidos todos los días.</p>
+        <p>Plataformas reales con usuarios, pagos y pedidos en funcionamiento.</p>
       </div>
       <div class="projects">
         <a class="project" href="https://litlejacob.trade" target="_blank" rel="noopener">
-          <div class="shot" aria-hidden="true">
-            <div class="bar"><i></i><i></i><i></i><span>litlejacob.trade</span></div>
-            <div class="mock"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
-          </div>
+          <div class="shot pic"><img src="img/litlejacob.webp" alt="Página de inicio de LitleJacob Store" width="1200" height="750" loading="lazy"></div>
           <div class="p-meta">
-            <div><h3>LitleJacob Store</h3><p>Tienda en línea con catálogo, pedidos y panel de administración</p></div>
+            <div><h3>LitleJacob Store</h3><p>Tienda con cuentas de usuario, saldo recargable por Yape, rifas con ruleta, catálogo y panel de administración</p></div>
             <span class="go">Ver proyecto <span class="arrow">→</span></span>
           </div>
         </a>
@@ -235,7 +236,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;
             <div class="mock r"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
           </div>
           <div class="p-meta">
-            <div><h3>Rayas Store</h3><p>Catálogo de productos con pedido por WhatsApp</p></div>
+            <div><h3>Rayas Store</h3><p>Plataforma de rifas con saldo recargable por Yape o tarjeta</p></div>
             <span class="go">Ver proyecto <span class="arrow">→</span></span>
           </div>
         </a>
