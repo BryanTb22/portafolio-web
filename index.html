@@ -9,129 +9,133 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://bryantb22.github.io/portafolio-web/">
 <meta property="og:image" content="https://bryantb22.github.io/portafolio-web/img/litlejacob.webp">
-<meta name="theme-color" content="#151614">
+<meta name="theme-color" content="#f4efe6">
 <title>LitleJacob Studio Web · Páginas web para negocios</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap">
 <style>
-/* Layout: estudio minimalista. Columna centrada de 1120px, secciones separadas por filetes de 1px, mucho aire. */
+/* Layout: estudio en crema y negro. Columna de 1120px, secciones separadas por filetes, franja negra de cierre en Contacto. Solo tema claro. */
 :root{
-  --bg:#f7f7f5; --surface:#ffffff; --ink:#151614; --muted:#6b6d68; --line:#e2e2de;
-  --accent:#1f4d3a; --accent-soft:#e6eee9; --on-accent:#ffffff;
-  --serif:"Instrument Serif","Times New Roman",Georgia,serif;
+  --cream:#f4efe6; --cream-2:#faf7f1; --sand:#e9e1d3; --ink:#141210; --muted:#6e665c; --line:#d9d0c1; --gold:#a8874f;
+  --serif:"Instrument Serif","Cormorant Garamond",Georgia,serif;
   --sans:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;
+  color-scheme:light;
 }
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-  --bg:#121311; --surface:#191a18; --ink:#ecece8; --muted:#9a9c96; --line:#2b2c29;
-  --accent:#8fc2a7; --accent-soft:#1d2a23; --on-accent:#121311; color-scheme:dark}}
-:root[data-theme="dark"]{
-  --bg:#121311; --surface:#191a18; --ink:#ecece8; --muted:#9a9c96; --line:#2b2c29;
-  --accent:#8fc2a7; --accent-soft:#1d2a23; --on-accent:#121311; color-scheme:dark}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.65;margin:0;-webkit-font-smoothing:antialiased}
-body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+body{background:var(--cream);color:var(--ink);font-family:var(--sans);font-size:16.5px;line-height:1.65;margin:0;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:20;background:var(--cream)}
+@media (min-width:900px){body{font-size:17.5px}}
 .wrap{max-width:1120px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
-h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.05;margin:0;text-wrap:balance;letter-spacing:-.01em}
+h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.02;margin:0;text-wrap:balance;letter-spacing:-.01em;overflow-wrap:break-word}
+h1 em,h2 em{font-style:italic}
 a{color:inherit}
-.eyebrow{font-size:.75rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font:600 .95rem/1 var(--sans);text-decoration:none;padding:15px 22px;border-radius:4px;border:1px solid var(--ink);cursor:pointer;transition:background .25s,color .25s,border-color .25s}
-.btn-main{background:var(--ink);color:var(--bg)}
-.btn-main:hover{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
-.btn-line{background:transparent;color:var(--ink)}
-.btn-line:hover{background:var(--ink);color:var(--bg)}
-.btn:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:.72rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.eyebrow::before{content:"";width:22px;height:1px;background:var(--gold)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:50px;font:600 .95rem/1 var(--sans);text-decoration:none;padding:0 24px;border-radius:4px;border:1px solid var(--ink);cursor:pointer;transition:border-color .25s,background .25s,color .25s}
+.btn-dark{background:var(--ink);color:var(--cream)}
+.btn-dark:hover{border-color:var(--gold);color:#fff}
+.btn-light{background:transparent;color:var(--ink)}
+.btn-light:hover{border-color:var(--gold);background:var(--cream-2)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
 .arrow{transition:transform .25s}
 a:hover .arrow{transform:translateX(4px)}
 
 /* NAV */
-nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:14px}
-.brand{font-family:var(--serif);font-size:1.5rem;text-decoration:none}
-.brand{white-space:nowrap}
-.brand i{color:var(--accent)}
-@media (max-width:420px){.brand{font-size:1.25rem}}
-.links{display:flex;align-items:center;gap:28px;font-size:.92rem}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:rgba(244,239,230,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:66px}
+.brand{font-family:var(--serif);font-size:clamp(1.2rem,4.6vw,1.55rem);text-decoration:none;white-space:nowrap}
+.brand i{color:var(--gold)}
+.links{display:flex;align-items:center;gap:30px;font-size:.92rem}
 .links a{text-decoration:none;color:var(--muted);transition:color .2s}
 .links a:hover{color:var(--ink)}
-.links .btn{padding:10px 16px;color:var(--bg)}
-@media (max-width:700px){.links a:not(.btn){display:none}}
+.nav-right{display:flex;align-items:center;gap:10px}
+.nav-right .btn{min-height:42px;padding:0 16px;font-size:.88rem}
+.menu-btn{display:none;width:42px;height:42px;border:1px solid var(--line);border-radius:4px;background:transparent;cursor:pointer;position:relative}
+.menu-btn span,.menu-btn span::before{position:absolute;left:11px;right:11px;height:1px;background:var(--ink);content:"";transition:transform .25s}
+.menu-btn span{top:17px}.menu-btn span::before{left:0;right:0;top:7px}
+.menu-btn[aria-expanded="true"] span{transform:translateY(3.5px) rotate(45deg)}
+.menu-btn[aria-expanded="true"] span::before{transform:translateY(-7px) rotate(-90deg)}
+.drawer{border-top:1px solid var(--line)}
+.drawer .wrap{display:grid;padding-block:8px 16px}
+.drawer a{text-decoration:none;font-family:var(--serif);font-size:1.6rem;padding:10px 0;border-bottom:1px solid var(--line)}
+.drawer a:last-child{border-bottom:0}
+@media (max-width:760px){.links{display:none}.menu-btn{display:block}}
+@media (min-width:761px){.drawer{display:none}}
 
 /* HERO */
-.hero .wrap{display:grid;grid-template-columns:1.25fr .75fr;gap:56px;align-items:center;padding-block:88px 96px}
+.hero .wrap{display:grid;grid-template-columns:1.25fr .75fr;gap:64px;align-items:center;padding-block:92px 100px}
 .hero .wrap > div{min-width:0}
-@media (max-width:860px){.hero .wrap{grid-template-columns:1fr;padding-block:56px 64px;gap:48px}}
-.hero h1{font-size:clamp(3rem,8.4vw,6rem);margin:18px 0 24px}
-.hero h1 em{color:var(--accent)}
-.hero p{font-size:1.15rem;color:var(--muted);max-width:44ch;margin:0 0 36px}
+@media (max-width:860px){.hero .wrap{grid-template-columns:1fr;padding-block:48px 64px;gap:44px}}
+.hero h1{font-size:clamp(2.9rem,11vw,6.2rem);margin:20px 0 22px}
+.hero h1 em{color:var(--gold)}
+.hero p{font-size:1.1rem;color:var(--muted);max-width:42ch;margin:0 0 34px}
 .cta{display:flex;flex-wrap:wrap;gap:12px}
-.phone{justify-self:center;width:min(260px,100%);max-width:100%;aspect-ratio:9/18.5;border:1px solid var(--line);border-radius:34px;padding:10px;background:var(--surface)}
-.screen{height:100%;border-radius:26px;background:var(--bg);overflow:hidden;display:grid;grid-template-rows:auto auto 1fr auto;gap:12px;padding:18px 14px}
+@media (max-width:480px){.cta .btn{flex:1 1 100%}}
+.trust{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:30px;font-size:.85rem;color:var(--muted)}
+.trust span::before{content:"✓ ";color:var(--gold);font-weight:700}
+.phone{justify-self:center;width:min(250px,72vw);max-width:100%;aspect-ratio:9/18.5;border-radius:36px;padding:9px;background:var(--ink);box-shadow:0 30px 60px -30px rgba(20,18,16,.45)}
+.screen{height:100%;border-radius:28px;background:var(--cream-2);overflow:hidden;display:grid;grid-template-rows:auto auto 1fr auto;gap:12px;padding:20px 14px 14px}
 .s-top{display:flex;justify-content:space-between;align-items:center;font-family:var(--serif);font-size:1.15rem}
 .s-top span{width:18px;height:1px;background:var(--ink);box-shadow:0 5px 0 var(--ink)}
-.s-hero{background:var(--accent-soft);border-radius:10px;padding:16px 14px;font-family:var(--serif);font-size:1.35rem;line-height:1.05}
-.s-hero small{display:block;font-family:var(--sans);font-size:.7rem;color:var(--muted);margin-top:6px}
+.s-hero{background:var(--sand);border-radius:8px;padding:16px 14px;font-family:var(--serif);font-size:1.35rem;line-height:1.05}
+.s-hero small{display:block;font-family:var(--sans);font-size:.68rem;color:var(--muted);margin-top:6px}
 .s-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;align-content:start}
 .s-grid div{display:grid;gap:4px;font-size:.66rem;color:var(--muted)}
-.s-grid div::before{content:"";aspect-ratio:1;border-radius:6px;background:var(--line)}
-.s-btn{border-radius:4px;background:var(--ink);color:var(--bg);text-align:center;font-size:.75rem;font-weight:600;padding:9px}
+.s-grid div::before{content:"";aspect-ratio:1;border-radius:5px;background:var(--line)}
+.s-btn{border-radius:4px;background:var(--ink);color:var(--cream);text-align:center;font-size:.72rem;font-weight:600;padding:9px}
 
 /* SECCIONES */
 section{border-top:1px solid var(--line)}
-section > .wrap{padding-block:88px}
-@media (max-width:700px){section > .wrap{padding-block:64px}}
-.head{display:grid;grid-template-columns:1fr 1.4fr;gap:32px;margin-bottom:48px;align-items:end}
+section > .wrap{padding-block:96px}
+@media (max-width:760px){section > .wrap{padding-block:64px}}
+.alt{background:var(--sand)}
+.head{display:grid;grid-template-columns:1fr 1.3fr;gap:32px;margin-bottom:48px;align-items:end}
 .head > *{min-width:0}
-@media (max-width:760px){.head{grid-template-columns:1fr;gap:12px}}
-.head h2{font-size:clamp(2.4rem,5.6vw,3.8rem)}
-.head p{color:var(--muted);margin:0;max-width:46ch}
+@media (max-width:760px){.head{grid-template-columns:1fr;gap:12px;margin-bottom:34px}}
+.head h2{font-size:clamp(2.3rem,8vw,3.9rem);margin-top:14px}
+.head p{color:var(--muted);margin:0;max-width:44ch}
 
 /* RUBROS */
-.rubros{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,1fr);column-gap:48px}
+.rubros{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,1fr);column-gap:56px;border-top:1px solid var(--line)}
 @media (max-width:640px){.rubros{grid-template-columns:1fr}}
 .rubros li{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:18px 0;border-bottom:1px solid var(--line)}
-.rubros b{font-family:var(--serif);font-weight:400;font-size:1.55rem}
-.rubros span{color:var(--muted);font-size:.9rem;text-align:right}
+.rubros b{font-family:var(--serif);font-weight:400;font-size:clamp(1.35rem,5vw,1.6rem)}
+.rubros span{color:var(--muted);font-size:.88rem;text-align:right}
 
 /* PROYECTOS */
-.projects{display:grid;grid-template-columns:1fr 1fr;gap:28px}
-@media (max-width:760px){.projects{grid-template-columns:1fr}}
-.project{display:grid;gap:20px;text-decoration:none}
-.shot{aspect-ratio:16/10;max-width:100%;border:1px solid var(--line);border-radius:6px;background:var(--surface);padding:18px;display:grid;grid-template-rows:auto 1fr;gap:14px;overflow:hidden;transition:border-color .3s}
-.project:hover .shot{border-color:var(--ink)}
-.shot.pic{padding:0;display:block}
-.shot.pic img{width:100%;height:100%;object-fit:cover;object-position:top;display:block;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
-.project:hover .shot.pic img{transform:scale(1.02)}
-.bar{display:flex;gap:6px;align-items:center;font-size:.72rem;color:var(--muted)}
-.bar i{width:7px;height:7px;border-radius:50%;background:var(--line)}
-.bar span{margin-left:8px}
-.mock{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:1fr;gap:8px}
-.mock div{border-radius:4px;background:#2a1d1f}
-.mock div:nth-child(3n){background:#4d2226}
-.mock div:nth-child(4n){background:#6b2a2e}
-.mock.r div{background:#262433}
-.mock.r div:nth-child(3n){background:#3f3a55}
-.mock.r div:nth-child(4n){background:#8a7448}
-.p-meta{display:flex;justify-content:space-between;align-items:baseline;gap:16px;border-bottom:1px solid var(--line);padding-bottom:16px}
-.p-meta h3{font-size:2rem}
-.p-meta p{margin:4px 0 0;color:var(--muted);font-size:.95rem}
-.p-meta .go{font-weight:600;font-size:.9rem;white-space:nowrap}
+.projects{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+@media (max-width:760px){.projects{grid-template-columns:1fr;gap:40px}}
+.project{display:grid;gap:18px;text-decoration:none}
+.shot{aspect-ratio:16/10;max-width:100%;border:1px solid var(--line);border-radius:6px;overflow:hidden;background:var(--cream-2);box-shadow:0 18px 40px -28px rgba(20,18,16,.5);transition:border-color .3s}
+.shot img{width:100%;height:100%;object-fit:cover;object-position:top;display:block;transition:transform .7s cubic-bezier(.2,.7,.2,1)}
+.project:hover .shot{border-color:var(--gold)}
+.project:hover .shot img{transform:scale(1.03)}
+.p-meta{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;border-bottom:1px solid var(--line);padding-bottom:18px}
+.p-meta > div{min-width:0}
+.p-meta h3{font-size:clamp(1.8rem,6vw,2.1rem)}
+.p-meta p{margin:6px 0 0;color:var(--muted);font-size:.95rem}
+.p-meta .go{font-weight:600;font-size:.88rem;white-space:nowrap;padding-top:8px}
+@media (max-width:480px){.p-meta{flex-direction:column;gap:8px}.p-meta .go{padding-top:0}}
 
 /* PAQUETES */
-.packs{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);border-radius:6px;overflow:hidden;background:var(--surface)}
+.packs{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);border-radius:6px;overflow:hidden;background:var(--cream-2)}
 @media (max-width:980px){.packs{grid-template-columns:1fr 1fr}}
-@media (max-width:560px){.packs{grid-template-columns:1fr}}
+@media (max-width:600px){.packs{grid-template-columns:1fr}}
 .pack{padding:32px 26px;display:grid;grid-template-rows:auto auto auto 1fr;gap:14px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);margin:0 -1px -1px 0}
-.pack.feat{background:var(--accent-soft)}
-.tag{font-size:.72rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);min-height:1.2em}
-.pack h3{font-size:1.75rem}
-.price{font-family:var(--serif);font-size:2.8rem;line-height:1;font-variant-numeric:tabular-nums}
-.price small{font-family:var(--sans);font-size:.85rem;color:var(--muted);margin-left:4px}
-.pack ul{list-style:none;margin:0;padding:0;display:grid;gap:8px;font-size:.93rem;color:var(--muted);align-content:start}
+.pack.feat{background:var(--ink);color:var(--cream);border-color:var(--ink)}
+.pack.feat ul{color:#cfc6b6}
+.pack.feat li::before{background:var(--gold)}
+.tag{font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);min-height:1.2em}
+.pack h3{font-size:1.8rem}
+.price{font-family:var(--serif);font-size:3rem;line-height:1;font-variant-numeric:tabular-nums}
+.price small{font-family:var(--sans);font-size:.85rem;opacity:.7;margin-left:4px}
+.pack ul{list-style:none;margin:0;padding:0;display:grid;gap:9px;font-size:.93rem;color:var(--muted);align-content:start}
 .pack li{padding-left:18px;position:relative}
-.pack li::before{content:"";position:absolute;left:0;top:.75em;width:8px;height:1px;background:var(--ink)}
-.offer{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px 24px;margin-top:28px;padding:20px 24px;border:1px solid var(--accent);border-radius:6px}
-.offer p{margin:0;font-family:var(--serif);font-size:1.5rem;line-height:1.2}
-.offer p em{color:var(--accent)}
+.pack li::before{content:"";position:absolute;left:0;top:.78em;width:9px;height:1px;background:var(--ink)}
+.offer{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px 24px;margin-top:28px;padding:22px 24px;border:1px solid var(--gold);border-radius:6px;background:var(--cream-2)}
+.offer p{margin:0;font-family:var(--serif);font-size:clamp(1.35rem,5vw,1.6rem);line-height:1.2}
+.offer p em{color:var(--gold)}
+@media (max-width:480px){.offer .btn{flex:1 1 100%}}
 .terms{list-style:none;margin:28px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
 @media (max-width:860px){.terms{grid-template-columns:1fr 1fr}}
 .terms li{font-size:.9rem;color:var(--muted);border-top:1px solid var(--line);padding-top:12px}
@@ -140,24 +144,34 @@ section > .wrap{padding-block:88px}
 /* PROCESO */
 .steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:28px;counter-reset:s}
 @media (max-width:860px){.steps{grid-template-columns:1fr 1fr}}
-@media (max-width:480px){.steps{grid-template-columns:1fr}}
-.steps li{display:grid;gap:8px;align-content:start}
-.steps li::before{counter-increment:s;content:counter(s,decimal-leading-zero);font-family:var(--serif);font-size:2.4rem;color:var(--accent);line-height:1}
+@media (max-width:480px){.steps{grid-template-columns:1fr;gap:0}.steps li{padding-block:18px;border-bottom:1px solid var(--line)}}
+.steps li{display:grid;gap:6px;align-content:start}
+.steps li::before{counter-increment:s;content:counter(s,decimal-leading-zero);font-family:var(--serif);font-size:2.5rem;color:var(--gold);line-height:1}
 .steps b{font-weight:600}
 .steps p{margin:0;color:var(--muted);font-size:.95rem}
 
 /* CONTACTO */
-.contact h2{font-size:clamp(2.8rem,8vw,5.4rem);max-width:14ch;margin:16px 0 28px}
-.contact h2 em{color:var(--accent)}
-.num-row{display:flex;flex-wrap:wrap;align-items:center;gap:16px 24px;margin-bottom:24px}
-.num{font-family:var(--serif);font-size:clamp(1.8rem,5vw,2.6rem);user-select:all;font-variant-numeric:tabular-nums}
-.copy{background:none;border:0;border-bottom:1px solid var(--ink);padding:2px 0;font:600 .9rem var(--sans);color:var(--ink);cursor:pointer}
-.small{color:var(--muted);font-size:.92rem;margin:18px 0 0}
-footer{border-top:1px solid var(--line)}
-footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;padding-block:28px;color:var(--muted);font-size:.85rem}
+.contact{background:var(--ink);color:var(--cream);border-top:0}
+.contact .eyebrow{color:#b8ae9d}
+.contact h2{font-size:clamp(2.7rem,11vw,5.6rem);max-width:13ch;margin:18px 0 32px}
+.contact h2 em{color:var(--gold)}
+.num-row{display:flex;flex-wrap:wrap;align-items:baseline;gap:12px 24px;margin-bottom:28px}
+.num{font-family:var(--serif);font-size:clamp(1.9rem,8vw,2.8rem);user-select:all;font-variant-numeric:tabular-nums}
+.copy{background:none;border:0;border-bottom:1px solid var(--cream);padding:4px 0;font:600 .9rem var(--sans);color:var(--cream);cursor:pointer;min-height:36px}
+.contact .btn{background:var(--cream);color:var(--ink);border-color:var(--cream)}
+.contact .btn:hover{border-color:var(--gold);background:#fff}
+@media (max-width:480px){.contact .btn{width:100%}}
+.small{color:#b8ae9d;font-size:.92rem;margin:20px 0 0}
+footer{background:var(--ink);color:#8f8676;border-top:1px solid #2b2722}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 16px;padding-block:24px 96px;font-size:.84rem}
+
+/* WHATSAPP FLOTANTE */
+.fab{position:fixed;right:calc(18px + env(safe-area-inset-right,0px));bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:15;display:inline-flex;align-items:center;gap:8px;min-height:52px;padding:0 18px;border-radius:999px;background:var(--ink);color:var(--cream);text-decoration:none;font-weight:600;font-size:.9rem;border:1px solid var(--gold);box-shadow:0 12px 30px -10px rgba(20,18,16,.55)}
+.fab svg{width:20px;height:20px;fill:currentColor}
+@media (max-width:480px){.fab span{display:none}.fab{width:56px;padding:0;justify-content:center}}
 
 /* MOVIMIENTO */
-@keyframes rise{from{opacity:.001;transform:translateY(14px)}to{opacity:1;transform:none}}
+@keyframes rise{from{opacity:.001;transform:translateY(16px)}to{opacity:1;transform:none}}
 .hero .wrap > *{animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
 .hero .wrap > .phone{animation-delay:.15s}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
@@ -170,8 +184,20 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;
     <div class="links">
       <a href="#proyectos">Proyectos</a>
       <a href="#paquetes">Paquetes</a>
+      <a href="#proceso">Proceso</a>
       <a href="#contacto">Contacto</a>
-      <a class="btn btn-main" href="https://wa.me/51952997030?text=Hola%2C%20quiero%20cotizar%20una%20p%C3%A1gina%20web" target="_blank" rel="noopener">Cotizar</a>
+    </div>
+    <div class="nav-right">
+      <a class="btn btn-dark" href="https://wa.me/51952997030?text=Hola%2C%20quiero%20cotizar%20una%20p%C3%A1gina%20web" target="_blank" rel="noopener">Cotizar</a>
+      <button class="menu-btn" id="menu" type="button" aria-expanded="false" aria-controls="drawer" aria-label="Abrir menú"><span></span></button>
+    </div>
+  </div>
+  <div class="drawer" id="drawer" hidden>
+    <div class="wrap">
+      <a href="#proyectos">Proyectos</a>
+      <a href="#paquetes">Paquetes</a>
+      <a href="#proceso">Proceso</a>
+      <a href="#contacto">Contacto</a>
     </div>
   </div>
 </nav>
@@ -179,13 +205,14 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;
 <header class="hero" id="inicio">
   <div class="wrap">
     <div>
-      <span class="eyebrow">Diseño y desarrollo web · Lima, Perú</span>
+      <span class="eyebrow">Diseño y desarrollo web · Lima</span>
       <h1>Páginas web que hacen <em>crecer</em> tu negocio</h1>
       <p>Diseño sitios claros, rápidos y pensados para celular, con tus productos y un botón directo a tu WhatsApp.</p>
       <div class="cta">
-        <a class="btn btn-main" href="https://wa.me/51952997030?text=Hola%2C%20quiero%20cotizar%20una%20p%C3%A1gina%20web" target="_blank" rel="noopener">Cotizar por WhatsApp <span class="arrow">→</span></a>
-        <a class="btn btn-line" href="#proyectos">Ver proyectos</a>
+        <a class="btn btn-dark" href="https://wa.me/51952997030?text=Hola%2C%20quiero%20cotizar%20una%20p%C3%A1gina%20web" target="_blank" rel="noopener">Cotizar por WhatsApp <span class="arrow">→</span></a>
+        <a class="btn btn-light" href="#proyectos">Ver proyectos</a>
       </div>
+      <div class="trust"><span>Listo en 3 a 5 días</span><span>Hosting gratis</span><span>Desde S/ 300</span></div>
     </div>
     <div class="phone" aria-hidden="true">
       <div class="screen">
@@ -199,10 +226,10 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;
 </header>
 
 <main>
-  <section>
+  <section class="alt">
     <div class="wrap">
       <div class="head">
-        <div><span class="eyebrow">Rubros</span><h2>Para todo tipo de negocio</h2></div>
+        <div><span class="eyebrow">Rubros</span><h2>Para todo tipo de <em>negocio</em></h2></div>
         <p>Cada web se adapta a lo que vendes y a cómo te compran tus clientes.</p>
       </div>
       <ul class="rubros">
@@ -221,19 +248,19 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;
   <section id="proyectos">
     <div class="wrap">
       <div class="head">
-        <div><span class="eyebrow">Proyectos</span><h2>Trabajo reciente</h2></div>
+        <div><span class="eyebrow">Proyectos</span><h2>Trabajo <em>reciente</em></h2></div>
         <p>Plataformas reales con usuarios, pagos y pedidos en funcionamiento.</p>
       </div>
       <div class="projects">
         <a class="project" href="https://litlejacob.trade" target="_blank" rel="noopener">
-          <div class="shot pic"><img src="img/litlejacob.webp" alt="Página de inicio de LitleJacob Store" width="1200" height="750" loading="lazy"></div>
+          <div class="shot"><img src="img/litlejacob.webp" alt="Página de inicio de LitleJacob Store" width="1200" height="750" loading="lazy"></div>
           <div class="p-meta">
             <div><h3>LitleJacob Store</h3><p>Tienda con cuentas de usuario, saldo recargable por Yape, rifas con ruleta, catálogo y panel de administración</p></div>
             <span class="go">Ver proyecto <span class="arrow">→</span></span>
           </div>
         </a>
         <a class="project" href="https://rayas.trade" target="_blank" rel="noopener">
-          <div class="shot pic"><img src="img/rayas.webp" alt="Página de inicio de Rayas Store" width="1200" height="750" loading="lazy"></div>
+          <div class="shot"><img src="img/rayas.webp" alt="Página de inicio de Rayas Store" width="1200" height="750" loading="lazy"></div>
           <div class="p-meta">
             <div><h3>Rayas Store</h3><p>Plataforma de rifas con cuentas, saldo recargable, pagos con tarjeta, ganadores y panel de premios</p></div>
             <span class="go">Ver proyecto <span class="arrow">→</span></span>
@@ -243,10 +270,10 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;
     </div>
   </section>
 
-  <section id="paquetes">
+  <section id="paquetes" class="alt">
     <div class="wrap">
       <div class="head">
-        <div><span class="eyebrow">Paquetes</span><h2>Precios claros</h2></div>
+        <div><span class="eyebrow">Paquetes</span><h2>Precios <em>claros</em></h2></div>
         <p>Pago único por tu web. El mantenimiento es opcional.</p>
       </div>
       <div class="packs">
@@ -277,7 +304,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;
       </div>
       <div class="offer">
         <p>Lanzamiento: <em>30% de descuento</em> para los 3 primeros clientes.</p>
-        <a class="btn btn-main" href="https://wa.me/51952997030?text=Hola%2C%20quiero%20la%20oferta%20de%20lanzamiento" target="_blank" rel="noopener">Quiero la oferta</a>
+        <a class="btn btn-dark" href="https://wa.me/51952997030?text=Hola%2C%20quiero%20la%20oferta%20de%20lanzamiento" target="_blank" rel="noopener">Quiero la oferta</a>
       </div>
       <ul class="terms">
         <li><b>50% de adelanto</b>y 50% al entregar</li>
@@ -288,10 +315,10 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;
     </div>
   </section>
 
-  <section>
+  <section id="proceso">
     <div class="wrap">
       <div class="head">
-        <div><span class="eyebrow">Proceso</span><h2>Cómo trabajamos</h2></div>
+        <div><span class="eyebrow">Proceso</span><h2>Cómo <em>trabajamos</em></h2></div>
         <p>Todo por WhatsApp, sin reuniones largas.</p>
       </div>
       <ol class="steps">
@@ -311,7 +338,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;
         <span class="num" id="wsp">+51 952 997 030</span>
         <button class="copy" id="copy" type="button">Copiar número</button>
       </div>
-      <a class="btn btn-main" href="https://wa.me/51952997030?text=Hola%2C%20quiero%20cotizar%20una%20p%C3%A1gina%20web" target="_blank" rel="noopener">Escribir por WhatsApp <span class="arrow">→</span></a>
+      <a class="btn" href="https://wa.me/51952997030?text=Hola%2C%20quiero%20cotizar%20una%20p%C3%A1gina%20web" target="_blank" rel="noopener">Escribir por WhatsApp <span class="arrow">→</span></a>
       <p class="small" id="copy-msg" aria-live="polite">Pagos por Yape, Plin, PayPal o Binance.</p>
     </div>
   </section>
@@ -321,12 +348,23 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;
   <div class="wrap"><span>LitleJacob Studio Web · Lima, Perú</span><span>Diseño y desarrollo de páginas web</span></div>
 </footer>
 
+<a class="fab" href="https://wa.me/51952997030?text=Hola%2C%20quiero%20cotizar%20una%20p%C3%A1gina%20web" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg>
+  <span>WhatsApp</span>
+</a>
+
 <script>
-document.getElementById('copy').addEventListener('click',function(){
-  var el=document.getElementById('wsp'),m=document.getElementById('copy-msg');
-  function sel(){var r=document.createRange();r.selectNodeContents(el);var s=getSelection();s.removeAllRanges();s.addRange(r);m.textContent='Número seleccionado: cópialo manualmente.';}
-  try{navigator.clipboard.writeText(el.textContent.replace(/\s/g,'')).then(function(){m.textContent='Número copiado.';},sel);}catch(e){sel();}
-});
+(function(){
+  var btn=document.getElementById('menu'),dr=document.getElementById('drawer');
+  btn.addEventListener('click',function(){var o=dr.hidden;dr.hidden=!o;btn.setAttribute('aria-expanded',String(o));btn.setAttribute('aria-label',o?'Cerrar menú':'Abrir menú');});
+  dr.addEventListener('click',function(e){if(e.target.tagName==='A'){dr.hidden=true;btn.setAttribute('aria-expanded','false');}});
+  var c=document.getElementById('copy');
+  c.addEventListener('click',function(){
+    var el=document.getElementById('wsp'),m=document.getElementById('copy-msg');
+    function sel(){var r=document.createRange();r.selectNodeContents(el);var s=getSelection();s.removeAllRanges();s.addRange(r);m.textContent='Número seleccionado: cópialo manualmente.';}
+    try{navigator.clipboard.writeText(el.textContent.replace(/\s/g,'')).then(function(){m.textContent='Número copiado.';},sel);}catch(e){sel();}
+  });
+})();
 </script>
 </body>
 </html>
