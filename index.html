@@ -150,6 +150,30 @@ section > .wrap{padding-block:96px}
 .steps b{font-weight:600}
 .steps p{margin:0;color:var(--muted);font-size:.95rem}
 
+/* SOBRE MÍ */
+.about{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;align-items:center}
+.about > *{min-width:0}
+@media (max-width:760px){.about{grid-template-columns:1fr;gap:32px}}
+.mono{aspect-ratio:4/5;max-width:340px;width:100%;border-radius:6px;background:var(--ink);color:var(--cream);display:grid;place-items:center;position:relative;overflow:hidden}
+.mono b{font-family:var(--serif);font-weight:400;font-size:clamp(7rem,30vw,10rem);line-height:1}
+.mono b i{color:var(--gold)}
+.mono span{position:absolute;left:20px;right:20px;bottom:18px;display:flex;justify-content:space-between;font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:#b8ae9d}
+.about h2{font-size:clamp(2.3rem,8vw,3.6rem);margin:14px 0 20px}
+.about p{color:var(--muted);margin:0 0 16px;max-width:52ch}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}
+@media (max-width:480px){.facts{grid-template-columns:1fr}}
+.facts div{border-top:1px solid var(--line);padding-top:12px;font-size:.88rem;color:var(--muted)}
+.facts b{display:block;font-family:var(--serif);font-weight:400;font-size:1.6rem;color:var(--ink);line-height:1.1;margin-bottom:4px}
+
+/* PREGUNTAS */
+.faq{border-top:1px solid var(--line);max-width:860px}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:22px 0;font-family:var(--serif);font-size:clamp(1.3rem,5vw,1.6rem);line-height:1.2;min-height:48px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-family:var(--sans);font-size:1.4rem;color:var(--gold);transition:transform .25s;flex:none}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{margin:0 0 22px;color:var(--muted);max-width:60ch}
+
 /* CONTACTO */
 .contact{background:var(--ink);color:var(--cream);border-top:0}
 .contact .eyebrow{color:#b8ae9d}
@@ -184,7 +208,8 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 1
     <div class="links">
       <a href="#proyectos">Proyectos</a>
       <a href="#paquetes">Paquetes</a>
-      <a href="#proceso">Proceso</a>
+      <a href="#sobre-mi">Sobre mí</a>
+      <a href="#preguntas">Preguntas</a>
       <a href="#contacto">Contacto</a>
     </div>
     <div class="nav-right">
@@ -196,7 +221,8 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 1
     <div class="wrap">
       <a href="#proyectos">Proyectos</a>
       <a href="#paquetes">Paquetes</a>
-      <a href="#proceso">Proceso</a>
+      <a href="#sobre-mi">Sobre mí</a>
+      <a href="#preguntas">Preguntas</a>
       <a href="#contacto">Contacto</a>
     </div>
   </div>
@@ -270,7 +296,24 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 1
     </div>
   </section>
 
-  <section id="paquetes" class="alt">
+  <section id="sobre-mi" class="alt">
+    <div class="wrap about">
+      <div class="mono" aria-hidden="true"><b>L<i>J</i></b><span><em>Studio Web</em><em>Lima</em></span></div>
+      <div>
+        <span class="eyebrow">Sobre mí</span>
+        <h2>Hola, soy <em>Bryan</em></h2>
+        <p>Empecé creando mis propias plataformas: LitleJacob Store y Rayas Store. Ahí aprendí lo que de verdad necesita un negocio en línea: que cargue rápido en el celular, que el cliente compre sin complicarse y que el dueño pueda actualizar todo sin saber de código.</p>
+        <p>Hoy uso esa experiencia para crear páginas web para negocios de cualquier rubro. Trato directo conmigo, por WhatsApp y sin intermediarios.</p>
+        <div class="facts">
+          <div><b>2</b>plataformas propias en línea</div>
+          <div><b>Yape</b>y tarjeta integrados en mis webs</div>
+          <div><b>1 a 1</b>atención directa, sin agencia</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="paquetes">
     <div class="wrap">
       <div class="head">
         <div><span class="eyebrow">Paquetes</span><h2>Precios <em>claros</em></h2></div>
@@ -315,7 +358,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 1
     </div>
   </section>
 
-  <section id="proceso">
+  <section id="proceso" class="alt">
     <div class="wrap">
       <div class="head">
         <div><span class="eyebrow">Proceso</span><h2>Cómo <em>trabajamos</em></h2></div>
@@ -327,6 +370,24 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 1
         <li><b>Revisas en tu celular</b><p>Te muestro avances y ajustamos.</p></li>
         <li><b>Publicamos</b><p>En 3 a 5 días. Tiendas, de 1 a 2 semanas.</p></li>
       </ol>
+    </div>
+  </section>
+
+  <section id="preguntas">
+    <div class="wrap">
+      <div class="head">
+        <div><span class="eyebrow">Preguntas</span><h2>Preguntas <em>frecuentes</em></h2></div>
+        <p>Si tienes otra duda, escríbeme por WhatsApp.</p>
+      </div>
+      <div class="faq">
+        <details><summary>¿Tengo que pagar una mensualidad?</summary><p>No. El hosting es gratis, así que solo pagas tu web una vez. El mantenimiento mensual es opcional, por si quieres que yo actualice tus productos y precios.</p></details>
+        <details><summary>¿Necesito un dominio propio (.com o .pe)?</summary><p>No es obligatorio: tu web funciona con un link gratuito desde el primer día. Si quieres un dominio propio, lo compras aparte y yo lo conecto a tu web.</p></details>
+        <details><summary>¿Puedo editar mi web yo mismo?</summary><p>Con el paquete Tienda completa tienes un panel para cambiar productos, precios y fotos sin tocar código. En los demás paquetes me escribes y lo actualizo, o lo incluye el mantenimiento.</p></details>
+        <details><summary>¿Cuánto demora?</summary><p>Presentación y Catálogo están listos en 3 a 5 días. Una Tienda completa toma de 1 a 2 semanas. El plazo empieza cuando me envías logo, fotos y precios.</p></details>
+        <details><summary>¿Qué pasa si quiero cambios después?</summary><p>Cada paquete incluye 2 rondas de cambios. Después de la entrega, puedes tomar el mantenimiento mensual o pedirme un cambio puntual.</p></details>
+        <details><summary>¿Cómo se paga?</summary><p>50% de adelanto para empezar y 50% al entregar. Aceptamos Yape, Plin, PayPal y Binance.</p></details>
+        <details><summary>¿Se verá bien en celular?</summary><p>Sí. Todas las webs se diseñan primero para celular, que es desde donde entra la mayoría de tus clientes.</p></details>
+      </div>
     </div>
   </section>
 
