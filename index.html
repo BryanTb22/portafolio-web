@@ -134,6 +134,14 @@ section > .wrap{padding-block:96px}
 .pack.feat ul{color:#cfc6b6}
 .pack.feat li::before{background:var(--gold)}
 .tag{font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);min-height:1.2em}
+.price.promo{display:grid;gap:6px}
+.price .old{position:relative;justify-self:start;font-size:1.15rem;opacity:.55;transition:font-size .7s cubic-bezier(.2,.7,.2,1),opacity .7s}
+.price .old::after{content:"";position:absolute;left:-2px;right:-2px;top:52%;height:1.5px;background:currentColor;transform-origin:left;transition:transform .5s .1s}
+.price .now{display:flex;align-items:center;gap:10px;transition:opacity .7s .35s,transform .7s .35s cubic-bezier(.2,.7,.2,1)}
+.price .off{font-family:var(--sans);font-style:normal;font-size:.72rem;font-weight:700;letter-spacing:.06em;padding:4px 7px;border-radius:3px;background:var(--gold);color:#fff}
+.packs.pre .price .old{font-size:3rem;opacity:1}
+.packs.pre .price .old::after{transform:scaleX(0)}
+.packs.pre .price .now{opacity:.001;transform:translateY(10px)}
 .pack h3{font-size:1.8rem}
 .price{font-family:var(--serif);font-size:3rem;line-height:1;font-variant-numeric:tabular-nums}
 .price small{font-family:var(--sans);font-size:.85rem;opacity:.7;margin-left:4px}
@@ -249,7 +257,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 1
         <a class="btn btn-dark" href="https://wa.me/51952997030?text=Hola%2C%20quiero%20cotizar%20una%20p%C3%A1gina%20web" target="_blank" rel="noopener">Cotizar por WhatsApp <span class="arrow">→</span></a>
         <a class="btn btn-light" href="#proyectos">Ver proyectos</a>
       </div>
-      <div class="trust"><span>Listo en 3 a 5 días</span><span>Hosting gratis</span><span>Desde S/ 300</span></div>
+      <div class="trust"><span>Listo en 3 a 5 días</span><span>Hosting gratis</span><span>Desde S/ 210 por lanzamiento</span></div>
     </div>
     <div class="phone" aria-hidden="true">
       <div class="screen">
@@ -335,19 +343,19 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 1
         <div class="pack">
           <span class="tag"></span>
           <h3>Presentación</h3>
-          <div class="price">S/ 300</div>
+          <div class="price promo"><span class="old">S/ 300</span><span class="now">S/ 210<em class="off">−30%</em></span></div>
           <ul><li>Una página con tu negocio</li><li>Fotos, horarios y ubicación</li><li>Botón a WhatsApp y redes</li></ul>
         </div>
         <div class="pack feat">
           <span class="tag">Más elegido</span>
           <h3>Catálogo</h3>
-          <div class="price">S/ 450</div>
+          <div class="price promo"><span class="old">S/ 450</span><span class="now">S/ 315<em class="off">−30%</em></span></div>
           <ul><li>Hasta 30 productos con foto y precio</li><li>Pedido directo por WhatsApp</li><li>Producto extra: S/ 5</li></ul>
         </div>
         <div class="pack">
           <span class="tag"></span>
           <h3>Tienda completa</h3>
-          <div class="price">S/ 900</div>
+          <div class="price promo"><span class="old">S/ 900</span><span class="now">S/ 630<em class="off">−30%</em></span></div>
           <ul><li>Varias secciones y tu marca</li><li>Panel para editar productos</li><li>Registro de pedidos</li></ul>
         </div>
         <div class="pack">
@@ -358,7 +366,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 1
         </div>
       </div>
       <div class="offer">
-        <p>Lanzamiento: <em>30% de descuento</em> para los 3 primeros clientes.</p>
+        <p>Lanzamiento: <em>30% de descuento</em> ya aplicado para los 3 primeros clientes.</p>
         <a class="btn btn-dark" href="https://wa.me/51952997030?text=Hola%2C%20quiero%20la%20oferta%20de%20lanzamiento" target="_blank" rel="noopener">Quiero la oferta</a>
       </div>
       <ul class="terms">
@@ -437,6 +445,15 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 1
     function sel(){var r=document.createRange();r.selectNodeContents(el);var s=getSelection();s.removeAllRanges();s.addRange(r);m.textContent='Número seleccionado: cópialo manualmente.';}
     try{navigator.clipboard.writeText(el.textContent.replace(/\s/g,'')).then(function(){m.textContent='Número copiado.';},sel);}catch(e){sel();}
   });
+  var packs=document.querySelector('.packs');
+  if(packs&&'IntersectionObserver' in window&&!matchMedia('(prefers-reduced-motion: reduce)').matches){
+    var r=packs.getBoundingClientRect();
+    if(r.top>innerHeight*0.6){
+      packs.classList.add('pre');
+      var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){io.disconnect();setTimeout(function(){packs.classList.remove('pre');},700);}});},{threshold:.35});
+      io.observe(packs);
+    }
+  }
 })();
 </script>
 </body>
