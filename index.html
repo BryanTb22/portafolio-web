@@ -111,7 +111,8 @@ section > .wrap{padding-block:96px}
 .rubros span{color:var(--muted);font-size:.88rem;text-align:right}
 
 /* PROYECTOS */
-.projects{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+.projects{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+@media (max-width:1000px){.projects{grid-template-columns:1fr 1fr}.projects .project:first-child{grid-column:1/-1}}
 @media (max-width:760px){.projects{grid-template-columns:1fr;gap:40px}}
 .project{display:grid;gap:18px;text-decoration:none}
 .shot{aspect-ratio:16/10;max-width:100%;border:1px solid var(--line);border-radius:6px;overflow:hidden;background:var(--cream-2);box-shadow:0 18px 40px -28px rgba(20,18,16,.5);transition:border-color .3s}
@@ -124,6 +125,8 @@ section > .wrap{padding-block:96px}
 .p-meta p{margin:6px 0 0;color:var(--muted);font-size:.95rem}
 .p-meta .go{font-weight:600;font-size:.88rem;white-space:nowrap;padding-top:8px}
 @media (max-width:480px){.p-meta{flex-direction:column;gap:8px}.p-meta .go{padding-top:0}}
+.project{align-content:start}
+@media (min-width:1001px){.p-meta{flex-direction:column;gap:12px}.p-meta .go{padding-top:0}}
 
 /* PAQUETES */
 .packs{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);border-radius:6px;overflow:hidden;background:var(--cream-2)}
@@ -297,6 +300,13 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 1
         <p>Plataformas reales con usuarios, pagos y pedidos en funcionamiento.</p>
       </div>
       <div class="projects">
+        <a class="project" href="https://bryantb22.github.io/diseno-pagina-web-cliente-marinera/" target="_blank" rel="noopener">
+          <div class="shot"><img src="img/marinera.webp" alt="Página de inicio de Alis Marinera" width="1200" height="750" loading="lazy"></div>
+          <div class="p-meta">
+            <div><h3>Alis Marinera</h3><p>Catálogo de faldas y trajes de marinera con tallas, galería, guía de medidas y pedidos por WhatsApp</p></div>
+            <span class="go">Ver proyecto <span class="arrow">→</span></span>
+          </div>
+        </a>
         <a class="project" href="https://litlejacob.trade" target="_blank" rel="noopener">
           <div class="shot"><img src="img/litlejacob.webp" alt="Página de inicio de LitleJacob Store" width="1200" height="750" loading="lazy"></div>
           <div class="p-meta">
