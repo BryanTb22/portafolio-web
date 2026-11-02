@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
 <title>José Ordóñez · Asesor en impresión y digitalización</title>
-<meta name="description" content="Asesoría comercial en impresoras, multifuncionales, escáneres, duplicadoras e insumos para empresas en Lima y todo el Perú. Cotización por WhatsApp.">
+<meta name="description" content="Impresoras, multifuncionales, escáneres e insumos para empresas. Cotización el mismo día por WhatsApp. Lima y todo el Perú.">
 <meta property="og:title" content="José Ordóñez · Asesor en impresión y digitalización">
 <meta property="og:description" content="Impresoras, multifuncionales, escáneres e insumos para empresas. Cotización el mismo día por WhatsApp. Lima y todo el Perú.">
 <meta property="og:image" content="https://studio.litlejacob.trade/boceto-jose/og.jpg">
@@ -14,253 +14,261 @@
 <link rel="icon" href="favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
-  --navy:#0b1f3a; --navy2:#122b4d; --ink:#0f172a; --muted:#5a6678;
-  --bg:#f5f7fb; --card:#fff; --line:#e2e8f0;
-  --accent:#e63946; --accent2:#c42d39; --wa:#25d366; --wa2:#128c4b;
-  --c:#00aeef; --m:#ec008c; --y:#ffd400; --k:#111;
-  --r:18px;
+  --navy:#0b1f3a; --navy2:#13294a; --ink:#101828; --muted:#5f6b7c; --soft:#8a94a6;
+  --bg:#f6f8fb; --card:#fff; --line:#e4e8ef;
+  --blue:#0ea5e9; --blue2:#0284c7; --blue-soft:#e6f6fd;
+  --wa:#25d366; --wa2:#15803d;
+  --r:16px; --sh:0 1px 2px rgba(16,24,40,.04),0 8px 24px rgba(16,24,40,.06);
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
-h1,h2,h3{font-family:Sora,Inter,sans-serif;line-height:1.15;letter-spacing:-.015em}
+h1,h2,h3,h4{font-family:Manrope,Inter,sans-serif;line-height:1.15;letter-spacing:-.02em;font-weight:800}
 a{color:inherit;text-decoration:none}
 img{max-width:100%;display:block}
-.wrap{max-width:1140px;margin:0 auto;padding:0 20px}
-.cmyk{height:4px;background:linear-gradient(90deg,var(--c) 0 25%,var(--m) 25% 50%,var(--y) 50% 75%,var(--k) 75%)}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+.eyebrow{display:inline-block;color:var(--blue2);font-weight:600;font-size:12px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:10px}
+.head{max-width:620px;margin-bottom:40px}
+.head h2{font-size:clamp(26px,3.4vw,36px);margin-bottom:10px}
+.head p{color:var(--muted);font-size:16px}
+section{padding:88px 0}
+.alt{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 
 .proto{background:#fff6d6;color:#6b4e00;font-size:13px;text-align:center;padding:7px 16px}
 
-header{position:sticky;top:0;z-index:20;background:rgba(11,31,58,.96);backdrop-filter:blur(8px);color:#fff}
-.nav{display:flex;align-items:center;justify-content:space-between;height:66px;gap:16px}
-.brand{display:flex;align-items:center;gap:10px;font-family:Sora;font-weight:700;line-height:1.1}
-.mono{width:38px;height:38px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#ff7b54);display:grid;place-items:center;font-size:15px;flex:none}
-.brand small{display:block;font-family:Inter;font-weight:400;font-size:12px;color:#9fb0c9;margin-top:3px}
-.links{display:flex;gap:24px;font-size:14px;color:#c9d4e6}
-.links a:hover{color:#fff}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 22px;border-radius:999px;font-weight:600;font-size:15px;transition:.2s;border:0;cursor:pointer;white-space:nowrap}
-.btn-wa{background:var(--wa);color:#06381b}
-.btn-wa:hover{background:#1fc45b;transform:translateY(-1px)}
-.btn-ghost{border:1px solid rgba(255,255,255,.35);color:#fff}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 22px;border-radius:10px;font-weight:600;font-size:15px;transition:.18s;border:1px solid transparent;cursor:pointer;white-space:nowrap;font-family:Inter}
+.btn-wa{background:var(--wa);color:#062e16}
+.btn-wa:hover{background:#1ec95a;transform:translateY(-1px)}
+.btn-ghost{border-color:rgba(255,255,255,.35);color:#fff}
 .btn-ghost:hover{background:rgba(255,255,255,.08)}
 .btn-dark{background:var(--navy);color:#fff}
 .btn-dark:hover{background:var(--navy2)}
-.btn-sm{padding:9px 16px;font-size:14px}
+.btn-line{border-color:var(--line);background:#fff;color:var(--ink)}
+.btn-line:hover{border-color:var(--navy)}
+.btn-sm{padding:9px 16px;font-size:14px;border-radius:8px}
+.ic{width:18px;height:18px;flex:none}
+
+header{position:sticky;top:0;z-index:20;background:rgba(11,31,58,.97);backdrop-filter:blur(8px);color:#fff}
+.nav{display:flex;align-items:center;justify-content:space-between;height:68px;gap:16px}
+.brand{display:flex;align-items:center;gap:12px;line-height:1.1}
+.mono{width:40px;height:40px;border-radius:10px;background:var(--blue);display:grid;place-items:center;font:800 15px Manrope;color:#fff;flex:none}
+.brand b{font-family:Manrope;font-weight:800;font-size:16px;display:block}
+.brand small{font-size:12px;color:#9fb0c9;margin-top:3px;display:block}
+.links{display:flex;gap:26px;font-size:14px;color:#c9d4e6;font-weight:500}
+.links a:hover{color:#fff}
+.hright{display:flex;align-items:center;gap:6px}
 .burger{display:none;background:none;border:0;color:#fff;cursor:pointer;padding:8px}
 .mnav{display:none;background:var(--navy2);border-top:1px solid rgba(255,255,255,.08)}
 .mnav.open{display:block}
-.mnav a{display:block;padding:14px 20px;border-bottom:1px solid rgba(255,255,255,.06);color:#dbe4ef;font-size:15px}
-.hright{display:flex;align-items:center;gap:6px}
+.mnav a{display:block;padding:14px 24px;border-bottom:1px solid rgba(255,255,255,.06);color:#dbe4ef;font-size:15px}
 
-.quick{background:#fff;border:1px solid var(--line);border-radius:24px;padding:32px;display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center;box-shadow:0 20px 50px rgba(11,31,58,.08)}
-.quick h2{font-size:clamp(24px,3vw,32px);margin-bottom:8px}
-.quick p{color:var(--muted);margin-bottom:0}
-.qform{display:grid;gap:12px}
-.qform label{font-size:13px;font-weight:600;color:var(--ink);display:grid;gap:6px}
-.qform input,.qform select{font:inherit;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:var(--bg);width:100%}
-.qform input:focus,.qform select:focus{outline:2px solid var(--c);border-color:transparent}
-.qform .btn{margin-top:4px}
-.qform small{color:var(--muted);font-size:12px}
-
-.more{display:none;margin:22px auto 0}
-
-.ins{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center;background:linear-gradient(135deg,#fff,#eef5fb);border:1px solid var(--line);border-radius:24px;padding:28px 32px;margin-top:28px}
-.ins h3{font-size:20px;margin-bottom:6px}
-.ins p{color:var(--muted);font-size:15px}
-.ic{width:18px;height:18px;flex:none}
-
-.hero{background:radial-gradient(800px 420px at 90% 0%,rgba(0,174,239,.22),transparent 60%),radial-gradient(600px 400px at 0% 100%,rgba(230,57,70,.18),transparent 60%),var(--navy);color:#fff;padding:64px 0 72px;overflow:hidden;position:relative}
-.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center}
-.tag{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:#bfe8fb;border:1px solid rgba(0,174,239,.45);padding:6px 12px;border-radius:999px;margin-bottom:18px}
-.tag i{width:8px;height:8px;border-radius:50%;background:var(--c);display:inline-block}
-.hero h1{font-size:clamp(32px,4.8vw,52px);margin-bottom:16px}
-.hero h1 span{color:#5ad0ff}
-.hero p{color:#c5d0e0;font-size:18px;max-width:520px;margin-bottom:26px}
+.hero{background:var(--navy);color:#fff;padding:80px 0 96px;overflow:hidden;position:relative}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(700px 400px at 100% 0%,rgba(14,165,233,.25),transparent 60%);pointer-events:none}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;position:relative}
+.hero .eyebrow{color:#7dd3fc}
+.hero h1{font-size:clamp(32px,4.1vw,48px);margin-bottom:18px;letter-spacing:-.03em}
+.hero h1 span{color:#7dd3fc}
+.hero p{color:#c3cedf;font-size:18px;max-width:520px;margin-bottom:28px}
 .cta{display:flex;flex-wrap:wrap;gap:12px}
-.stats{display:flex;gap:28px;margin-top:36px;flex-wrap:wrap}
-.stats b{display:block;font-family:Sora;font-size:24px}
-.stats span{font-size:13px;color:#9fb0c9}
+.trust{display:flex;gap:18px;flex-wrap:wrap;margin-top:28px;font-size:13px;color:#9fb0c9}
+.trust span{display:inline-flex;align-items:center;gap:6px}
+.trust svg{width:16px;height:16px;color:#7dd3fc}
 
-.collage{position:relative;height:460px}
-.collage .ph{position:absolute;background:#fff;border-radius:20px;box-shadow:0 30px 60px rgba(0,0,0,.4);overflow:hidden;border:1px solid rgba(255,255,255,.1)}
-.collage .ph img{width:100%;height:100%;object-fit:cover}
-.collage .p1{left:0;top:30px;width:58%;height:330px;z-index:2}
-.collage .p2{right:0;top:0;width:44%;height:220px;z-index:1}
-.collage .p3{right:6%;bottom:0;width:48%;height:230px;z-index:3}
-.collage .lbl{position:absolute;left:12px;bottom:12px;background:var(--navy);color:#fff;font-size:12px;padding:5px 10px;border-radius:999px;font-weight:600}
-.collage .badge{position:absolute;left:4%;bottom:14px;z-index:4;background:#fff;color:var(--ink);border-radius:14px;padding:12px 16px;box-shadow:0 14px 30px rgba(0,0,0,.35);display:flex;gap:10px;align-items:center;font-size:13px}
-.collage .badge b{display:block;font-family:Sora;font-size:15px}
-.av{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--c),#1d6fa3);display:grid;place-items:center;font-family:Sora;font-weight:700;color:#fff;flex:none}
+.collage{position:relative;height:440px}
+.ph{position:absolute;background:#fff;border-radius:16px;box-shadow:0 30px 60px rgba(0,0,0,.35);overflow:hidden}
+.ph img{width:100%;height:100%;object-fit:cover}
+.p1{left:0;top:30px;width:58%;height:320px;z-index:2}
+.p2{right:0;top:0;width:42%;height:200px;z-index:1}
+.p3{right:4%;bottom:0;width:46%;height:220px;z-index:3}
+.lbl{position:absolute;left:12px;bottom:12px;background:var(--navy);color:#fff;font-size:12px;padding:5px 10px;border-radius:6px;font-weight:600}
+.badge{position:absolute;left:4%;bottom:10px;z-index:4;background:#fff;color:var(--ink);border-radius:12px;padding:12px 16px;box-shadow:0 14px 30px rgba(0,0,0,.3);display:flex;gap:12px;align-items:center;font-size:13px;color:var(--muted)}
+.badge b{display:block;font-family:Manrope;font-size:15px;color:var(--ink)}
+.av{width:42px;height:42px;border-radius:50%;background:var(--blue);display:grid;place-items:center;font:800 15px Manrope;color:#fff;flex:none}
 
 .brands{background:#fff;border-bottom:1px solid var(--line)}
-.brands .wrap{display:flex;align-items:center;gap:30px;padding-top:22px;padding-bottom:22px;overflow-x:auto;scrollbar-width:none}
+.brands .wrap{display:flex;align-items:center;gap:34px;padding:22px 24px;overflow-x:auto;scrollbar-width:none}
 .brands .wrap::-webkit-scrollbar{display:none}
-.brands small{font-size:12px;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);white-space:nowrap}
-.brands b{font-family:Sora;font-size:18px;color:#94a0b4;white-space:nowrap;font-weight:600}
+.brands small{font-size:11px;text-transform:uppercase;letter-spacing:.14em;color:var(--soft);white-space:nowrap;font-weight:600}
+.brands b{font-family:Manrope;font-size:17px;color:#aab3c2;white-space:nowrap;font-weight:800}
 
-section{padding:76px 0}
-.head{max-width:640px;margin-bottom:36px}
-.head small{color:var(--accent);font-weight:600;font-size:13px;letter-spacing:.1em;text-transform:uppercase}
-.head h2{font-size:clamp(26px,3.6vw,38px);margin:8px 0 10px}
-.head p{color:var(--muted)}
-
-.reco{background:#fff}
-.vol{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:28px}
-.vol button{background:var(--bg);border:2px solid var(--line);border-radius:16px;padding:18px;text-align:left;cursor:pointer;font:inherit;transition:.2s}
-.vol button b{display:block;font-family:Sora;font-size:18px;margin-bottom:4px}
+.vol{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:24px}
+.vol button{background:#fff;border:1.5px solid var(--line);border-radius:14px;padding:18px 20px;text-align:left;cursor:pointer;font:inherit;transition:.18s}
+.vol button b{display:block;font-family:Manrope;font-weight:800;font-size:17px;margin-bottom:4px}
 .vol button span{font-size:13px;color:var(--muted)}
-.vol button.on{border-color:var(--navy);background:#fff;box-shadow:0 10px 30px rgba(11,31,58,.1)}
-.reco-out{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:center;background:var(--navy);color:#fff;border-radius:24px;padding:32px}
+.vol button.on{border-color:var(--blue);background:var(--blue-soft)}
+.reco-out{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center;background:var(--navy);color:#fff;border-radius:20px;padding:36px}
 .reco-out h3{font-size:22px;margin-bottom:8px}
-.reco-out p{color:#c5d0e0;margin-bottom:16px}
-.reco-out ul{list-style:none;display:grid;gap:8px;margin-bottom:20px}
+.reco-out p{color:#c3cedf;margin-bottom:16px;font-size:15px}
+.reco-out ul{list-style:none;display:grid;gap:8px;margin-bottom:22px}
 .reco-out li{display:flex;gap:10px;font-size:15px}
-.reco-out li::before{content:"✓";color:#5ad0ff;font-weight:700}
+.reco-out li::before{content:"✓";color:#7dd3fc;font-weight:700}
 .reco-imgs{display:flex;gap:12px;justify-content:center}
-.reco-imgs div{background:#fff;border-radius:16px;padding:8px;width:46%}
+.reco-imgs div{background:#fff;border-radius:12px;padding:10px;width:46%}
 .reco-imgs img{aspect-ratio:1;object-fit:contain}
 .reco-imgs span{display:block;text-align:center;color:var(--ink);font-size:12px;font-weight:600;margin-top:6px}
 
-.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:26px}
-.filters button{border:1px solid var(--line);background:#fff;border-radius:999px;padding:8px 16px;font:500 14px Inter;color:var(--muted);cursor:pointer}
+.toolbar{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:24px}
+.filters{display:flex;gap:6px;flex-wrap:wrap}
+.filters button{border:1px solid var(--line);background:#fff;border-radius:8px;padding:8px 14px;font:500 14px Inter;color:var(--muted);cursor:pointer}
 .filters button.on{background:var(--navy);color:#fff;border-color:var(--navy)}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.prod{background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;transition:.2s;position:relative}
-.prod:hover{transform:translateY(-3px);box-shadow:0 18px 40px rgba(15,23,42,.1)}
-.prod .thumb{aspect-ratio:4/3;background:#fff;display:grid;place-items:center;padding:16px;border-bottom:1px solid var(--line)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.prod{background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;transition:.18s;position:relative;box-shadow:var(--sh)}
+.prod:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(16,24,40,.1)}
+.prod .thumb{aspect-ratio:5/4;background:#fff;display:grid;place-items:center;padding:18px;border-bottom:1px solid var(--line)}
 .prod .thumb img{width:100%;height:100%;object-fit:contain}
-.prod .cat{position:absolute;left:14px;top:14px;font-size:11px;color:#fff;background:var(--navy);font-weight:600;text-transform:uppercase;letter-spacing:.08em;padding:4px 10px;border-radius:999px}
-.prod .body{padding:18px 20px 20px;display:flex;flex-direction:column;gap:8px;flex:1}
-.prod .brandname{font-size:12px;color:var(--accent);font-weight:600;text-transform:uppercase;letter-spacing:.06em}
-.prod h3{font-size:17px}
-.prod ul{list-style:none;display:grid;gap:4px;color:var(--muted);font-size:14px;flex:1}
-.prod ul li{padding-left:14px;position:relative}
-.prod ul li::before{content:"";position:absolute;left:0;top:9px;width:6px;height:6px;border-radius:50%;background:var(--c)}
-.prod .row{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:12px;padding-top:14px;border-top:1px dashed var(--line)}
-.prod .row span{font-size:12px;color:var(--muted)}
-.prod .row a{font-weight:600;font-size:13px;color:#fff;background:var(--wa2);padding:8px 12px;border-radius:999px;display:inline-flex;align-items:center;gap:6px;white-space:nowrap}
-.prod .row a:hover{background:#0e7a40}
+.prod .cat{position:absolute;left:14px;top:14px;font-size:11px;color:var(--blue2);background:var(--blue-soft);font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:4px 9px;border-radius:6px}
+.prod .body{padding:18px 20px 20px;display:flex;flex-direction:column;gap:6px;flex:1}
+.prod .brandname{font-size:12px;color:var(--soft);font-weight:600;text-transform:uppercase;letter-spacing:.08em}
+.prod h3{font-size:17px;font-weight:800}
+.prod .use{color:var(--muted);font-size:14px;flex:1}
+.prod .kpi{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.prod .kpi span{font-size:12px;font-weight:600;color:var(--ink);background:var(--bg);border:1px solid var(--line);padding:4px 9px;border-radius:6px}
+.prod .row{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:14px;padding-top:14px;border-top:1px solid var(--line)}
+.prod .row span{font-size:12px;color:var(--soft)}
+.prod .row a{font-weight:600;font-size:13px;color:var(--wa2);display:inline-flex;align-items:center;gap:6px}
+.prod .row a:hover{text-decoration:underline}
+.more{display:none;margin:22px auto 0}
+.ask{background:var(--navy);color:#fff;border-color:var(--navy)}
+.ask .body{justify-content:center;gap:12px;padding:32px 26px}
+.ask .brandname{color:#7dd3fc}
+.ask p{color:#c3cedf;font-size:14px}
+
+.cmp-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--r);background:#fff;box-shadow:var(--sh)}
+table.cmp{width:100%;border-collapse:collapse;font-size:14px;min-width:720px}
+.cmp th{background:var(--bg);text-align:left;padding:12px 16px;font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;font-weight:600;border-bottom:1px solid var(--line)}
+.cmp td{padding:13px 16px;border-bottom:1px solid var(--line);vertical-align:middle}
+.cmp tr:last-child td{border-bottom:0}
+.cmp td:first-child{font-weight:600;font-family:Manrope}
+.cmp td small{display:block;color:var(--soft);font-weight:400;font-family:Inter}
+.cmp .pill{display:inline-block;padding:3px 8px;border-radius:6px;font-size:12px;font-weight:600;background:var(--blue-soft);color:var(--blue2)}
+.cmp .pill.k{background:#eef0f4;color:var(--muted)}
+.cmp a{color:var(--wa2);font-weight:600;white-space:nowrap}
+
+.guide{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.g{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:26px;box-shadow:var(--sh)}
+.g .n{width:34px;height:34px;border-radius:9px;background:var(--navy);color:#fff;display:grid;place-items:center;font:800 14px Manrope;margin-bottom:14px}
+.g h3{font-size:17px;margin-bottom:6px}
+.g p{font-size:14px;color:var(--muted)}
+.plus{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:18px}
+.plus div{display:flex;gap:10px;align-items:flex-start;font-size:14px;color:var(--muted);padding:14px 16px;background:#fff;border:1px solid var(--line);border-radius:12px}
+.plus svg{width:18px;height:18px;color:var(--blue2);flex:none;margin-top:2px}
+.plus b{color:var(--ink);display:block;font-size:14px;font-weight:600}
+
+.quick{background:#fff;border:1px solid var(--line);border-radius:20px;padding:36px;display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:center;box-shadow:var(--sh)}
+.quick h2{font-size:clamp(24px,3vw,32px);margin-bottom:8px}
+.quick p{color:var(--muted)}
+.qform{display:grid;gap:12px}
+.qform label{font-size:13px;font-weight:600;display:grid;gap:6px}
+.qform input,.qform select{font:inherit;padding:12px 14px;border:1px solid var(--line);border-radius:10px;background:var(--bg);width:100%}
+.qform input:focus,.qform select:focus{outline:2px solid var(--blue);border-color:transparent}
+.qform small{color:var(--soft);font-size:12px}
 
 .sectors{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
-.sector{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px 18px;text-align:center}
-.sector .ico{width:48px;height:48px;border-radius:14px;background:var(--navy);display:grid;place-items:center;margin:0 auto 12px}
-.sector h3{font-size:15px;margin-bottom:4px}
+.sector{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px 18px;text-align:center;box-shadow:var(--sh)}
+.sector .ico{width:44px;height:44px;border-radius:12px;background:var(--blue-soft);color:var(--blue2);display:grid;place-items:center;margin:0 auto 12px}
+.sector h3{font-size:15px;margin-bottom:4px;font-weight:700}
 .sector p{font-size:13px;color:var(--muted)}
 
-.why{background:#fff}
-.feats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-.feat{padding:24px;border-radius:var(--r);background:var(--bg);border:1px solid var(--line)}
-.feat .ico{width:46px;height:46px;border-radius:12px;background:var(--navy);display:grid;place-items:center;margin-bottom:14px}
-.feat h3{font-size:16px;margin-bottom:6px}
-.feat p{font-size:14px;color:var(--muted)}
-
-.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;counter-reset:s}
-.step{position:relative;padding:28px 24px 24px;background:#fff;border-radius:var(--r);border:1px solid var(--line)}
-.step::before{counter-increment:s;content:"0" counter(s);font-family:Sora;font-weight:700;font-size:34px;color:#dbe3ee;position:absolute;right:20px;top:14px}
-.step h3{font-size:17px;margin-bottom:6px}
-.step p{font-size:14px;color:var(--muted)}
-
-.out{background:var(--navy);color:#fff;border-radius:26px;padding:44px;display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center}
-.out h2{font-size:clamp(24px,3.2vw,34px);margin-bottom:10px}
-.out p{color:#c5d0e0}
+.out{background:var(--navy);color:#fff;border-radius:20px;padding:44px;display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center}
+.out h2{font-size:clamp(24px,3.2vw,32px);margin-bottom:10px}
+.out p{color:#c3cedf}
 .out ul{list-style:none;display:grid;gap:8px;margin:16px 0 22px;color:#dbe4ef;font-size:15px}
-.out li::before{content:"→ ";color:#5ad0ff}
-.cmp{background:#fff;color:var(--ink);border-radius:18px;padding:22px}
-.cmp h4{font-family:Sora;font-size:15px;margin-bottom:12px}
-.cmp table{width:100%;border-collapse:collapse;font-size:14px}
-.cmp th,.cmp td{padding:9px 6px;border-bottom:1px solid var(--line);text-align:left}
-.cmp th{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;font-weight:600}
-.cmp td b{font-family:Sora}
-.cmp .good{color:var(--wa2)}
-.cmp small{display:block;margin-top:10px;font-size:11px;color:var(--muted)}
+.out li::before{content:"→ ";color:#7dd3fc}
+.ctable{background:#fff;color:var(--ink);border-radius:14px;padding:22px}
+.ctable h4{font-size:15px;margin-bottom:12px}
+.ctable table{width:100%;border-collapse:collapse;font-size:14px}
+.ctable th,.ctable td{padding:9px 6px;border-bottom:1px solid var(--line);text-align:left}
+.ctable th{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;font-weight:600}
+.ctable td b{font-family:Manrope}
+.ctable .good{color:var(--wa2)}
+.ctable small{display:block;margin-top:10px;font-size:11px;color:var(--soft)}
+
+.ins{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:28px 32px;margin-top:24px;box-shadow:var(--sh)}
+.ins h3{font-size:19px;margin-bottom:6px}
+.ins p{color:var(--muted);font-size:14px}
 
 .faq{max-width:760px}
-.faq details{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px 20px;margin-bottom:10px}
-.faq summary{cursor:pointer;font-weight:600;font-family:Sora;font-size:15px;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px}
-.faq summary::after{content:"+";font-size:22px;color:var(--accent);flex:none}
+.faq details{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px 20px;margin-bottom:10px}
+.faq summary{cursor:pointer;font-weight:700;font-family:Manrope;font-size:15px;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.faq summary::after{content:"+";font-size:22px;color:var(--blue2);flex:none}
 .faq details[open] summary::after{content:"–"}
 .faq p{color:var(--muted);font-size:14px;margin-top:10px}
 
 .contact{text-align:center}
-.contact .box{background:linear-gradient(135deg,var(--navy),#1a3d6e);color:#fff;border-radius:28px;padding:56px 24px;position:relative;overflow:hidden}
-.contact .box::before{content:"";position:absolute;inset:auto 0 0 0;height:6px;background:linear-gradient(90deg,var(--c) 0 25%,var(--m) 25% 50%,var(--y) 50% 75%,#fff 75%)}
+.contact .box{background:var(--navy);color:#fff;border-radius:20px;padding:60px 24px}
 .contact h2{font-size:clamp(26px,4vw,40px);margin-bottom:10px}
-.contact p{color:#c5d0e0;margin-bottom:26px}
+.contact p{color:#c3cedf;margin-bottom:26px}
 .contact .btn-wa{font-size:17px;padding:15px 28px}
-.contact .info{display:flex;justify-content:center;gap:28px;flex-wrap:wrap;margin-top:26px;font-size:14px;color:#dbe4ef}
+.contact .info{display:flex;justify-content:center;gap:28px;flex-wrap:wrap;margin-top:26px;font-size:14px;color:#c3cedf}
 
-footer{padding:32px 0 100px;text-align:center;color:var(--muted);font-size:13px}
+footer{padding:32px 0 100px;text-align:center;color:var(--soft);font-size:13px}
 footer a{color:var(--ink);font-weight:600}
-
 .float{position:fixed;right:18px;bottom:18px;width:58px;height:58px;border-radius:50%;background:var(--wa);display:grid;place-items:center;box-shadow:0 10px 26px rgba(37,211,102,.45);z-index:30}
 
 @media(max-width:960px){
-  .hero-grid,.out,.reco-out{grid-template-columns:1fr}
+  .hero-grid,.out,.reco-out,.quick{grid-template-columns:1fr}
   .grid{grid-template-columns:repeat(2,1fr)}
-  .feats{grid-template-columns:repeat(2,1fr)}
+  .guide{grid-template-columns:1fr}
+  .plus{grid-template-columns:repeat(2,1fr)}
   .sectors{grid-template-columns:repeat(3,1fr)}
-  .steps{grid-template-columns:1fr}
   .links{display:none}
   .burger{display:block}
   .collage{height:380px}
-  .quick{grid-template-columns:1fr;padding:24px}
-  .ins{grid-template-columns:1fr}
   .more{display:inline-flex}
   .grid.collapsed .prod:nth-child(n+7){display:none}
+  .ins{grid-template-columns:1fr}
 }
 @media(max-width:600px){
-  .wrap{padding:0 16px}
-  section{padding:56px 0}
-  .hero{padding:44px 0 56px}
+  .wrap{padding:0 18px}
+  section{padding:60px 0}
+  .hero{padding:48px 0 60px}
   .hero p{font-size:16px}
-  .grid,.feats,.vol{grid-template-columns:1fr}
+  .grid,.vol,.plus{grid-template-columns:1fr}
   .sectors{grid-template-columns:repeat(2,1fr)}
-  .out{padding:26px 20px}
-  .reco-out{padding:22px 18px}
+  .out,.reco-out{padding:26px 20px}
+  .quick{padding:24px}
   .nav .btn span{display:none}
   .collage{height:300px}
-  .collage .p1{height:220px;top:20px}
-  .collage .p2{height:140px}
-  .collage .p3{height:150px}
-  .collage .badge{display:none}
-  .stats{gap:18px}
+  .p1{height:220px;top:20px}
+  .p2{height:140px}
+  .p3{height:150px}
+  .badge{display:none}
 }
 </style>
 </head>
 <body>
 
 <div class="proto">Boceto de diseño preparado para José Ordóñez · textos, fotos y productos se ajustan a tu gusto</div>
-<div class="cmyk"></div>
 
 <header>
   <div class="wrap nav">
-    <a class="brand" href="#inicio"><div class="mono">JO</div><div>José Ordóñez<small>Asesor en impresión y digitalización</small></div></a>
-    <nav class="links"><a href="#reco">¿Qué equipo necesito?</a><a href="#equipos">Equipos</a><a href="#sectores">Sectores</a><a href="#outsourcing">Outsourcing</a><a href="#faq">Preguntas</a></nav>
+    <a class="brand" href="#inicio"><div class="mono">JO</div><div><b>José Ordóñez</b><small>Asesor en impresión y digitalización</small></div></a>
+    <nav class="links"><a href="#reco">Asesoría</a><a href="#equipos">Equipos</a><a href="#comparar">Comparar</a><a href="#outsourcing">Outsourcing</a><a href="#faq">Preguntas</a></nav>
     <div class="hright">
       <a class="btn btn-wa btn-sm wa" href="#"><svg class="ic" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.8 14.2c-.2.7-1.4 1.3-2 1.4-.5.1-1.2.1-1.9-.1-.4-.1-1-.3-1.7-.6-3-1.3-4.9-4.3-5.1-4.5-.1-.2-1.2-1.6-1.2-3s.7-2.2 1-2.5c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .5l-.3.5-.4.5c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.6-.1l2 1c.3.1.5.2.5.3.1.2.1.7-.1 1.3Z"/></svg><span>Cotizar</span></a>
       <button class="burger" id="burger" aria-label="Menú"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
     </div>
   </div>
-  <nav class="mnav" id="mnav"><a href="#reco">¿Qué equipo necesito?</a><a href="#equipos">Equipos</a><a href="#cotiza">Cotización rápida</a><a href="#sectores">Sectores</a><a href="#outsourcing">Outsourcing</a><a href="#faq">Preguntas</a></nav>
+  <nav class="mnav" id="mnav"><a href="#reco">Asesoría rápida</a><a href="#equipos">Equipos</a><a href="#comparar">Comparar equipos</a><a href="#cotiza">Cotización rápida</a><a href="#outsourcing">Outsourcing</a><a href="#faq">Preguntas</a></nav>
 </header>
 
 <section class="hero" id="inicio">
   <div class="wrap hero-grid">
     <div>
-      <span class="tag"><i></i>Impresión · Digitalización · Insumos · Lima y todo el Perú</span>
+      <span class="eyebrow">Impresión · Digitalización · Insumos</span>
       <h1>Equipos de impresión para tu empresa, <span>con un asesor que sí responde.</span></h1>
-      <p>Te asesoro para elegir la impresora, multifuncional o escáner correcto según cuánto imprimes al mes. Cotización el mismo día, equipos originales con garantía y entrega en todo el Perú.</p>
+      <p>Te ayudo a elegir la impresora, multifuncional o escáner correcto según cuánto imprimes al mes. Cotización el mismo día, equipos originales con garantía y entrega en todo el Perú.</p>
       <div class="cta">
         <a class="btn btn-wa wa" href="#"><svg class="ic" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.8 14.2c-.2.7-1.4 1.3-2 1.4-.5.1-1.2.1-1.9-.1-.4-.1-1-.3-1.7-.6-3-1.3-4.9-4.3-5.1-4.5-.1-.2-1.2-1.6-1.2-3s.7-2.2 1-2.5c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .5l-.3.5-.4.5c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.6-.1l2 1c.3.1.5.2.5.3.1.2.1.7-.1 1.3Z"/></svg>Cotizar por WhatsApp</a>
         <a class="btn btn-ghost" href="#reco">¿Qué equipo necesito?</a>
       </div>
-      <div class="stats">
-        <div><b>+30</b><span>marcas oficiales</span></div>
-        <div><b>24 h</b><span>respuesta a cotizaciones</span></div>
-        <div><b>Todo el Perú</b><span>delivery y envío por agencia</span></div>
+      <div class="trust">
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/></svg>Garantía oficial de marca</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M8 9h8M8 13h5"/></svg>Factura electrónica</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7"/><circle cx="7" cy="18" r="1.8"/><circle cx="17" cy="18" r="1.8"/></svg>Envíos a todo el Perú</span>
       </div>
     </div>
     <div class="collage" aria-hidden="true">
@@ -277,12 +285,12 @@ footer a{color:var(--ink);font-weight:600}
   <b>Canon</b><b>Epson</b><b>HP</b><b>Brother</b><b>Riso</b><b>Sharp</b><b>Image Access</b><b>IRIS</b><b>BenQ</b><b>LG</b><b>Kodak</b>
 </div></div>
 
-<section class="reco" id="reco">
+<section id="reco">
   <div class="wrap">
     <div class="head">
-      <small>Asesoría rápida</small>
-      <h2>¿Qué equipo necesitas?</h2>
-      <p>Elige cuánto imprime tu empresa al mes y te muestro por dónde empezar. Después afinamos juntos por WhatsApp.</p>
+      <span class="eyebrow">Asesoría rápida</span>
+      <h2>¿Cuánto imprime tu empresa al mes?</h2>
+      <p>Elige un rango y te muestro por dónde empezar. Después afinamos juntos por WhatsApp.</p>
     </div>
     <div class="vol">
       <button class="on" data-v="a"><b>Menos de 1.000 páginas</b><span>Negocio pequeño, consultorio, emprendimiento</span></button>
@@ -293,19 +301,22 @@ footer a{color:var(--ink);font-weight:600}
   </div>
 </section>
 
-<section id="equipos">
+<section class="alt" id="equipos">
   <div class="wrap">
     <div class="head">
-      <small>Catálogo</small>
+      <span class="eyebrow">Catálogo</span>
       <h2>Equipos que más me piden</h2>
       <p>Una muestra de lo que puedo cotizarte. ¿Buscas otro modelo? Mándame el nombre y te respondo con precio y stock.</p>
     </div>
-    <div class="filters">
-      <button class="on" data-f="all">Todos</button>
-      <button data-f="imp">Impresión</button>
-      <button data-f="dig">Digitalización</button>
-      <button data-f="ins">Insumos</button>
-      <button data-f="ofi">Oficina</button>
+    <div class="toolbar">
+      <div class="filters">
+        <button class="on" data-f="all">Todos</button>
+        <button data-f="imp">Impresión</button>
+        <button data-f="dig">Digitalización</button>
+        <button data-f="ins">Insumos</button>
+        <button data-f="ofi">Oficina</button>
+      </div>
+      <a class="btn btn-line btn-sm" href="#comparar">Ver tabla comparativa</a>
     </div>
     <div class="grid collapsed" id="grid"></div>
     <div style="text-align:center"><button class="btn btn-dark more" id="more">Ver más equipos</button></div>
@@ -320,11 +331,47 @@ footer a{color:var(--ink);font-weight:600}
   </div>
 </section>
 
-<section id="cotiza" style="padding-top:0">
+<section id="comparar">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">Comparar</span>
+      <h2>Los equipos de un vistazo</h2>
+      <p>Lo que un comprador de empresa realmente mira: velocidad, tecnología y para quién es cada equipo.</p>
+    </div>
+    <div class="cmp-wrap">
+      <table class="cmp">
+        <thead><tr><th>Equipo</th><th>Velocidad</th><th>Tecnología</th><th>Color</th><th>Ideal para</th><th></th></tr></thead>
+        <tbody id="cmpBody"></tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="como">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">Cómo trabajamos</span>
+      <h2>De la consulta a la instalación en 3 pasos</h2>
+    </div>
+    <div class="guide">
+      <div class="g"><div class="n">1</div><h3>Cuéntame qué necesitas</h3><p>Cuántas páginas imprimes o escaneas al mes, si necesitas color y tu presupuesto. Si no lo sabes, lo vemos juntos.</p></div>
+      <div class="g"><div class="n">2</div><h3>Recibe 2 o 3 opciones comparadas</h3><p>Cotización formal el mismo día, en soles o dólares, con precio, stock y tiempo de entrega.</p></div>
+      <div class="g"><div class="n">3</div><h3>Entrega, instalación y soporte</h3><p>Coordinamos la entrega en Lima o el envío a provincia, y te acompaño después de la compra.</p></div>
+    </div>
+    <div class="plus">
+      <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><b>Respuesta en el día</b>Cotización en 24 h o menos.</div></div>
+      <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/><path d="M9 12l2 2 4-4"/></svg><div><b>Garantía oficial</b>Equipos originales y servicio técnico autorizado.</div></div>
+      <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7"/><circle cx="7" cy="18" r="1.8"/><circle cx="17" cy="18" r="1.8"/></svg><div><b>Lima y provincias</b>Delivery y envío por agencia.</div></div>
+      <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg><div><b>Precio por volumen</b>Condiciones para empresas y revendedores.</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="cotiza">
   <div class="wrap">
     <div class="quick">
       <div>
-        <small style="color:var(--accent);font-weight:600;font-size:13px;letter-spacing:.1em;text-transform:uppercase">Cotización en 30 segundos</small>
+        <span class="eyebrow">Cotización en 30 segundos</span>
         <h2>Dime qué necesitas y te respondo hoy</h2>
         <p>Llena estos 3 datos y se arma tu mensaje de WhatsApp solo. No tienes que pensar qué escribir.</p>
       </div>
@@ -339,52 +386,23 @@ footer a{color:var(--ink);font-weight:600}
   </div>
 </section>
 
-<section id="sectores" style="padding-top:0">
+<section class="alt" id="sectores">
   <div class="wrap">
     <div class="head">
-      <small>Sectores</small>
+      <span class="eyebrow">Sectores</span>
       <h2>Con quién trabajo</h2>
     </div>
     <div class="sectors">
-      <div class="sector"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M3 21V7l9-4 9 4v14"/><path d="M9 21v-6h6v6M9 11h.01M15 11h.01"/></svg></div><h3>Oficinas y empresas</h3><p>Multifuncionales en red y escaneo a correo.</p></div>
-      <div class="sector"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 1 3 3 6 3s6-2 6-3v-5"/></svg></div><h3>Colegios e institutos</h3><p>Duplicadoras y proyectores para aulas.</p></div>
-      <div class="sector"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M3 21h18M5 21V10l7-6 7 6v11M10 21v-5h4v5"/></svg></div><h3>Municipalidades</h3><p>Digitalización de archivos y expedientes.</p></div>
-      <div class="sector"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="3" y="7" width="18" height="10" rx="2"/><path d="M7 7V4h10v3M7 17v3h10v-3"/></svg></div><h3>Imprentas y copias</h3><p>Alto volumen y bajo costo por copia.</p></div>
-      <div class="sector"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M8 9h8M8 13h8M8 17h5"/></svg></div><h3>Estudios contables</h3><p>Escáneres rápidos para comprobantes.</p></div>
+      <div class="sector"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21V7l9-4 9 4v14"/><path d="M9 21v-6h6v6M9 11h.01M15 11h.01"/></svg></div><h3>Oficinas y empresas</h3><p>Multifuncionales en red y escaneo a correo.</p></div>
+      <div class="sector"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 1 3 3 6 3s6-2 6-3v-5"/></svg></div><h3>Colegios e institutos</h3><p>Duplicadoras y proyectores para aulas.</p></div>
+      <div class="sector"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V10l7-6 7 6v11M10 21v-5h4v5"/></svg></div><h3>Municipalidades</h3><p>Digitalización de archivos y expedientes.</p></div>
+      <div class="sector"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="7" width="18" height="10" rx="2"/><path d="M7 7V4h10v3M7 17v3h10v-3"/></svg></div><h3>Imprentas y copias</h3><p>Alto volumen y bajo costo por copia.</p></div>
+      <div class="sector"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M8 9h8M8 13h8M8 17h5"/></svg></div><h3>Estudios contables</h3><p>Escáneres rápidos para comprobantes.</p></div>
     </div>
   </div>
 </section>
 
-<section class="why" id="por-que">
-  <div class="wrap">
-    <div class="head">
-      <small>Por qué cotizar conmigo</small>
-      <h2>Un asesor que responde, no un formulario</h2>
-    </div>
-    <div class="feats">
-      <div class="feat"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><h3>Respuesta en el día</h3><p>Cotización formal en soles o dólares, el mismo día.</p></div>
-      <div class="feat"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/><path d="M9 12l2 2 4-4"/></svg></div><h3>Garantía oficial</h3><p>Equipos originales con garantía de marca y servicio técnico.</p></div>
-      <div class="feat"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7"/><circle cx="7" cy="18" r="1.8"/><circle cx="17" cy="18" r="1.8"/></svg></div><h3>Entrega en todo el Perú</h3><p>Delivery en Lima Metropolitana y envío por agencia a provincias.</p></div>
-      <div class="feat"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></div><h3>Precio por volumen</h3><p>Condiciones especiales para empresas, instituciones y revendedores.</p></div>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <div class="head">
-      <small>Cómo trabajamos</small>
-      <h2>De la consulta a la instalación en 3 pasos</h2>
-    </div>
-    <div class="steps">
-      <div class="step"><h3>Cuéntame qué necesitas</h3><p>Cuántas páginas imprimes o escaneas al mes, en qué formato y tu presupuesto.</p></div>
-      <div class="step"><h3>Recibe tu cotización</h3><p>Te envío 2 o 3 opciones comparadas, con precio, stock y tiempo de entrega.</p></div>
-      <div class="step"><h3>Entrega y soporte</h3><p>Coordinamos la entrega, la instalación y te acompaño después de la compra.</p></div>
-    </div>
-  </div>
-</section>
-
-<section id="outsourcing" style="padding-top:0">
+<section id="outsourcing">
   <div class="wrap">
     <div class="out">
       <div>
@@ -393,7 +411,7 @@ footer a{color:var(--ink);font-weight:600}
         <ul><li>Equipos instalados en tu oficina sin inversión inicial</li><li>Tóner, repuestos y técnico incluidos</li><li>Reportes de uso y control de costos por área</li></ul>
         <a class="btn btn-wa wa" data-msg="Hola José, quiero una evaluación para el servicio de outsourcing de impresión." href="#">Quiero una evaluación gratis</a>
       </div>
-      <div class="cmp">
+      <div class="ctable">
         <h4>Ejemplo: oficina que imprime 8.000 páginas al mes</h4>
         <table>
           <tr><th></th><th>Comprar equipo</th><th>Outsourcing</th></tr>
@@ -408,10 +426,10 @@ footer a{color:var(--ink);font-weight:600}
   </div>
 </section>
 
-<section id="faq" style="padding-top:0">
+<section class="alt" id="faq">
   <div class="wrap">
     <div class="head">
-      <small>Preguntas frecuentes</small>
+      <span class="eyebrow">Preguntas frecuentes</span>
       <h2>Lo que siempre me preguntan</h2>
     </div>
     <div class="faq">
@@ -424,13 +442,13 @@ footer a{color:var(--ink);font-weight:600}
   </div>
 </section>
 
-<section class="contact" id="contacto" style="padding-top:0">
+<section class="contact" id="contacto">
   <div class="wrap">
     <div class="box">
       <h2>¿Qué equipo estás buscando?</h2>
       <p>Escríbeme el modelo o cuéntame qué necesitas y te respondo hoy mismo.</p>
       <a class="btn btn-wa wa" href="#"><svg class="ic" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.8 14.2c-.2.7-1.4 1.3-2 1.4-.5.1-1.2.1-1.9-.1-.4-.1-1-.3-1.7-.6-3-1.3-4.9-4.3-5.1-4.5-.1-.2-1.2-1.6-1.2-3s.7-2.2 1-2.5c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .5l-.3.5-.4.5c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.6-.1l2 1c.3.1.5.2.5.3.1.2.1.7-.1 1.3Z"/></svg>Hablar con José por WhatsApp</a>
-      <div class="info"><span>📍 San Isidro, Lima</span><span>🕗 Lunes a viernes, 8:30 a. m. – 5:30 p. m.</span><span>🚚 Envíos a todo el Perú</span></div>
+      <div class="info"><span>San Isidro, Lima</span><span>Lunes a viernes, 8:30 a. m. – 5:30 p. m.</span><span>Envíos a todo el Perú</span></div>
     </div>
   </div>
 </section>
@@ -448,19 +466,19 @@ const waLink = m => "https://wa.me/" + WA + "?text=" + encodeURIComponent(m);
 const DEF = "Hola José, vi tu página y quiero una cotización.";
 
 const PRODUCTS = [
-  {f:"imp", cat:"Impresión", brand:"Canon", img:"g3170", name:"PIXMA G3170", specs:["Tinta continua: hasta 6.000 páginas por botella","Imprime, copia y escanea · Wi-Fi","Ideal para negocios pequeños"], tag:"Negocio pequeño"},
-  {f:"imp", cat:"Impresión", brand:"Canon", img:"g4170", name:"PIXMA G4170", specs:["Tinta continua + alimentador automático (ADF)","Fax, Wi-Fi y impresión desde el celular","Para oficinas con más documentos"], tag:"Oficina"},
-  {f:"imp", cat:"Impresión", brand:"Canon", img:"gx6010", name:"MAXIFY GX6010", specs:["Tinta continua pigmentada, resistente al agua","24 ipm, dúplex automático y ADF de 50 hojas","Red cableada y Wi-Fi"], tag:"Oficina productiva"},
-  {f:"imp", cat:"Impresión", brand:"Canon", img:"ir1643", name:"imageRUNNER 1643iF II", specs:["Láser monocromo A4, 43 ppm","Pantalla táctil, ADF dúplex, escaneo a correo","Incluye software Readiris"], tag:"Corporativo"},
-  {f:"imp", cat:"Impresión", brand:"Canon", img:"mf1538", name:"imageCLASS X MF1538C", specs:["Láser a color A4, 38 ppm","Dúplex automático y ADF","Impresión segura y en red"], tag:"Color corporativo"},
-  {f:"imp", cat:"Impresión", brand:"Canon", img:"ir6870", name:"imageRUNNER ADVANCE DX 6870i", specs:["Láser monocromo A3, 70 ppm","Alto volumen con acabados","Para corporativos e instituciones"], tag:"Alto volumen"},
-  {f:"imp", cat:"Impresión", brand:"Riso", img:"riso5430", name:"Duplicadora SF5430 EII", specs:["Hasta 130 copias por minuto en A3","Costo por copia muy bajo","Colegios, imprentas y municipalidades"], tag:"Miles de copias"},
-  {f:"dig", cat:"Digitalización", brand:"Canon", img:"drc230", name:"imageFORMULA DR-C230", specs:["30 ppm / 60 ipm a doble cara","ADF de 60 hojas, DNI y tarjetas","Escritorio compacto, USB"], tag:"Oficina"},
-  {f:"dig", cat:"Digitalización", brand:"Canon", img:"drg2090", name:"imageFORMULA DR-G2090", specs:["90 ppm / 180 ipm de producción","ADF de 300 hojas, hasta A3","Archivos y expedientes masivos"], tag:"Producción"},
-  {f:"dig", cat:"Digitalización", brand:"Image Access", img:"bookeye", name:"Bookeye 5 V2", specs:["Escáner de libros y planos hasta A2","Cuna en V que cuida el lomo","Bibliotecas, notarías y archivos"], tag:"Libros y planos"},
-  {f:"imp", cat:"Impresión", brand:"Canon", img:"tm250", name:"imagePROGRAF TM-250", specs:["Plotter de 24\" (A1) para planos y CAD","5 tintas, líneas finas y precisas","Arquitectura, ingeniería y publicidad"], tag:"Gran formato"},
-  {f:"ins", cat:"Insumos", brand:"Canon", img:"gi16", name:"MAXI KIT GI-16 + cabezales", specs:["Pack de tintas y cabezales originales","Para MAXIFY GX6010 / GX7010","Pedidos recurrentes para empresas"], tag:"Original"},
-  {f:"ofi", cat:"Oficina", brand:"BenQ", img:"benq", name:"Proyector LW550", specs:["Tecnología LED de larga vida (20.000 h)","Resolución WXGA, HDMI","Salas de reunión y aulas"], tag:"Salas y aulas"}
+  {f:"imp", cat:"Impresión", brand:"Canon", img:"g3170", name:"PIXMA G3170", use:"Para negocios pequeños que imprimen poco y quieren el menor costo por página.", kpi:["Tinta continua","Wi-Fi","Hasta 6.000 pág. por botella"], speed:"10 ppm", tech:"Tinta continua", color:"Color", ideal:"Negocio pequeño, consultorio"},
+  {f:"imp", cat:"Impresión", brand:"Canon", img:"g4170", name:"PIXMA G4170", use:"Para oficinas pequeñas que además necesitan escanear lotes y enviar fax.", kpi:["Tinta continua","ADF","Fax · Wi-Fi"], speed:"11 ppm", tech:"Tinta continua", color:"Color", ideal:"Oficina pequeña con fax"},
+  {f:"imp", cat:"Impresión", brand:"Canon", img:"gx6010", name:"MAXIFY GX6010", use:"Para oficinas de 10 a 30 personas: rápida, dúplex y con tinta resistente al agua.", kpi:["24 ipm","Dúplex","ADF 50 hojas · Red"], speed:"24 ipm", tech:"Tinta pigmentada", color:"Color", ideal:"Oficina de 10 a 30 personas"},
+  {f:"imp", cat:"Impresión", brand:"Canon", img:"ir1643", name:"imageRUNNER 1643iF II", use:"Láser corporativo en blanco y negro con pantalla táctil y escaneo a correo.", kpi:["43 ppm","Láser B/N","ADF dúplex"], speed:"43 ppm", tech:"Láser", color:"B/N", ideal:"Corporativo A4"},
+  {f:"imp", cat:"Impresión", brand:"Canon", img:"mf1538", name:"imageCLASS X MF1538C", use:"Láser a color para empresas que imprimen propuestas, marketing y reportes.", kpi:["38 ppm","Láser color","Dúplex · ADF"], speed:"38 ppm", tech:"Láser", color:"Color", ideal:"Corporativo que imprime color"},
+  {f:"imp", cat:"Impresión", brand:"Canon", img:"ir6870", name:"imageRUNNER ADVANCE DX 6870i", use:"Equipo A3 de alto volumen con acabados para corporativos e instituciones.", kpi:["70 ppm","A3","Alto volumen"], speed:"70 ppm", tech:"Láser", color:"B/N", ideal:"Corporativo, institución (A3)"},
+  {f:"imp", cat:"Impresión", brand:"Riso", img:"riso5430", name:"Duplicadora SF5430 EII", use:"Miles de copias al día al costo más bajo: colegios, imprentas y municipalidades.", kpi:["130 cpm","A3","Bajo costo por copia"], speed:"130 cpm", tech:"Duplicadora", color:"1 color", ideal:"Colegio, imprenta, municipalidad"},
+  {f:"dig", cat:"Digitalización", brand:"Canon", img:"drc230", name:"imageFORMULA DR-C230", use:"Escáner de escritorio para digitalizar comprobantes, contratos y DNI.", kpi:["60 ipm","ADF 60 hojas","USB"], speed:"60 ipm", tech:"Escáner", color:"Color", ideal:"Estudio contable, oficina"},
+  {f:"dig", cat:"Digitalización", brand:"Canon", img:"drg2090", name:"imageFORMULA DR-G2090", use:"Escáner de producción para archivos y expedientes masivos, hasta A3.", kpi:["180 ipm","ADF 300 hojas","A3"], speed:"180 ipm", tech:"Escáner", color:"Color", ideal:"Archivo, municipalidad"},
+  {f:"dig", cat:"Digitalización", brand:"Image Access", img:"bookeye", name:"Bookeye 5 V2", use:"Escáner de libros y planos hasta A2 con cuna en V que cuida el lomo.", kpi:["A2","Libros y planos","Cuna en V"], speed:"—", tech:"Escáner de libros", color:"Color", ideal:"Biblioteca, notaría, archivo"},
+  {f:"imp", cat:"Impresión", brand:"Canon", img:"tm250", name:"imagePROGRAF TM-250", use:"Plotter de 24 pulgadas para planos, CAD y gráficos de gran formato.", kpi:["24\" (A1)","5 tintas","Gran formato"], speed:"—", tech:"Plotter", color:"Color", ideal:"Arquitectura, ingeniería"},
+  {f:"ins", cat:"Insumos", brand:"Canon", img:"gi16", name:"MAXI KIT GI-16 + cabezales", use:"Pack de tintas y cabezales originales para MAXIFY GX6010 y GX7010.", kpi:["Original","GX6010 / GX7010","Pedido recurrente"]},
+  {f:"ofi", cat:"Oficina", brand:"BenQ", img:"benq", name:"Proyector LW550", use:"Proyector LED para salas de reunión y aulas, sin cambiar lámparas.", kpi:["LED 20.000 h","WXGA","HDMI"]}
 ];
 
 const grid = document.getElementById("grid");
@@ -472,27 +490,44 @@ function render(f){
       <div class="body">
         <span class="brandname">${p.brand}</span>
         <h3>${p.name}</h3>
-        <ul>${p.specs.map(s=>`<li>${s}</li>`).join("")}</ul>
-        <div class="row"><span>Precio según volumen</span><a target="_blank" rel="noopener" href="${waLink("Hola José, quiero cotizar: " + p.brand + " " + p.name)}">Cotizar por WhatsApp</a></div>
+        <p class="use">${p.use}</p>
+        <div class="kpi">${p.kpi.map(k=>`<span>${k}</span>`).join("")}</div>
+        <div class="row"><span>Precio según volumen</span><a target="_blank" rel="noopener" href="${waLink("Hola José, quiero cotizar: " + p.brand + " " + p.name)}">Cotizar por WhatsApp →</a></div>
       </div>
     </article>`).join("") + (f==="all" ? `
-    <article class="prod" style="background:var(--navy);color:#fff;border-color:var(--navy)">
-      <div class="body" style="justify-content:center;gap:12px;padding:32px 24px">
-        <span class="brandname" style="color:#5ad0ff">¿No ves tu modelo?</span>
-        <h3 style="font-size:22px">Trabajo con más de 30 marcas y cientos de equipos.</h3>
-        <p style="color:#c5d0e0;font-size:14px">Mándame el nombre del modelo o una foto de tu equipo actual y te respondo con precio, stock y alternativas.</p>
+    <article class="prod ask">
+      <div class="body">
+        <span class="brandname">¿No ves tu modelo?</span>
+        <h3 style="font-size:21px">Trabajo con más de 30 marcas y cientos de equipos.</h3>
+        <p>Mándame el nombre del modelo o una foto de tu equipo actual y te respondo con precio, stock y alternativas.</p>
         <a class="btn btn-wa" style="align-self:flex-start;margin-top:6px" target="_blank" rel="noopener" href="${waLink("Hola José, busco un equipo que no está en tu página. El modelo es: ")}">Consultar otro modelo</a>
       </div>
     </article>` : "");
 }
 render("all");
+let expanded=false;
 document.querySelectorAll(".filters button").forEach(b => b.onclick = () => {
   document.querySelectorAll(".filters button").forEach(x => x.classList.remove("on"));
   b.classList.add("on"); render(b.dataset.f);
   grid.classList.toggle("collapsed", b.dataset.f==="all" && !expanded);
 });
-let expanded=false;
 document.getElementById("more").onclick=e=>{expanded=true;grid.classList.remove("collapsed");e.target.style.display="none"};
+
+document.getElementById("cmpBody").innerHTML = PRODUCTS.filter(p=>p.speed).map(p=>`
+  <tr><td>${p.brand} ${p.name}<small>${p.cat}</small></td><td><b>${p.speed}</b></td><td><span class="pill k">${p.tech}</span></td><td><span class="pill ${p.color==="Color"?"":"k"}">${p.color}</span></td><td>${p.ideal}</td><td><a target="_blank" rel="noopener" href="${waLink("Hola José, quiero cotizar: " + p.brand + " " + p.name)}">Cotizar →</a></td></tr>`).join("");
+
+const RECO = {
+  a:{t:"Empieza con tinta continua", d:"Para menos de 1.000 páginas al mes, lo más rentable es una multifuncional de tinta continua: el costo por página es mínimo y la inversión es baja.", l:["Canon PIXMA G3170 o G4170 (con ADF y fax)","Botellas de tinta que duran meses","Wi-Fi para imprimir desde el celular"], imgs:[["g3170","PIXMA G3170"],["g4170","PIXMA G4170"]], msg:"Hola José, imprimo menos de 1.000 páginas al mes. ¿Qué equipo me recomiendas?"},
+  b:{t:"Una multifuncional de oficina", d:"Entre 1.000 y 5.000 páginas conviene un equipo más rápido, con alimentador automático, dúplex y escaneo a correo, para que nadie espere en la impresora.", l:["Canon MAXIFY GX6010 (tinta pigmentada, 24 ipm)","Canon imageRUNNER 1643iF II si prefieres láser","Escáner DR-C230 para digitalizar comprobantes"], imgs:[["gx6010","MAXIFY GX6010"],["ir1643","imageRUNNER 1643iF II"]], msg:"Hola José, imprimo entre 1.000 y 5.000 páginas al mes. ¿Qué equipo me recomiendas?"},
+  c:{t:"Alto volumen u outsourcing", d:"Con más de 5.000 páginas al mes el costo por página manda. Te conviene un equipo corporativo A3, una duplicadora Riso o directamente el servicio de outsourcing.", l:["Canon imageRUNNER ADVANCE DX (A3, 70 ppm)","Duplicadora Riso SF5430 EII para copias masivas","Outsourcing: pagas por página, todo incluido"], imgs:[["ir6870","imageRUNNER ADV DX"],["riso5430","Riso SF5430 EII"]], msg:"Hola José, imprimo más de 5.000 páginas al mes. Quiero que me asesores."}
+};
+function reco(k){
+  const r=RECO[k];
+  document.getElementById("recoOut").innerHTML=`<div><h3>${r.t}</h3><p>${r.d}</p><ul>${r.l.map(x=>`<li>${x}</li>`).join("")}</ul><a class="btn btn-wa" target="_blank" rel="noopener" href="${waLink(r.msg)}">Pedir esta recomendación</a></div>
+  <div class="reco-imgs">${r.imgs.map(([i,n])=>`<div><img src="img/${i}.webp" alt="${n}" width="720" height="720"><span>${n}</span></div>`).join("")}</div>`;
+}
+reco("a");
+document.querySelectorAll(".vol button").forEach(b=>b.onclick=()=>{document.querySelectorAll(".vol button").forEach(x=>x.classList.remove("on"));b.classList.add("on");reco(b.dataset.v)});
 
 const burger=document.getElementById("burger"), mnav=document.getElementById("mnav");
 burger.onclick=()=>mnav.classList.toggle("open");
@@ -503,24 +538,7 @@ document.getElementById("qform").onsubmit=e=>{
   const n=document.getElementById("qn").value.trim(), t=document.getElementById("qt").value, v=document.getElementById("qv").value;
   window.open(waLink(`Hola José, soy ${n}. Busco: ${t}. Imprimo ${v.toLowerCase()} páginas al mes. ¿Me cotizas?`),"_blank","noopener");
 };
-
-const RECO = {
-  a:{t:"Empieza con tinta continua", d:"Para menos de 1.000 páginas al mes, lo más rentable es una multifuncional de tinta continua: el costo por página es mínimo y la inversión es baja.", l:["Canon PIXMA G3170 o G4170 (con ADF y fax)","Botellas de tinta que duran meses","Wi-Fi para imprimir desde el celular"], imgs:[["g3170","PIXMA G3170"],["g4170","PIXMA G4170"]], msg:"Hola José, imprimo menos de 1.000 páginas al mes. ¿Qué equipo me recomiendas?"},
-  b:{t:"Una multifuncional de oficina", d:"Entre 1.000 y 5.000 páginas conviene un equipo más rápido, con alimentador automático, dúplex y escaneo a correo, para que nadie espere en la impresora.", l:["Canon MAXIFY GX6010 (tinta pigmentada, 24 ipm)","Canon imageRUNNER 1643iF II si prefieres láser","Escáner DR-C230 para digitalizar comprobantes"], imgs:[["gx6010","MAXIFY GX6010"],["ir1643","imageRUNNER 1643iF II"]], msg:"Hola José, imprimo entre 1.000 y 5.000 páginas al mes. ¿Qué equipo me recomiendas?"},
-  c:{t:"Alto volumen u outsourcing", d:"Con más de 5.000 páginas al mes el costo por página manda. Te conviene un equipo corporativo A3, una duplicadora Riso o directamente el servicio de outsourcing.", l:["Canon imageRUNNER ADVANCE DX (A3, 70 ppm)","Duplicadora Riso SF5430 EII para copias masivas","Outsourcing: pagas por página, todo incluido"], imgs:[["ir6870","imageRUNNER ADV DX"],["riso5430","Riso SF5430 EII"]], msg:"Hola José, imprimo más de 5.000 páginas al mes. Quiero que me asesores."}
-};
-function reco(k){
-  const r=RECO[k];
-  document.getElementById("recoOut").innerHTML=`<div><h3>${r.t}</h3><p>${r.d}</p><ul>${r.l.map(x=>`<li>${x}</li>`).join("")}</ul><a class="btn btn-wa" target="_blank" rel="noopener" href="${waLink(r.msg)}">Pedir esta recomendación</a></div>
-  <div class="reco-imgs">${r.imgs.map(([i,n])=>`<div><img src="img/${i}.webp" alt="${n}"><span>${n}</span></div>`).join("")}</div>`;
-}
-reco("a");
-document.querySelectorAll(".vol button").forEach(b=>b.onclick=()=>{document.querySelectorAll(".vol button").forEach(x=>x.classList.remove("on"));b.classList.add("on");reco(b.dataset.v)});
-
-document.querySelectorAll("a.wa").forEach(a => {
-  a.href = waLink(a.dataset.msg || DEF);
-  a.target = "_blank"; a.rel = "noopener";
-});
+document.querySelectorAll("a.wa").forEach(a => { a.href = waLink(a.dataset.msg || DEF); a.target = "_blank"; a.rel = "noopener"; });
 </script>
 </body>
 </html>
