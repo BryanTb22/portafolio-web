@@ -212,6 +212,7 @@ section > .wrap{padding-block:96px}
 .social svg{width:18px;height:18px;fill:currentColor}
 .social:hover{color:var(--gold)}
 footer a{color:inherit}
+#firma{-webkit-user-select:none;user-select:none;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
 footer{background:var(--ink);color:#8f8676;border-top:1px solid #2b2722}
 footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 16px;padding-block:24px 96px;font-size:.84rem}
 
@@ -441,7 +442,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 1
 </main>
 
 <footer>
-  <div class="wrap"><span>LitleJacob Studio Web · Bryan Tirapo Bustillos · Lima, Perú</span><span>Diseño y desarrollo de páginas web · <a href="https://www.facebook.com/profile.php?id=61595819503217" target="_blank" rel="noopener">Facebook</a> · <a href="https://www.tiktok.com/@litlejacob" target="_blank" rel="noopener">TikTok</a> · <a href="https://www.instagram.com/litlejacob.studio" target="_blank" rel="noopener">Instagram</a></span></div>
+  <div class="wrap"><span id="firma">LitleJacob Studio Web · Bryan Tirapo Bustillos · Lima, Perú</span><span>Diseño y desarrollo de páginas web · <a href="https://www.facebook.com/profile.php?id=61595819503217" target="_blank" rel="noopener">Facebook</a> · <a href="https://www.tiktok.com/@litlejacob" target="_blank" rel="noopener">TikTok</a> · <a href="https://www.instagram.com/litlejacob.studio" target="_blank" rel="noopener">Instagram</a></span></div>
 </footer>
 
 <a class="fab" href="https://wa.me/51952997030?text=Hola%2C%20quiero%20cotizar%20una%20p%C3%A1gina%20web" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
@@ -470,6 +471,12 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 1
     }
   }
 })();
+</script>
+<script>
+/* Acceso privado: 3 toques seguidos sobre la firma del pie abren la base de clientes (solo visible con la cuenta de Bryan en claude.ai) */
+(function(){var f=document.getElementById('firma');if(!f)return;var n=0,t;
+f.addEventListener('click',function(){n++;clearTimeout(t);t=setTimeout(function(){n=0},700);
+if(n>=3){n=0;var u='https://claude.ai/artifact/TBvmvF6fFMsb1hcbvcMBzN';var w=window.open(u,'_blank','noopener');if(!w)location.href=u;}});})();
 </script>
 <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "6a657b0ba1a74dd1823ac56d90e263e1"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
