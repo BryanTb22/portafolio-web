@@ -475,7 +475,15 @@ function render(f){
         <ul>${p.specs.map(s=>`<li>${s}</li>`).join("")}</ul>
         <div class="row"><span>Precio según volumen</span><a target="_blank" rel="noopener" href="${waLink("Hola José, quiero cotizar: " + p.brand + " " + p.name)}">Cotizar por WhatsApp</a></div>
       </div>
-    </article>`).join("");
+    </article>`).join("") + (f==="all" ? `
+    <article class="prod" style="background:var(--navy);color:#fff;border-color:var(--navy)">
+      <div class="body" style="justify-content:center;gap:12px;padding:32px 24px">
+        <span class="brandname" style="color:#5ad0ff">¿No ves tu modelo?</span>
+        <h3 style="font-size:22px">Trabajo con más de 30 marcas y cientos de equipos.</h3>
+        <p style="color:#c5d0e0;font-size:14px">Mándame el nombre del modelo o una foto de tu equipo actual y te respondo con precio, stock y alternativas.</p>
+        <a class="btn btn-wa" style="align-self:flex-start;margin-top:6px" target="_blank" rel="noopener" href="${waLink("Hola José, busco un equipo que no está en tu página. El modelo es: ")}">Consultar otro modelo</a>
+      </div>
+    </article>` : "");
 }
 render("all");
 document.querySelectorAll(".filters button").forEach(b => b.onclick = () => {
