@@ -169,6 +169,17 @@ section > .wrap{padding-block:96px}
 .steps b{font-weight:600}
 .steps p{margin:0;color:var(--muted);font-size:.95rem}
 
+/* OPINIONES */
+.review{max-width:860px;border:1px solid var(--line);border-radius:6px;background:var(--cream-2);padding:40px 36px 32px;position:relative}
+@media (max-width:600px){.review{padding:30px 22px 26px}}
+.review::before{content:"“";position:absolute;top:-6px;left:22px;font-family:var(--serif);font-size:5.5rem;line-height:1;color:var(--gold)}
+.review blockquote{margin:0;font-family:var(--serif);font-size:clamp(1.35rem,4.5vw,1.8rem);line-height:1.35}
+.review blockquote em{color:var(--gold)}
+.review figcaption{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:6px 20px;margin-top:24px;border-top:1px solid var(--line);padding-top:16px}
+.review figcaption b{font-weight:600}
+.review figcaption span{color:var(--muted);font-size:.9rem}
+.review .go-mini{display:inline-block;margin-top:14px;font-size:.88rem;font-weight:600;text-decoration:none;border-bottom:1px solid var(--gold);padding-bottom:2px}
+
 /* SOBRE MÍ */
 .about{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;align-items:center}
 .about > *{min-width:0}
@@ -234,6 +245,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 1
     <a class="brand" href="#inicio">LitleJacob <i>Studio</i> Web</a>
     <div class="links">
       <a href="#proyectos">Proyectos</a>
+      <a href="#opiniones">Opiniones</a>
       <a href="#paquetes">Paquetes</a>
       <a href="#sobre-mi">Sobre mí</a>
       <a href="#preguntas">Preguntas</a>
@@ -247,6 +259,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 1
   <div class="drawer" id="drawer" hidden>
     <div class="wrap">
       <a href="#proyectos">Proyectos</a>
+      <a href="#opiniones">Opiniones</a>
       <a href="#paquetes">Paquetes</a>
       <a href="#sobre-mi">Sobre mí</a>
       <a href="#preguntas">Preguntas</a>
@@ -334,6 +347,23 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 1
           </div>
         </a>
       </div>
+    </div>
+  </section>
+
+  <section id="opiniones">
+    <div class="wrap">
+      <div class="head">
+        <div><span class="eyebrow">Opiniones</span><h2>Lo que dicen mis <em>clientes</em></h2></div>
+        <p>Opiniones reales de dueños de negocios con su web en funcionamiento.</p>
+      </div>
+      <figure class="review">
+        <blockquote>Me gustó demasiado: quedó <em>tal cual yo quería</em>, con la paleta de colores que le pedí. Muy buena atención, me hizo ver cada parte y cómo iba avanzando el proyecto. La página se ve estética y fluida. Ya lo recomendé a otra emprendedora.</blockquote>
+        <figcaption>
+          <b>Valentín Condezo Chura</b>
+          <span>Rayas Store · Venta de intangibles gaming por internet</span>
+        </figcaption>
+        <a class="go-mini" href="https://rayas.trade" target="_blank" rel="noopener">Ver su web: rayas.trade <span class="arrow">→</span></a>
+      </figure>
     </div>
   </section>
 
