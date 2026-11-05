@@ -157,6 +157,21 @@ header{position:sticky;top:0;z-index:30;background:rgba(11,10,9,.92);backdrop-fi
 .num{font-size:28px;color:var(--red2);width:34px;flex:none}
 
 /* Sobre */
+.quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:48px}
+.quote{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:24px;position:relative}
+.quote:before{content:"“";position:absolute;top:2px;left:18px;font:400 64px/1 Anton,Impact,sans-serif;color:var(--red)}
+.quote p{font-size:16px;color:var(--bone);margin:26px 0 14px;font-weight:600}
+.quote small{color:var(--muted);font-size:12.5px}
+.fest{display:grid;grid-template-columns:.8fr 1.2fr;gap:48px;align-items:center}
+.fest .ph{aspect-ratio:4/5}
+.fest .ph img{object-position:center}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:24px 0 28px}
+.facts div{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px}
+.facts b{display:block;font-size:22px}
+.facts span{font-size:12.5px;color:var(--muted)}
+.social{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.social a{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:var(--card);border-radius:999px;padding:8px 14px;font-size:14px;font-weight:700}
+.social a:hover{border-color:var(--bone)}
 .about{display:grid;grid-template-columns:.8fr 1.2fr;gap:48px;align-items:center}
 .about .ph{aspect-ratio:4/5}
 .about h2{font-size:clamp(34px,5vw,54px);margin-bottom:16px}
@@ -247,6 +262,10 @@ footer a{color:var(--bone);font-weight:700}
 
 /* Celular */
 @media (max-width:960px){
+  .quotes{grid-template-columns:1fr}
+  .fest{grid-template-columns:1fr}
+  .fest .ph{max-width:420px}
+
   .links{display:none}
   .links.open{display:flex;position:absolute;top:70px;left:0;right:0;flex-direction:column;gap:0;background:var(--bg2);border-bottom:1px solid var(--line);padding:6px 20px}
   .links.open a{padding:14px 0;border-bottom:1px solid var(--line);font-size:16px;color:var(--bone)}
@@ -257,6 +276,8 @@ footer a{color:var(--bone);font-weight:700}
   .gallery{grid-template-columns:repeat(2,1fr);grid-auto-rows:180px}
 }
 @media (max-width:640px){
+  .facts{grid-template-columns:1fr 1fr}
+
   section{padding:68px 0}
   .hero{padding:44px 0 64px}
   .grid3,.plans{grid-template-columns:1fr}
@@ -274,12 +295,13 @@ footer a{color:var(--bone);font-weight:700}
   <div class="wrap nav">
     <a href="#inicio" class="brand">
       <svg class="logo" viewBox="0 0 42 42"><circle cx="21" cy="21" r="21" fill="#c8322b"/><text x="21" y="27.5" text-anchor="middle" font-family="Anton,Impact,sans-serif" font-size="17" fill="#fff">FX</text></svg>
-      <div><b class="d">Studio Fx</b><small>Maquillaje FX · Personajes</small></div>
+      <div><b class="d">Studio Fx</b><small>Pablo Beltrán FX · Maquillaje FX</small></div>
     </a>
     <nav class="links" id="links">
       <a href="#servicios">Servicios</a>
       <a href="#portafolio">Portafolio</a>
       <a href="#cursos">Cursos</a>
+      <a href="#festival">Festival</a>
       <a href="#membresia">Membresía</a>
       <a href="#empresas">Empresas</a>
       <a href="#contacto">Contacto</a>
@@ -298,24 +320,25 @@ footer a{color:var(--bone);font-weight:700}
 <section class="hero" id="inicio">
   <div class="wrap hero-g">
     <div>
-      <span class="eyebrow">Cine · TV · Teatro · Circo</span>
+      <span class="eyebrow">Cine · Cortometrajes · Teatro · Eventos</span>
       <h1 class="d">Personajes que<em>no se olvidan</em></h1>
-      <p class="lead">Maquillaje de efectos especiales y creación de personajes para producciones, eventos y activaciones de marca. Y si quieres aprender, tenemos cursos para ti.</p>
+      <p class="lead">Maquillaje FX hiperrealista y creación de personajes para cine, cortometrajes, teatro, eventos y marcas. Y si quieres aprender, te enseñamos todo el proceso en nuestros cursos y masterclasses.</p>
       <div class="hero-cta">
         <a href="#cursos" class="btn btn-red">Ver cursos</a>
         <a href="#servicios" class="btn btn-line">Contratar un servicio</a>
       </div>
       <div class="chips">
-        <span class="chip">Prótesis y heridas FX</span>
-        <span class="chip">Caracterización</span>
-        <span class="chip">Envejecimiento</span>
+        <span class="chip">Prótesis y transfers</span>
+        <span class="chip">Heridas y quemaduras</span>
         <span class="chip">Criaturas</span>
+        <span class="chip">Envejecimiento</span>
+        <span class="chip">Productos Kryolan</span>
       </div>
     </div>
     <div class="hero-media">
       <div class="ph media"><video src="img/transformacion.mp4" poster="img/zombie.webp" autoplay muted loop playsinline></video><span class="lb">Transformación en vivo</span></div>
-      <div class="ph media"><img src="img/criatura.webp" alt="Criatura con maquillaje FX"></div>
-      <div class="ph media"><img src="img/rodaje-noche.webp" alt="Maquillaje en un rodaje de noche"><span class="lb">En rodaje</span></div>
+      <div class="ph media"><img src="img/herida-perfil.webp" alt="Herida hiperrealista con prótesis"><button class="play" data-video="img/video-heridas.mp4" aria-label="Ver video"><svg viewBox="0 0 24 24" fill="#fff"><path d="M6 4l14 8-14 8z"/></svg></button><span class="lb">Hiperrealista</span></div>
+      <div class="ph media"><img src="img/criatura-masterclass.webp" alt="Criatura hecha en una masterclass"><span class="lb">Criatura</span></div>
     </div>
   </div>
 </section>
@@ -326,7 +349,7 @@ footer a{color:var(--bone);font-weight:700}
     <div class="head">
       <span class="eyebrow">Servicios</span>
       <h2 class="d">Lo que hacemos por tu producción</h2>
-      <p>Reserva directo desde la web o pide una cotización a medida por WhatsApp.</p>
+      <p>Efectos hiperrealistas que aguantan el gesto, el movimiento y la cámara. Reserva desde la web o pide una cotización a medida.</p>
     </div>
     <div class="grid3" id="svcGrid"></div>
     <p class="note">* Precios de ejemplo para el boceto.</p>
@@ -339,7 +362,7 @@ footer a{color:var(--bone);font-weight:700}
     <div class="head">
       <span class="eyebrow">Portafolio</span>
       <h2 class="d">Nuestros personajes</h2>
-      <p>Personajes, prótesis y activaciones hechos en el Studio. Toca ▶ para ver los videos.</p>
+      <p>Heridas, prótesis, criaturas, shows y activaciones hechos por el Studio. Toca ▶ para ver los videos.</p>
     </div>
     <div class="filters" id="filters">
       <button class="f on" data-f="all">Todos</button>
@@ -358,10 +381,36 @@ footer a{color:var(--bone);font-weight:700}
     <div class="head">
       <span class="eyebrow">Cursos de makeup FX</span>
       <h2 class="d">Aprende a crear tus propios personajes</h2>
-      <p>Cupos limitados por grupo. Compra tu curso aquí y te contactamos para darte acceso.</p>
+      <p>Aprende con los mismos productos que usa el cine: Kryolan, Pros-Aide, transfers y sangres profesionales. Cupos limitados por grupo.</p>
     </div>
     <div class="grid3" id="courseGrid"></div>
-    <p class="note">* Cursos, fechas, cupos y precios de ejemplo para el boceto.</p>
+    <p class="note">* Precios, fechas y cupos de referencia: se confirman con Studio Fx.</p>
+    <div class="quotes">
+      <div class="quote"><p>Excelente poder conocer productos nuevos que realmente sirvan para crear un maquillaje que resalte.</p><small>Asistente a la masterclass</small></div>
+      <div class="quote"><p>Uno cree que sale de la nada, pero de verdad es un proceso de años. Es impresionante.</p><small>Asistente a la masterclass</small></div>
+      <div class="quote"><p>Nos ayuda a convivir, conocer gente y hacer contactos para diferentes proyectos.</p><small>Asistente a la masterclass</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- FESTIVAL -->
+<section id="festival">
+  <div class="wrap fest">
+    <div class="ph media"><img src="img/festival-afiche.webp" alt="Afiche del Festival Reel FX"><button class="play" data-video="img/video-festival.mp4" aria-label="Ver video"><svg viewBox="0 0 24 24" fill="#fff"><path d="M6 4l14 8-14 8z"/></svg></button></div>
+    <div>
+      <span class="eyebrow">Primera edición Latinoamérica 2026</span>
+      <h2 class="d" style="font-size:clamp(38px,6vw,72px);margin-bottom:14px">Festival Reel FX</h2>
+      <p style="color:var(--muted);font-size:16px">Crea tu corto con maquillaje FX y míralo proyectado en la pantalla grande de un cine, con sonido de sala, junto a otros artistas y realizadores. Organizan Studio FX, Glow Up y Cine Makeup.</p>
+      <div class="facts">
+        <div><b class="d">07.12</b><span>7 de diciembre</span></div>
+        <div><b class="d">UVK</b><span>Multicines · Patio Panorama</span></div>
+        <div><b class="d">Reel FX</b><span>Participa con tu corto</span></div>
+      </div>
+      <div class="row">
+        <a class="btn btn-red" target="_blank" rel="noopener" href="https://wa.me/51941708628?text=Hola%20Studio%20Fx%2C%20quiero%20participar%20en%20el%20Festival%20Reel%20FX">Quiero participar</a>
+        <button class="btn btn-line" data-video="img/video-festival.mp4">Ver el video</button>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -383,19 +432,19 @@ footer a{color:var(--bone);font-weight:700}
   <div class="wrap biz">
     <div>
       <span class="eyebrow">Para empresas</span>
-      <h2 class="d" style="font-size:clamp(34px,5vw,54px);margin-bottom:12px">Charlas, ponencias y activaciones</h2>
-      <p style="color:var(--muted)">Llevamos el maquillaje FX a tu evento: charlas para equipos, demostraciones en vivo y personajes para lanzamientos de marca.</p>
+      <h2 class="d" style="font-size:clamp(34px,5vw,54px);margin-bottom:12px">Masterclasses, charlas y activaciones</h2>
+      <p style="color:var(--muted)">Llevamos el maquillaje FX a tu evento: masterclasses con demostración en vivo, charlas para equipos y personajes para tiendas y lanzamientos de marca.</p>
       <div class="list">
-        <div><span class="num d">1</span><p><b>Charlas y ponencias</b><span>Creatividad, oficio y trabajo detrás de cámaras.</span></p></div>
-        <div><span class="num d">2</span><p><b>Demostraciones en vivo</b><span>Transformación de un personaje frente al público.</span></p></div>
-        <div><span class="num d">3</span><p><b>Activaciones de marca</b><span>Personajes para campañas, ferias y lanzamientos.</span></p></div>
+        <div><span class="num d">1</span><p><b>Masterclasses y charlas</b><span>Presentación, productos del cine y una criatura creada frente al público.</span></p></div>
+        <div><span class="num d">2</span><p><b>Shows y eventos nocturnos</b><span>Personajes caracterizados para escenario, recorridos y experiencias.</span></p></div>
+        <div><span class="num d">3</span><p><b>Activaciones en tienda</b><span>Transformaciones en vivo para marcas de maquillaje y centros comerciales.</span></p></div>
       </div>
       <a class="btn btn-wa" target="_blank" rel="noopener" href="https://wa.me/51941708628?text=Hola%20Studio%20Fx%2C%20quiero%20cotizar%20una%20charla%20o%20activaci%C3%B3n%20para%20mi%20empresa">
         <svg class="ic" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.4-.5.3-.5c.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3zM12 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4c-1-1.6-1.5-3.4-1.5-5.2 0-5.4 4.4-9.8 9.8-9.8 2.6 0 5.1 1 6.9 2.9 1.9 1.9 2.9 4.3 2.9 6.9 0 5.4-4.4 9.8-9.8 9.8zM20.5 3.5C18.2 1.2 15.2 0 12 0 5.4 0 .1 5.3.1 11.9c0 2.1.5 4.2 1.6 6L0 24l6.3-1.6c1.8 1 3.8 1.5 5.7 1.5 6.6 0 11.9-5.3 11.9-11.9 0-3.2-1.2-6.2-3.4-8.5z"/></svg>
         Cotizar para mi empresa
       </a>
     </div>
-    <div class="ph media"><img src="img/activacion-4.webp" alt="Activación de maquillaje FX en tienda"><button class="play" data-video="img/video-activacion.mp4" aria-label="Ver video"><svg viewBox="0 0 24 24" fill="#fff"><path d="M6 4l14 8-14 8z"/></svg></button><span class="lb">Activación en tienda</span></div>
+    <div class="ph media"><img src="img/masterclass-charla.webp" alt="Masterclass de maquillaje FX"><button class="play" data-video="img/video-masterclass.mp4" aria-label="Ver video"><svg viewBox="0 0 24 24" fill="#fff"><path d="M6 4l14 8-14 8z"/></svg></button><span class="lb">Masterclass</span></div>
   </div>
 </section>
 
@@ -406,9 +455,14 @@ footer a{color:var(--bone);font-weight:700}
     <div>
       <span class="eyebrow">Sobre el Studio</span>
       <h2 class="d">Detrás de cada personaje</h2>
-      <p>Aquí va tu historia: cómo empezaste en el maquillaje FX, en qué producciones has trabajado y qué hace diferente a Studio Fx.</p>
-      <p>Este texto lo escribimos juntos con tus datos reales cuando avancemos.</p>
-      <div class="chips"><span class="chip">Cine</span><span class="chip">Televisión</span><span class="chip">Teatro</span><span class="chip">Circo</span><span class="chip">Marcas</span></div>
+      <p>Studio Fx es el estudio de <b style="color:var(--bone)">Pablo Beltrán</b>, artista de maquillaje de efectos especiales. Crea heridas, prótesis, criaturas y personajes completos para cine, cortometrajes, teatro, eventos y marcas, con productos profesionales como Kryolan y Pros-Aide.</p>
+      <p>También enseña: dicta cursos y masterclasses en su estudio y es parte de la organización del Festival Reel FX, para que los artistas vean su trabajo en la pantalla grande.</p>
+      <div class="chips"><span class="chip">Cine y cortometrajes</span><span class="chip">Teatro y shows</span><span class="chip">Cursos</span><span class="chip">Masterclasses</span><span class="chip">Marcas</span></div>
+      <div class="social">
+        <a href="https://www.instagram.com/pablobeltranmakeup/" target="_blank" rel="noopener">Instagram · @pablobeltranmakeup</a>
+        <a href="https://www.tiktok.com/@pablobeltranfx" target="_blank" rel="noopener">TikTok · @pablobeltranfx</a>
+        <span class="chip" style="border-radius:999px;padding:8px 14px">Facebook · Pablo Beltran Make Up</span>
+      </div>
     </div>
   </div>
 </section>
@@ -424,7 +478,7 @@ footer a{color:var(--bone);font-weight:700}
 </section>
 
 <footer>
-  <div class="wrap">© 2026 Studio Fx · Lima, Perú<br>Boceto hecho por <a href="https://studio.litlejacob.trade" target="_blank" rel="noopener">LitleJacob Studio Web</a></div>
+  <div class="wrap">© 2026 Studio Fx · Pablo Beltrán FX · Lima, Perú<br>Boceto hecho por <a href="https://studio.litlejacob.trade" target="_blank" rel="noopener">LitleJacob Studio Web</a></div>
 </footer>
 
 <a class="fab" target="_blank" rel="noopener" aria-label="WhatsApp" href="https://wa.me/51941708628?text=Hola%20Studio%20Fx%2C%20vi%20su%20p%C3%A1gina%20web">
@@ -453,21 +507,22 @@ footer a{color:var(--bone);font-weight:700}
 <div class="toast" id="toast"></div>
 
 <script>
-const CAM = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>';
-const ph = (t) => `<div class="ph media"><img src="img/${t}.webp" alt="" loading="lazy"></div>`;
 const PLAY='<svg viewBox="0 0 24 24" fill="#fff"><path d="M6 4l14 8-14 8z"/></svg>';
+const CAM = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>';
+const ph = (t,v) => `<div class="ph media"><img src="img/${t}.webp" alt="" loading="lazy">${v?`<button class="play" data-video="img/${v}.mp4" aria-label="Ver video">${PLAY}</button>`:''}</div>`;
+const PLAY0='<svg viewBox="0 0 24 24" fill="#fff"><path d="M6 4l14 8-14 8z"/></svg>';
 const S = n => 'S/ ' + n.toLocaleString('es-PE');
 
 /* ---- Datos de ejemplo (se cambian por los reales) ---- */
 const SERVICES = [
-  {id:'s1', name:'Caracterización para cine y TV', desc:'Personajes, heridas, envejecimiento y prótesis para rodajes.', tags:['Por jornada','Incluye materiales'], price:450, unit:'por jornada', foto:'estudio-personaje'},
-  {id:'s2', name:'Maquillaje FX para teatro y circo', desc:'Personajes resistentes a la función completa y al movimiento.', tags:['Por función','Elenco o solista'], price:250, unit:'por artista', foto:'mascara'},
-  {id:'s3', name:'Personaje para activación de marca', desc:'Un personaje a medida para tu evento, feria o lanzamiento.', tags:['Hasta 4 horas','A domicilio en Lima'], price:600, unit:'por evento', foto:'activacion-1'},
+  {id:'s1', name:'Maquillaje FX hiperrealista para cine y cortometrajes', desc:'Heridas, quemaduras y prótesis que dejan gesticular al actor y aguantan la cámara de cerca.', tags:['Por jornada','Productos Kryolan'], price:450, unit:'por jornada', foto:'tutorial-heridas', video:'video-heridas'},
+  {id:'s2', name:'Caracterización para teatro, shows y eventos', desc:'Personajes completos con prótesis, maquillaje y peluquería para escenario y eventos nocturnos.', tags:['Por artista','Elenco completo'], price:250, unit:'por artista', foto:'show-simio', video:'video-produccion'},
+  {id:'s3', name:'Transformación en vivo para marcas', desc:'Activaciones en tienda y centros comerciales: el público ve cómo nace el personaje.', tags:['Hasta 4 horas','En Lima'], price:600, unit:'por evento', foto:'activacion-1', video:'video-activacion'},
 ];
 const COURSES = [
-  {id:'c1', name:'Makeup FX desde cero', desc:'Heridas, cicatrices, quemaduras y sangre falsa. Ideal si recién empiezas.', tags:['Presencial','4 sesiones','Kit incluido'], price:380, old:450, cupos:12, quedan:5, fecha:'Inicia 15 de noviembre', foto:'curso-alumnos'},
-  {id:'c2', name:'Prótesis y caracterización', desc:'Moldeado, vaciado y aplicación de prótesis de silicona y látex.', tags:['Presencial','6 sesiones','Nivel intermedio'], price:620, old:720, cupos:8, quedan:3, fecha:'Inicia 29 de noviembre', foto:'curso-protesis'},
-  {id:'c3', name:'Maquillaje FX para Halloween y eventos', desc:'Looks rápidos y de impacto para trabajar en temporada.', tags:['Virtual en vivo','2 sesiones','Grabación incluida'], price:150, old:190, cupos:30, quedan:18, fecha:'Inicia 22 de noviembre', foto:'zombie'},
+  {id:'c1', name:'Programa profesional de Maquillaje FX', desc:'Formación por meses en el Studio: heridas, quemaduras, prótesis y caracterización con productos profesionales.', tags:['Presencial','Por meses','Pago en cuotas'], price:1450, cupos:15, quedan:6, fecha:'Inscripciones abiertas', foto:'curso-salon', video:'video-curso'},
+  {id:'c2', name:'Taller de prótesis y caracterización', desc:'Aplicación de prótesis completas en grupo, practicando en modelos hasta el personaje terminado.', tags:['Presencial','Práctica en modelos'], price:620, cupos:10, quedan:4, fecha:'Próximo grupo', foto:'taller-simios', video:'video-taller'},
+  {id:'c3', name:'Masterclass de Maquillaje FX', desc:'Demostración en vivo: sangres, Pros-Aide y transfers que usa el cine, y cómo se construye una criatura.', tags:['Evento en vivo','1 día','Preguntas'], price:150, cupos:40, quedan:22, fecha:'Próxima fecha', foto:'masterclass-demo', video:'video-masterclass'},
 ];
 const PLANS = [
   {id:'m1', name:'Mensual', price:49, per:'/mes', feats:['Clases grabadas nuevas cada mes','Comunidad privada de alumnos','10% de descuento en cursos']},
@@ -476,24 +531,24 @@ const PLANS = [
 ];
 const GALLERY = [
   {c:'pj', t:'Personaje', img:'zombie', k:'big'},
-  {c:'pr', t:'Prótesis', img:'mascara', video:'video-mascara'},
-  {c:'pj', t:'Personaje', img:'criatura'},
-  {c:'marca', t:'Activación', img:'activacion-2', video:'video-activacion'},
-  {c:'pr', t:'Prótesis', img:'protesis-cabeza'},
+  {c:'pr', t:'Herida con prótesis', img:'herida-cerca', video:'video-heridas'},
+  {c:'pj', t:'Criatura', img:'criatura-masterclass'},
+  {c:'marca', t:'Activación en tienda', img:'activacion-2', video:'video-activacion'},
+  {c:'pr', t:'Prótesis de simio', img:'simio-cerca'},
   {c:'pj', t:'Personaje', img:'anciana', k:'big'},
-  {c:'bts', t:'Detrás de cámaras', img:'estudio-personaje'},
+  {c:'pr', t:'Prótesis', img:'mascara', video:'video-mascara'},
+  {c:'bts', t:'Masterclass', img:'masterclass-grupo', video:'video-masterclass'},
+  {c:'pj', t:'Show nocturno', img:'show-simio', video:'video-produccion'},
+  {c:'pr', t:'Envejecimiento', img:'protesis-anciano'},
+  {c:'bts', t:'Taller de prótesis', img:'taller-simios', k:'wide', video:'video-taller'},
+  {c:'pj', t:'Personaje', img:'criatura'},
   {c:'marca', t:'Activación', img:'activacion-3'},
-  {c:'pr', t:'Taller de prótesis', img:'curso-alumnos', k:'wide'},
-  {c:'bts', t:'En rodaje', img:'rodaje-noche'},
-  {c:'pr', t:'Prótesis', img:'mascara-taller'},
-  {c:'marca', t:'Activación', img:'activacion-1'},
-  {c:'marca', t:'Activación', img:'activacion-4'},
 ];
 const ALL = {}; [...SERVICES,...COURSES,...PLANS].forEach(p=>ALL[p.id]=p);
 
 /* ---- Pintar secciones ---- */
 document.getElementById('svcGrid').innerHTML = SERVICES.map(s=>`
-  <article class="card">${ph(s.foto)}
+  <article class="card">${ph(s.foto,s.video)}
     <div class="bd"><h3>${s.name}</h3><p>${s.desc}</p>
       <div class="tags">${s.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div>
       <div class="price"><small>Desde</small><b>${S(s.price)}</b><small>${s.unit}</small></div>
@@ -503,12 +558,12 @@ document.getElementById('svcGrid').innerHTML = SERVICES.map(s=>`
 
 document.getElementById('courseGrid').innerHTML = COURSES.map(c=>{
   const pct = Math.round((c.cupos-c.quedan)/c.cupos*100);
-  return `<article class="card">${ph(c.foto)}
+  return `<article class="card">${ph(c.foto,c.video)}
     <div class="bd"><div class="tags"><span class="tag r">${c.fecha}</span></div>
       <h3>${c.name}</h3><p>${c.desc}</p>
       <div class="tags">${c.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div>
       <div class="cupos"><small>Quedan <b>${c.quedan} de ${c.cupos} cupos</b></small><div class="bar"><i style="width:${pct}%"></i></div></div>
-      <div class="price"><b>${S(c.price)}</b><s>${S(c.old)}</s></div>
+      <div class="price"><b>${S(c.price)}</b>${c.old?`<s>${S(c.old)}</s>`:''}</div>
       <button class="btn btn-red btn-block" data-add="${c.id}">Comprar curso</button>
     </div></article>`}).join('');
 
