@@ -59,6 +59,16 @@ section{padding:96px 0;position:relative}
   border:1px dashed #4a4239;border-radius:var(--r);display:grid;place-items:center;text-align:center;color:var(--soft);overflow:hidden}
 .ph span{display:flex;flex-direction:column;align-items:center;gap:8px;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:12px}
 .ph svg{width:28px;height:28px;opacity:.7}
+.media{border:0;background:#141210}
+.media img,.media video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 25%}
+.media .lb{position:absolute;left:12px;bottom:12px;font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;background:rgba(11,10,9,.82);color:var(--bone);padding:5px 9px;border-radius:6px;z-index:2}
+.play{position:absolute;inset:0;margin:auto;width:58px;height:58px;border-radius:50%;background:rgba(200,50,43,.92);border:0;display:grid;place-items:center;z-index:2;box-shadow:0 8px 24px rgba(0,0,0,.45);transition:.2s}
+.play:hover{transform:scale(1.08)}
+.play svg{width:22px;height:22px;opacity:1;margin-left:3px}
+.vbox{position:fixed;inset:0;z-index:55;background:rgba(0,0,0,.88);display:grid;place-items:center;padding:16px;opacity:0;pointer-events:none;transition:.25s}
+.vbox.on{opacity:1;pointer-events:auto}
+.vbox video{max-width:min(460px,100%);max-height:calc(100vh - 90px);border-radius:14px;background:#000}
+.vbox .x{position:absolute;top:16px;right:16px}
 
 /* Header */
 header{position:sticky;top:0;z-index:30;background:rgba(11,10,9,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
@@ -87,14 +97,14 @@ header{position:sticky;top:0;z-index:30;background:rgba(11,10,9,.92);backdrop-fi
 .hero-cta{display:flex;gap:12px;flex-wrap:wrap}
 .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:30px}
 .chip{border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:13px;color:var(--muted);background:rgba(255,255,255,.02)}
-.hero-media{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:240px 200px;gap:12px}
+.hero-media{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:290px 250px;gap:12px}
 .hero-media .ph:first-child{grid-row:span 2}
 
 /* Servicios */
 .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 .card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;transition:.2s}
 .card:hover{border-color:#4a4239;transform:translateY(-2px)}
-.card .ph{border-radius:0;border:0;border-bottom:1px solid var(--line);aspect-ratio:3/2}
+.card .ph{border-radius:0;border:0;border-bottom:1px solid var(--line);aspect-ratio:4/3}
 .card .bd{padding:20px;display:flex;flex-direction:column;gap:10px;flex:1}
 .card h3{font-size:20px;font-weight:800;line-height:1.2}
 .card p{color:var(--muted);font-size:14.5px}
@@ -116,7 +126,7 @@ header{position:sticky;top:0;z-index:30;background:rgba(11,10,9,.92);backdrop-fi
 .gallery .ph.big{grid-row:span 2}
 .gallery .ph.wide{grid-column:span 2}
 .gallery .ph.hide{display:none}
-.gallery .ph i{position:absolute;left:12px;bottom:12px;font-style:normal;font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;background:rgba(11,10,9,.8);color:var(--bone);padding:5px 9px;border-radius:6px}
+.gallery .ph i.old{position:absolute;left:12px;bottom:12px;font-style:normal;font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;background:rgba(11,10,9,.8);color:var(--bone);padding:5px 9px;border-radius:6px}
 
 /* Cursos */
 .cupos{margin-top:2px}
@@ -258,7 +268,7 @@ footer a{color:var(--bone);font-weight:700}
 </head>
 <body>
 
-<div class="proto">Boceto de diseño para Studio Fx · las fotos, cursos y precios se cambian por los tuyos</div>
+<div class="proto">Boceto de diseño para Studio Fx · fotos y videos tuyos · cursos y precios de ejemplo</div>
 
 <header>
   <div class="wrap nav">
@@ -303,9 +313,9 @@ footer a{color:var(--bone);font-weight:700}
       </div>
     </div>
     <div class="hero-media">
-      <div class="ph"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>Tu mejor personaje<br>(foto vertical)</span></div>
-      <div class="ph"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>Detalle de<br>maquillaje</span></div>
-      <div class="ph"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>Detrás de<br>cámaras</span></div>
+      <div class="ph media"><video src="img/transformacion.mp4" poster="img/zombie.webp" autoplay muted loop playsinline></video><span class="lb">Transformación en vivo</span></div>
+      <div class="ph media"><img src="img/criatura.webp" alt="Criatura con maquillaje FX"></div>
+      <div class="ph media"><img src="img/rodaje-noche.webp" alt="Maquillaje en un rodaje de noche"><span class="lb">En rodaje</span></div>
     </div>
   </div>
 </section>
@@ -329,14 +339,14 @@ footer a{color:var(--bone);font-weight:700}
     <div class="head">
       <span class="eyebrow">Portafolio</span>
       <h2 class="d">Nuestros personajes</h2>
-      <p>Trabajos para cine, televisión, teatro, circo y marcas.</p>
+      <p>Personajes, prótesis y activaciones hechos en el Studio. Toca ▶ para ver los videos.</p>
     </div>
     <div class="filters" id="filters">
       <button class="f on" data-f="all">Todos</button>
-      <button class="f" data-f="cine">Cine y TV</button>
-      <button class="f" data-f="teatro">Teatro</button>
-      <button class="f" data-f="circo">Circo</button>
+      <button class="f" data-f="pj">Personajes</button>
+      <button class="f" data-f="pr">Prótesis</button>
       <button class="f" data-f="marca">Activaciones</button>
+      <button class="f" data-f="bts">Detrás de cámaras</button>
     </div>
     <div class="gallery" id="gallery"></div>
   </div>
@@ -385,14 +395,14 @@ footer a{color:var(--bone);font-weight:700}
         Cotizar para mi empresa
       </a>
     </div>
-    <div class="ph"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>Foto de una charla<br>o activación</span></div>
+    <div class="ph media"><img src="img/activacion-4.webp" alt="Activación de maquillaje FX en tienda"><button class="play" data-video="img/video-activacion.mp4" aria-label="Ver video"><svg viewBox="0 0 24 24" fill="#fff"><path d="M6 4l14 8-14 8z"/></svg></button><span class="lb">Activación en tienda</span></div>
   </div>
 </section>
 
 <!-- SOBRE -->
 <section id="sobre">
   <div class="wrap about">
-    <div class="ph"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>Tu foto<br>trabajando</span></div>
+    <div class="ph media"><img src="img/artista.webp" alt="El artista en Studio Fx" style="object-position:center 10%"><button class="play" data-video="img/video-artista.mp4" aria-label="Ver video"><svg viewBox="0 0 24 24" fill="#fff"><path d="M6 4l14 8-14 8z"/></svg></button><span class="lb">Mira el video</span></div>
     <div>
       <span class="eyebrow">Sobre el Studio</span>
       <h2 class="d">Detrás de cada personaje</h2>
@@ -439,23 +449,25 @@ footer a{color:var(--bone);font-weight:700}
   <div class="pay" id="pay"></div>
 </div>
 
+<div class="vbox" id="vbox"><button class="x" data-vclose>×</button><video id="vplayer" controls playsinline></video></div>
 <div class="toast" id="toast"></div>
 
 <script>
 const CAM = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>';
-const ph = (t) => `<div class="ph"><span>${CAM}${t}</span></div>`;
+const ph = (t) => `<div class="ph media"><img src="img/${t}.webp" alt="" loading="lazy"></div>`;
+const PLAY='<svg viewBox="0 0 24 24" fill="#fff"><path d="M6 4l14 8-14 8z"/></svg>';
 const S = n => 'S/ ' + n.toLocaleString('es-PE');
 
 /* ---- Datos de ejemplo (se cambian por los reales) ---- */
 const SERVICES = [
-  {id:'s1', name:'Caracterización para cine y TV', desc:'Personajes, heridas, envejecimiento y prótesis para rodajes.', tags:['Por jornada','Incluye materiales'], price:450, unit:'por jornada', foto:'Foto: set de rodaje'},
-  {id:'s2', name:'Maquillaje FX para teatro y circo', desc:'Personajes resistentes a la función completa y al movimiento.', tags:['Por función','Elenco o solista'], price:250, unit:'por artista', foto:'Foto: personaje en escena'},
-  {id:'s3', name:'Personaje para activación de marca', desc:'Un personaje a medida para tu evento, feria o lanzamiento.', tags:['Hasta 4 horas','A domicilio en Lima'], price:600, unit:'por evento', foto:'Foto: activación'},
+  {id:'s1', name:'Caracterización para cine y TV', desc:'Personajes, heridas, envejecimiento y prótesis para rodajes.', tags:['Por jornada','Incluye materiales'], price:450, unit:'por jornada', foto:'estudio-personaje'},
+  {id:'s2', name:'Maquillaje FX para teatro y circo', desc:'Personajes resistentes a la función completa y al movimiento.', tags:['Por función','Elenco o solista'], price:250, unit:'por artista', foto:'mascara'},
+  {id:'s3', name:'Personaje para activación de marca', desc:'Un personaje a medida para tu evento, feria o lanzamiento.', tags:['Hasta 4 horas','A domicilio en Lima'], price:600, unit:'por evento', foto:'activacion-1'},
 ];
 const COURSES = [
-  {id:'c1', name:'Makeup FX desde cero', desc:'Heridas, cicatrices, quemaduras y sangre falsa. Ideal si recién empiezas.', tags:['Presencial','4 sesiones','Kit incluido'], price:380, old:450, cupos:12, quedan:5, fecha:'Inicia 15 de noviembre', foto:'Foto: alumnos en clase'},
-  {id:'c2', name:'Prótesis y caracterización', desc:'Moldeado, vaciado y aplicación de prótesis de silicona y látex.', tags:['Presencial','6 sesiones','Nivel intermedio'], price:620, old:720, cupos:8, quedan:3, fecha:'Inicia 29 de noviembre', foto:'Foto: prótesis'},
-  {id:'c3', name:'Maquillaje FX para Halloween y eventos', desc:'Looks rápidos y de impacto para trabajar en temporada.', tags:['Virtual en vivo','2 sesiones','Grabación incluida'], price:150, old:190, cupos:30, quedan:18, fecha:'Inicia 22 de noviembre', foto:'Foto: look terminado'},
+  {id:'c1', name:'Makeup FX desde cero', desc:'Heridas, cicatrices, quemaduras y sangre falsa. Ideal si recién empiezas.', tags:['Presencial','4 sesiones','Kit incluido'], price:380, old:450, cupos:12, quedan:5, fecha:'Inicia 15 de noviembre', foto:'curso-alumnos'},
+  {id:'c2', name:'Prótesis y caracterización', desc:'Moldeado, vaciado y aplicación de prótesis de silicona y látex.', tags:['Presencial','6 sesiones','Nivel intermedio'], price:620, old:720, cupos:8, quedan:3, fecha:'Inicia 29 de noviembre', foto:'curso-protesis'},
+  {id:'c3', name:'Maquillaje FX para Halloween y eventos', desc:'Looks rápidos y de impacto para trabajar en temporada.', tags:['Virtual en vivo','2 sesiones','Grabación incluida'], price:150, old:190, cupos:30, quedan:18, fecha:'Inicia 22 de noviembre', foto:'zombie'},
 ];
 const PLANS = [
   {id:'m1', name:'Mensual', price:49, per:'/mes', feats:['Clases grabadas nuevas cada mes','Comunidad privada de alumnos','10% de descuento en cursos']},
@@ -463,8 +475,19 @@ const PLANS = [
   {id:'m3', name:'Pro', price:89, per:'/mes', feats:['Todo lo del plan mensual','Revisión de tus trabajos 1 vez al mes','Certificado digital por curso','Asesoría para tu portafolio']},
 ];
 const GALLERY = [
-  {c:'cine', t:'Cine y TV', k:'big'}, {c:'teatro', t:'Teatro'}, {c:'circo', t:'Circo'}, {c:'marca', t:'Activación'},
-  {c:'cine', t:'Cine y TV'}, {c:'circo', t:'Circo', k:'wide'}, {c:'teatro', t:'Teatro'}, {c:'marca', t:'Activación'}, {c:'cine', t:'Cine y TV', k:'wide'},
+  {c:'pj', t:'Personaje', img:'zombie', k:'big'},
+  {c:'pr', t:'Prótesis', img:'mascara', video:'video-mascara'},
+  {c:'pj', t:'Personaje', img:'criatura'},
+  {c:'marca', t:'Activación', img:'activacion-2', video:'video-activacion'},
+  {c:'pr', t:'Prótesis', img:'protesis-cabeza'},
+  {c:'pj', t:'Personaje', img:'anciana', k:'big'},
+  {c:'bts', t:'Detrás de cámaras', img:'estudio-personaje'},
+  {c:'marca', t:'Activación', img:'activacion-3'},
+  {c:'pr', t:'Taller de prótesis', img:'curso-alumnos', k:'wide'},
+  {c:'bts', t:'En rodaje', img:'rodaje-noche'},
+  {c:'pr', t:'Prótesis', img:'mascara-taller'},
+  {c:'marca', t:'Activación', img:'activacion-1'},
+  {c:'marca', t:'Activación', img:'activacion-4'},
 ];
 const ALL = {}; [...SERVICES,...COURSES,...PLANS].forEach(p=>ALL[p.id]=p);
 
@@ -498,7 +521,7 @@ document.getElementById('plans').innerHTML = PLANS.map(p=>`
   </div>`).join('');
 
 document.getElementById('gallery').innerHTML = GALLERY.map(g=>`
-  <div class="ph ${g.k||''}" data-c="${g.c}"><span>${CAM}Foto de personaje</span><i>${g.t}</i></div>`).join('');
+  <div class="ph media ${g.k||''}" data-c="${g.c}"><img src="img/${g.img}.webp" alt="${g.t}" loading="lazy">${g.video?`<button class="play" data-video="img/${g.video}.mp4" aria-label="Ver video">${PLAY}</button>`:''}<span class="lb">${g.t}</span></div>`).join('');
 
 document.getElementById('filters').addEventListener('click',e=>{
   const b=e.target.closest('.f'); if(!b) return;
@@ -527,7 +550,7 @@ function renderCart(){
   if(!n){ items.innerHTML='<div class="empty">Tu carrito está vacío.<br><br><a href="#cursos" class="btn btn-line btn-sm" data-close>Ver cursos</a></div>'; document.getElementById('df').style.display='none'; return; }
   document.getElementById('df').style.display='';
   items.innerHTML = Object.entries(cart).map(([id,q])=>{const p=ALL[id]; const one=id[0]==='m';
-    return `<div class="it"><div class="ph"><span>${CAM}</span></div>
+    return `<div class="it">${p.foto?`<div class="ph media"><img src="img/${p.foto}.webp" alt=""></div>`:'<div class="ph"><span>'+CAM+'</span></div>'}
       <div><b>${label(id)}</b><small>${kind(id)}${p.per?' · '+p.per.slice(1):''}</small>
         <div class="q">${one?'':`<button data-q="${id}" data-d="-1">−</button><span>${q}</span><button data-q="${id}" data-d="1">+</button>`}<button class="rm" data-rm="${id}">Quitar</button></div></div>
       <div class="pp">${S(p.price*q)}</div></div>`}).join('');
@@ -627,8 +650,13 @@ modal.addEventListener('click',e=>{
   if(e.target===modal || e.target.closest('[data-pclose]')) modal.classList.remove('on');
   const m=e.target.closest('[data-m]'); if(m){ method=m.dataset.m; renderPay(); }
 });
-document.addEventListener('keydown',e=>{ if(e.key==='Escape'){ modal.classList.remove('on'); closeCart(); } });
+document.addEventListener('keydown',e=>{ if(e.key==='Escape'){ modal.classList.remove('on'); closeCart(); vp.pause(); vbox.classList.remove('on'); } });
 
+const vbox=document.getElementById('vbox'), vp=document.getElementById('vplayer');
+document.addEventListener('click',e=>{
+  const v=e.target.closest('[data-video]'); if(v){ vp.src=v.dataset.video; vbox.classList.add('on'); vp.play().catch(()=>{}); return; }
+  if(e.target===vbox || e.target.closest('[data-vclose]')){ vp.pause(); vp.removeAttribute('src'); vp.load(); vbox.classList.remove('on'); }
+});
 renderCart();
 </script>
 </body>
