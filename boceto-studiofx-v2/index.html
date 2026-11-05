@@ -11,7 +11,9 @@
 <meta property="og:image" content="https://studio.litlejacob.trade/boceto-studiofx-v2/og.jpg">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#0b0a09">
-<link rel="icon" href="favicon.png">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -373,6 +375,41 @@ details.mods li b{color:var(--bone);font-weight:700}
   .hero2 .hero-cta .btn{padding:13px 8px;font-size:14px}
   .gallery .ba{grid-column:1/-1}
 }
+
+/* ===== Pestañas ===== */
+.pg-hide{display:none!important}
+section,#explora{scroll-margin-top:78px}
+.links a{position:relative;padding:6px 0}
+.links a.on{color:var(--bone)}
+.links a.on:after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:2px;background:var(--red);border-radius:2px}
+.links a.cta{color:var(--bone);border:1px solid #4a4239;border-radius:8px;padding:6px 12px}
+.links a.cta:hover{border-color:var(--bone)}
+.logo{filter:drop-shadow(0 3px 8px rgba(200,50,43,.35))}
+.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.tile{position:relative;aspect-ratio:3/4;border-radius:var(--r);overflow:hidden;border:1px solid var(--line);background:#141210;display:block}
+.tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 25%;transition:transform .5s}
+.tile:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 35%,rgba(11,10,9,.92) 88%)}
+.tile:hover img{transform:scale(1.05)}
+.tile div{position:absolute;left:18px;right:18px;bottom:18px;z-index:2;display:flex;flex-direction:column;gap:4px}
+.tile small{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--red2)}
+.tile b{font-size:30px}
+.tile span{font-size:14px;color:#d8cfc3}
+.hero-clip{display:none}
+@media (min-width:961px){
+  .hero2 .bgv{filter:blur(16px) brightness(.55);transform:scale(1.1)}
+  .hero-clip{display:block;position:absolute;z-index:2;right:max(20px,calc((100vw - 1200px)/2 + 20px));top:50%;transform:translateY(-46%);width:min(380px,27vw);aspect-ratio:360/422;border-radius:16px;overflow:hidden;border:1px solid rgba(239,232,221,.18);box-shadow:0 30px 80px rgba(0,0,0,.6)}
+  .hero-clip video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .hero-clip .lb{position:absolute;left:12px;bottom:12px;font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;background:rgba(11,10,9,.82);padding:5px 9px;border-radius:6px}
+  .hero2 h1{max-width:9ch;font-size:clamp(56px,6.4vw,122px)}
+}
+@media (max-width:1100px){ .links{gap:18px} }
+@media (max-width:960px){
+  .tiles{grid-template-columns:1fr 1fr}
+  .links a.on:after{display:none}
+  .links a.on{color:var(--red2)}
+  .links a.cta{border:0;border-bottom:1px solid var(--line);border-radius:0;padding:14px 0}
+}
+@media (max-width:640px){ .tile b{font-size:24px} .tile div{left:12px;right:12px;bottom:12px} .tile span{font-size:12.5px} }
 </style>
 </head>
 <body>
@@ -382,17 +419,18 @@ details.mods li b{color:var(--bone);font-weight:700}
 <header>
   <div class="wrap nav">
     <a href="#inicio" class="brand">
-      <svg class="logo" viewBox="0 0 42 42"><circle cx="21" cy="21" r="21" fill="#c8322b"/><text x="21" y="27.5" text-anchor="middle" font-family="Anton,Impact,sans-serif" font-size="17" fill="#fff">FX</text></svg>
-      <div><b class="d">Studio Fx</b><small>Pablo Beltrán FX · Maquillaje FX</small></div>
+      <svg class="logo" viewBox="0 0 42 42" aria-hidden="true"><defs><linearGradient id="lgDrop" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e0463e"/><stop offset="1" stop-color="#8f1a14"/></linearGradient></defs><path d="M21 2.5C21 2.5 8 17.5 8 26.5a13 13 0 0 0 26 0C34 17.5 21 2.5 21 2.5Z" fill="url(#lgDrop)"/><path d="M12.5 27.5 29.5 21.5" stroke="#efe8dd" stroke-width="1.7" stroke-linecap="round"/><path d="M15.5 23.9l1.6 4.4M20 22.3l1.6 4.4M24.5 20.8l1.6 4.4" stroke="#efe8dd" stroke-width="1.4" stroke-linecap="round"/><path d="M14.2 13.8c-1.6 2.3-2.7 4.5-3.1 6.4" stroke="#fff" stroke-opacity=".35" stroke-width="1.6" stroke-linecap="round" fill="none"/></svg>
+      <div><b class="d">Studio <span style="color:var(--red2)">Fx</span></b><small>Pablo Beltrán FX · Maquillaje FX</small></div>
     </a>
     <nav class="links" id="links">
+      <a href="#inicio">Inicio</a>
       <a href="#servicios">Servicios</a>
       <a href="#portafolio">Portafolio</a>
       <a href="#cursos">Cursos</a>
       <a href="#festival">Festival</a>
-      <a href="#membresia">Membresía</a>
       <a href="#empresas">Empresas</a>
-      <a href="#contacto">Contacto</a>
+      <a href="#sobre">Nosotros</a>
+      <a href="#contacto" class="cta">Contacto</a>
     </nav>
     <div class="nav-r">
       <button class="cart-btn" id="cartBtn" aria-label="Ver carrito">
@@ -405,8 +443,9 @@ details.mods li b{color:var(--bone);font-weight:700}
 </header>
 
 <!-- INICIO -->
-<section class="hero2" id="inicio">
-  <video src="../boceto-studiofx/img/transformacion.mp4" poster="../boceto-studiofx/img/zombie.webp" autoplay muted loop playsinline></video>
+<section class="hero2" id="inicio" data-page="inicio">
+  <video class="bgv" src="img/transformacion.mp4" poster="img/zombie.webp" autoplay muted loop playsinline></video>
+  <div class="hero-clip"><video src="img/transformacion.mp4" poster="img/zombie.webp" autoplay muted loop playsinline></video><span class="lb">Transformación real · acelerada</span></div>
   <div class="wrap">
     <span class="live"><i></i> Transformación real del Studio</span>
     <h1 class="d">Personajes que <em>no se olvidan</em></h1>
@@ -422,10 +461,22 @@ details.mods li b{color:var(--bone);font-weight:700}
     </div>
   </div>
 </section>
-<div class="strip"><span>Cine y cortometrajes</span><span>Prótesis</span><span>Criaturas</span><span>Teatro y shows</span><span>Kryolan · Pros-Aide</span></div>
+<div class="strip" data-page="inicio"><span>Cine y cortometrajes</span><span>Prótesis</span><span>Criaturas</span><span>Teatro y shows</span><span>Kryolan · Pros-Aide</span></div>
+
+<section id="explora" data-page="inicio">
+  <div class="wrap">
+    <div class="head"><span class="eyebrow">Explora el Studio</span><h2 class="d">¿Qué estás buscando?</h2></div>
+    <div class="tiles">
+      <a class="tile" href="#servicios"><img src="img/tutorial-heridas.webp" alt="" loading="lazy"><div><small>Para producciones</small><b class="d">Servicios</b><span>Cine, teatro, eventos y marcas →</span></div></a>
+      <a class="tile" href="#portafolio"><img src="img/zombie.webp" alt="" loading="lazy"><div><small>Trabajos reales</small><b class="d">Portafolio</b><span>Personajes, prótesis y criaturas →</span></div></a>
+      <a class="tile" href="#cursos"><img src="img/curso-salon.webp" alt="" loading="lazy"><div><small>Aprende con Pablo</small><b class="d">Cursos</b><span>Programa, taller y masterclass →</span></div></a>
+      <a class="tile" href="#festival"><img src="img/festival-afiche.webp" alt="" loading="lazy"><div><small>7 de diciembre</small><b class="d">Festival Reel FX</b><span>Tu corto en pantalla de cine →</span></div></a>
+    </div>
+  </div>
+</section>
 
 <!-- SERVICIOS -->
-<section class="alt" id="servicios">
+<section class="alt" id="servicios" data-page="servicios">
   <div class="wrap">
     <div class="head">
       <span class="eyebrow">Servicios</span>
@@ -438,7 +489,7 @@ details.mods li b{color:var(--bone);font-weight:700}
 </section>
 
 <!-- PORTAFOLIO -->
-<section id="portafolio">
+<section id="portafolio" data-page="portafolio">
   <div class="wrap">
     <div class="head">
       <span class="eyebrow">Portafolio</span>
@@ -458,7 +509,7 @@ details.mods li b{color:var(--bone);font-weight:700}
 </section>
 
 <!-- CURSOS -->
-<section class="alt" id="cursos">
+<section class="alt" id="cursos" data-page="cursos">
   <div class="wrap">
     <div class="head">
       <span class="eyebrow">Cursos de makeup FX</span>
@@ -466,7 +517,7 @@ details.mods li b{color:var(--bone);font-weight:700}
       <p>Aprende con los mismos productos que usa el cine: Kryolan, Pros-Aide, transfers y sangres profesionales. Cupos limitados por grupo.</p>
     </div>
     <div class="teacher">
-      <div class="ph media"><img src="../boceto-studiofx/img/artista.webp" alt="Pablo Beltrán" style="object-position:center 12%"></div>
+      <div class="ph media"><img src="img/artista.webp" alt="Pablo Beltrán" style="object-position:center 12%"></div>
       <div><small>Tu profesor</small><h3 class="d">Pablo Beltrán</h3><p>Artista de maquillaje FX para cine, cortometrajes, teatro y marcas. Enseña con los mismos productos que usa en rodaje.</p></div>
       <div class="lvl" id="lvl"><span class="on" data-l="all">Todos</span><span data-l="Inicial">Inicial</span><span data-l="Intermedio">Intermedio</span><span data-l="Avanzado">Avanzado</span></div>
     </div>
@@ -474,17 +525,17 @@ details.mods li b{color:var(--bone);font-weight:700}
     <p class="note">* Precios, fechas y cupos de referencia: se confirman con Studio Fx.</p>
     <div class="cases-h"><div><span class="eyebrow">Casos de alumnos</span><h3 class="d">Lo que se llevan de la masterclass</h3></div></div>
     <div class="cases" style="margin-top:24px">
-      <article class="case"><div class="ph media"><img src="../boceto-studiofx/img/masterclass-demo.webp" alt="Demostración en la masterclass" loading="lazy"></div><div class="bd"><span class="k">Productos del cine</span><p>Excelente poder conocer productos nuevos que realmente sirvan para crear un maquillaje que resalte.</p><small>Asistente a la masterclass</small></div></article>
-      <article class="case"><div class="ph media"><img src="../boceto-studiofx/img/criatura-masterclass.webp" alt="Criatura creada en vivo" loading="lazy"></div><div class="bd"><span class="k">La criatura en vivo</span><p>Uno cree que sale de la nada, pero de verdad es un proceso de años. Es impresionante.</p><small>Asistente a la masterclass</small></div></article>
-      <article class="case"><div class="ph media"><img src="../boceto-studiofx/img/masterclass-grupo.webp" alt="Grupo de la masterclass" loading="lazy"></div><div class="bd"><span class="k">Comunidad y contactos</span><p>Nos ayuda a convivir, conocer gente y hacer contactos para diferentes proyectos.</p><small>Asistente a la masterclass</small></div></article>
+      <article class="case"><div class="ph media"><img src="img/masterclass-demo.webp" alt="Demostración en la masterclass" loading="lazy"></div><div class="bd"><span class="k">Productos del cine</span><p>Excelente poder conocer productos nuevos que realmente sirvan para crear un maquillaje que resalte.</p><small>Asistente a la masterclass</small></div></article>
+      <article class="case"><div class="ph media"><img src="img/criatura-masterclass.webp" alt="Criatura creada en vivo" loading="lazy"></div><div class="bd"><span class="k">La criatura en vivo</span><p>Uno cree que sale de la nada, pero de verdad es un proceso de años. Es impresionante.</p><small>Asistente a la masterclass</small></div></article>
+      <article class="case"><div class="ph media"><img src="img/masterclass-grupo.webp" alt="Grupo de la masterclass" loading="lazy"></div><div class="bd"><span class="k">Comunidad y contactos</span><p>Nos ayuda a convivir, conocer gente y hacer contactos para diferentes proyectos.</p><small>Asistente a la masterclass</small></div></article>
     </div>
   </div>
 </section>
 
 <!-- FESTIVAL -->
-<section id="festival">
+<section id="festival" data-page="festival">
   <div class="wrap fest">
-    <div class="ph media"><img src="../boceto-studiofx/img/festival-afiche.webp" alt="Afiche del Festival Reel FX"><button class="play" data-video="../boceto-studiofx/img/video-festival.mp4" aria-label="Ver video"><svg viewBox="0 0 24 24" fill="#fff"><path d="M6 4l14 8-14 8z"/></svg></button></div>
+    <div class="ph media"><img src="img/festival-afiche.webp" alt="Afiche del Festival Reel FX"><button class="play" data-video="../boceto-studiofx/img/video-festival.mp4" aria-label="Ver video"><svg viewBox="0 0 24 24" fill="#fff"><path d="M6 4l14 8-14 8z"/></svg></button></div>
     <div>
       <span class="eyebrow">Primera edición Latinoamérica 2026</span>
       <h2 class="d" style="font-size:clamp(38px,6vw,72px);margin-bottom:14px">Festival Reel FX</h2>
@@ -503,7 +554,7 @@ details.mods li b{color:var(--bone);font-weight:700}
 </section>
 
 <!-- MEMBRESÍA -->
-<section id="membresia">
+<section id="membresia" data-page="cursos">
   <div class="wrap">
     <div class="head">
       <span class="eyebrow">Membresía</span>
@@ -516,7 +567,7 @@ details.mods li b{color:var(--bone);font-weight:700}
 </section>
 
 <!-- EMPRESAS -->
-<section class="alt" id="empresas">
+<section class="alt" id="empresas" data-page="empresas">
   <div class="wrap biz">
     <div>
       <span class="eyebrow">Para empresas</span>
@@ -532,14 +583,14 @@ details.mods li b{color:var(--bone);font-weight:700}
         Cotizar para mi empresa
       </a>
     </div>
-    <div class="ph media"><img src="../boceto-studiofx/img/masterclass-charla.webp" alt="Masterclass de maquillaje FX"><button class="play" data-video="../boceto-studiofx/img/video-masterclass.mp4" aria-label="Ver video"><svg viewBox="0 0 24 24" fill="#fff"><path d="M6 4l14 8-14 8z"/></svg></button><span class="lb">Masterclass</span></div>
+    <div class="ph media"><img src="img/masterclass-charla.webp" alt="Masterclass de maquillaje FX"><button class="play" data-video="../boceto-studiofx/img/video-masterclass.mp4" aria-label="Ver video"><svg viewBox="0 0 24 24" fill="#fff"><path d="M6 4l14 8-14 8z"/></svg></button><span class="lb">Masterclass</span></div>
   </div>
 </section>
 
 <!-- SOBRE -->
-<section id="sobre">
+<section id="sobre" data-page="nosotros">
   <div class="wrap about">
-    <div class="ph media"><img src="../boceto-studiofx/img/artista.webp" alt="El artista en Studio Fx" style="object-position:center 10%"><button class="play" data-video="../boceto-studiofx/img/video-artista.mp4" aria-label="Ver video"><svg viewBox="0 0 24 24" fill="#fff"><path d="M6 4l14 8-14 8z"/></svg></button><span class="lb">Mira el video</span></div>
+    <div class="ph media"><img src="img/artista.webp" alt="El artista en Studio Fx" style="object-position:center 10%"><button class="play" data-video="../boceto-studiofx/img/video-artista.mp4" aria-label="Ver video"><svg viewBox="0 0 24 24" fill="#fff"><path d="M6 4l14 8-14 8z"/></svg></button><span class="lb">Mira el video</span></div>
     <div>
       <span class="eyebrow">Sobre el Studio</span>
       <h2 class="d">Detrás de cada personaje</h2>
@@ -603,7 +654,7 @@ details.mods li b{color:var(--bone);font-weight:700}
 <script>
 const PLAY='<svg viewBox="0 0 24 24" fill="#fff"><path d="M6 4l14 8-14 8z"/></svg>';
 const CAM = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>';
-const ph = (t,v) => `<div class="ph media"><img src="../boceto-studiofx/img/${t}.webp" alt="" loading="lazy">${v?`<button class="play" data-video="../boceto-studiofx/img/${v}.mp4" aria-label="Ver video">${PLAY}</button>`:''}</div>`;
+const ph = (t,v) => `<div class="ph media"><img src="img/${t}.webp" alt="" loading="lazy">${v?`<button class="play" data-video="../boceto-studiofx/img/${v}.mp4" aria-label="Ver video">${PLAY}</button>`:''}</div>`;
 const PLAY0='<svg viewBox="0 0 24 24" fill="#fff"><path d="M6 4l14 8-14 8z"/></svg>';
 const S = n => 'S/ ' + n.toLocaleString('es-PE');
 
@@ -676,8 +727,8 @@ document.getElementById('plans').innerHTML = PLANS.map(p=>`
   </div>`).join('');
 
 document.getElementById('gallery').innerHTML = GALLERY.map(g=>`
-  <div class="ph media ${g.k||''}" data-c="${g.c}"><img src="../boceto-studiofx/img/${g.img}.webp" alt="${g.t}" loading="lazy">${g.video?`<button class="play" data-video="../boceto-studiofx/img/${g.video}.mp4" aria-label="Ver video">${PLAY}</button>`:''}<span class="lb">${g.t}</span></div>`).join('') + BA.map(x=>`
-  <div class="ba wide hide" data-c="ba" style="grid-row:span 2"><img src="../boceto-studiofx/img/${x.a}.webp" alt="Proceso: ${x.t}" loading="lazy"><img class="top" src="../boceto-studiofx/img/${x.b}.webp" alt="Resultado: ${x.t}" loading="lazy">
+  <div class="ph media ${g.k||''}" data-c="${g.c}"><img src="img/${g.img}.webp" alt="${g.t}" loading="lazy">${g.video?`<button class="play" data-video="../boceto-studiofx/img/${g.video}.mp4" aria-label="Ver video">${PLAY}</button>`:''}<span class="lb">${g.t}</span></div>`).join('') + BA.map(x=>`
+  <div class="ba wide hide" data-c="ba" style="grid-row:span 2"><img src="img/${x.a}.webp" alt="Proceso: ${x.t}" loading="lazy"><img class="top" src="img/${x.b}.webp" alt="Resultado: ${x.t}" loading="lazy">
     <span class="line"></span><span class="knob">⇆</span><span class="tg l">Proceso</span><span class="tg r">Resultado</span>
     <input type="range" min="0" max="100" value="50" aria-label="Deslizar para comparar: ${x.t}"></div>`).join('');
 document.getElementById('gallery').addEventListener('input',e=>{ if(e.target.matches('.ba input')) e.target.parentNode.style.setProperty('--x',e.target.value+'%'); });
@@ -717,7 +768,7 @@ function renderCart(){
   if(!n){ items.innerHTML='<div class="empty">Tu carrito está vacío.<br><br><a href="#cursos" class="btn btn-line btn-sm" data-close>Ver cursos</a></div>'; document.getElementById('df').style.display='none'; return; }
   document.getElementById('df').style.display='';
   items.innerHTML = Object.entries(cart).map(([id,q])=>{const p=ALL[id]; const one=id[0]==='m';
-    return `<div class="it">${p.foto?`<div class="ph media"><img src="../boceto-studiofx/img/${p.foto}.webp" alt=""></div>`:'<div class="ph"><span>'+CAM+'</span></div>'}
+    return `<div class="it">${p.foto?`<div class="ph media"><img src="img/${p.foto}.webp" alt=""></div>`:'<div class="ph"><span>'+CAM+'</span></div>'}
       <div><b>${label(id)}</b><small>${kind(id)}${p.per?' · '+p.per.slice(1):''}</small>
         <div class="q">${one?'':`<button data-q="${id}" data-d="-1">−</button><span>${q}</span><button data-q="${id}" data-d="1">+</button>`}<button class="rm" data-rm="${id}">Quitar</button></div></div>
       <div class="pp">${S(p.price*q)}</div></div>`}).join('');
@@ -747,7 +798,7 @@ function toast(t){ const el=document.getElementById('toast'); el.textContent=t; 
 /* ---- Pago de demostración (no cobra ni envía nada) ---- */
 const modal=document.getElementById('modal'), pay=document.getElementById('pay');
 let method='card';
-const LOGO='<svg class="logo" viewBox="0 0 42 42"><circle cx="21" cy="21" r="21" fill="#c8322b"/><text x="21" y="27.5" text-anchor="middle" font-family="Anton,Impact,sans-serif" font-size="17" fill="#fff">FX</text></svg>';
+const LOGO='<svg class="logo" viewBox="0 0 42 42" aria-hidden="true"><defs><linearGradient id="lgDrop" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e0463e"/><stop offset="1" stop-color="#8f1a14"/></linearGradient></defs><path d="M21 2.5C21 2.5 8 17.5 8 26.5a13 13 0 0 0 26 0C34 17.5 21 2.5 21 2.5Z" fill="url(#lgDrop)"/><path d="M12.5 27.5 29.5 21.5" stroke="#efe8dd" stroke-width="1.7" stroke-linecap="round"/><path d="M15.5 23.9l1.6 4.4M20 22.3l1.6 4.4M24.5 20.8l1.6 4.4" stroke="#efe8dd" stroke-width="1.4" stroke-linecap="round"/><path d="M14.2 13.8c-1.6 2.3-2.7 4.5-3.1 6.4" stroke="#fff" stroke-opacity=".35" stroke-width="1.6" stroke-linecap="round" fill="none"/></svg>';
 const LOCK='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>';
 
 function head(){ return `<div class="pay-h">${LOGO}<div><b>Studio Fx</b><small>${count()} producto(s)</small></div>
@@ -825,6 +876,23 @@ document.addEventListener('click',e=>{
   if(e.target===vbox || e.target.closest('[data-vclose]')){ vp.pause(); vp.removeAttribute('src'); vp.load(); vbox.classList.remove('on'); }
 });
 renderCart();
+
+/* ---- Pestañas ---- */
+const MAP={inicio:'inicio',explora:'inicio',servicios:'servicios',portafolio:'portafolio',cursos:'cursos',membresia:'cursos',festival:'festival',empresas:'empresas',sobre:'nosotros'};
+const TITLES={inicio:'Maquillaje FX y creación de personajes',servicios:'Servicios',portafolio:'Portafolio',cursos:'Cursos',festival:'Festival Reel FX',empresas:'Empresas',nosotros:'Nosotros'};
+let cur=null;
+function route(){
+  const h=decodeURIComponent((location.hash||'#inicio').slice(1));
+  if(h==='contacto'){ document.getElementById('contacto').scrollIntoView({behavior:'smooth'}); return; }
+  const pg=MAP[h]||'inicio', changed=pg!==cur; cur=pg;
+  document.querySelectorAll('[data-page]').forEach(el=>el.classList.toggle('pg-hide',el.dataset.page!==pg));
+  document.querySelectorAll('#links a').forEach(a=>a.classList.toggle('on',MAP[a.getAttribute('href').slice(1)]===pg));
+  const el=document.getElementById(h), first=document.querySelector('[data-page="'+pg+'"]');
+  if(!el||el===first){ if(changed) window.scrollTo({top:0,behavior:'instant'}); }
+  else el.scrollIntoView({behavior:changed?'instant':'smooth'});
+  document.title=(pg==='inicio'?'Studio Fx · ':TITLES[pg]+' · Studio Fx · ')+(pg==='inicio'?TITLES.inicio:'Pablo Beltrán FX');
+}
+addEventListener('hashchange',route); route();
 </script>
 </body>
 </html>
