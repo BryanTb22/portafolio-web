@@ -118,6 +118,8 @@ section > .wrap{padding-block:96px}
 
 /* PROYECTOS */
 .projects{display:grid;grid-template-columns:repeat(3,1fr);gap:40px 32px}
+@media (min-width:1001px){.projects>.project:last-child:nth-child(3n+1){grid-column:2}}
+@media (min-width:761px) and (max-width:1000px){.projects>.project:last-child:nth-child(odd){grid-column:1/-1;max-width:calc(50% - 16px);justify-self:center;width:100%}}
 @media (max-width:1000px){.projects{grid-template-columns:1fr 1fr}}
 @media (max-width:760px){.projects{grid-template-columns:1fr;gap:48px}}
 .project{display:grid;gap:18px;text-decoration:none;align-content:start}
