@@ -1,0 +1,729 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ALBA · Moda para todos | Ejemplo de diseño</title>
+<meta name="description" content="Tienda de ropa online de ejemplo: catálogo, filtros, carrito y pago simulado. Diseño de LitleJacob Studio Web.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#ffffff">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ALBA · Tienda de ropa (ejemplo de diseño)">
+<meta property="og:description" content="Catálogo, tallas, carrito y pago con tarjeta. Una tienda de ropa lista para tu marca.">
+<meta property="og:image" content="https://studio.litlejacob.trade/demo-ropa/og.jpg">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="img/portada-1.webp">
+<style>
+:root{
+  --bg:#fff; --ink:#111; --muted:#767676; --line:#e5e5e5; --soft:#f4f4f4; --sale:#d6001c; --wa:#25d366;
+  --pad:clamp(16px,3vw,40px); --max:1600px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--ink);font:400 15px/1.5 Manrope,system-ui,sans-serif;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button,input,select{font:inherit;color:inherit}
+button{background:none;border:0;cursor:pointer}
+svg{width:22px;height:22px;flex:none}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+
+/* Barra superior y franja de ejemplo */
+.proto{background:#111;color:#fff;text-align:center;font-size:12px;padding:7px 12px;letter-spacing:.02em}
+.proto b{color:#ffd400;font-weight:700}
+.promo{background:var(--soft);text-align:center;font-size:13px;padding:8px 12px}
+.promo u{text-underline-offset:3px}
+
+/* Encabezado */
+header{position:sticky;top:0;z-index:40;background:#fff;border-bottom:1px solid var(--line)}
+.hd{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:64px}
+.nav{display:flex;gap:26px;font-size:14px;font-weight:500}
+.nav a{padding:6px 0;border-bottom:2px solid transparent}
+.nav a:hover,.nav a.on{border-color:var(--ink)}
+.logo{font-weight:800;font-size:30px;letter-spacing:.32em;padding-left:.32em;line-height:1}
+.icons{display:flex;justify-content:flex-end;gap:6px}
+.ib{position:relative;width:42px;height:42px;display:grid;place-items:center;border-radius:50%}
+.ib:hover{background:var(--soft)}
+.badge{position:absolute;top:3px;right:2px;min-width:18px;height:18px;border-radius:9px;background:var(--ink);color:#fff;font-size:11px;font-weight:700;display:grid;place-items:center;padding:0 5px;transform:scale(0);transition:transform .2s}
+.badge.on{transform:scale(1)}
+.burger{display:none}
+.searchbar{border-top:1px solid var(--line);display:none}
+.searchbar.on{display:block}
+.searchbar .wrap{display:flex;align-items:center;gap:10px;height:56px}
+.searchbar input{flex:1;border:0;outline:0;font-size:16px;background:none}
+
+/* Portada */
+.hero{position:relative;height:min(82vh,860px);min-height:460px;overflow:hidden;background:#c9c2b8}
+.hero img{width:100%;height:100%;object-fit:cover;object-position:center 30%}
+.hero .tx{position:absolute;left:var(--pad);bottom:clamp(28px,7vh,80px);color:#fff;max-width:560px;text-shadow:0 1px 18px rgba(0,0,0,.25)}
+.kick{font-size:13px;font-weight:600;letter-spacing:.18em;text-transform:uppercase}
+.hero h1{font-weight:300;font-size:clamp(44px,7vw,104px);line-height:.95;letter-spacing:-.02em;margin:10px 0 22px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:48px;padding:0 28px;font-weight:600;font-size:14px;background:var(--ink);color:#fff;border:1px solid var(--ink);transition:opacity .2s}
+.btn:hover{opacity:.85}
+.btn.w{background:#fff;color:var(--ink);border-color:#fff}
+.btn.line{background:#fff;color:var(--ink)}
+.btn.full{width:100%}
+.btn.wa{background:var(--wa);border-color:var(--wa);color:#fff}
+
+/* Secciones */
+section{padding:clamp(40px,6vw,80px) 0}
+.st{display:flex;align-items:end;justify-content:space-between;gap:16px;margin-bottom:24px}
+.st h2{font-weight:300;font-size:clamp(28px,3.4vw,46px);letter-spacing:-.01em;line-height:1.05}
+.st a{font-size:14px;font-weight:600;text-decoration:underline;text-underline-offset:4px;white-space:nowrap}
+
+/* Categorías */
+.cats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.cat{position:relative;overflow:hidden;aspect-ratio:3/4;background:var(--soft)}
+.cat img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.cat:hover img{transform:scale(1.04)}
+.cat span{position:absolute;left:14px;bottom:14px;background:#fff;padding:9px 16px;font-weight:600;font-size:14px}
+
+/* Filtros */
+.bar{position:sticky;top:64px;z-index:20;background:#fff;border-bottom:1px solid var(--line);margin-bottom:20px}
+.bar .in{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:12px var(--pad)}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{height:36px;padding:0 16px;border:1px solid var(--line);border-radius:18px;font-size:13px;font-weight:500}
+.chip.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.sel{height:36px;border:1px solid var(--line);border-radius:18px;padding:0 30px 0 14px;font-size:13px;background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23111' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") no-repeat right 10px center/14px;appearance:none;cursor:pointer}
+.bar .sp{flex:1}
+.cnt{font-size:13px;color:var(--muted)}
+
+/* Grilla de prendas */
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:28px 14px}
+.card{position:relative;cursor:pointer}
+.ph{position:relative;aspect-ratio:3/4;background:var(--soft);overflow:hidden}
+.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .35s}
+.ph .b2{opacity:0}
+.card:hover .ph .b2{opacity:1}
+.tag{position:absolute;left:10px;top:10px;font-size:11px;font-weight:700;letter-spacing:.04em;padding:4px 8px;background:#fff}
+.tag.s{background:var(--sale);color:#fff}
+.fav{position:absolute;right:8px;top:8px;width:36px;height:36px;border-radius:50%;background:#fff;display:grid;place-items:center}
+.fav svg{width:18px;height:18px}
+.fav.on svg{fill:var(--ink)}
+.quick{position:absolute;left:10px;right:10px;bottom:10px;height:40px;background:#fff;font-size:13px;font-weight:600;opacity:0;transform:translateY(8px);transition:.25s}
+.card:hover .quick{opacity:1;transform:none}
+.info{padding:10px 2px 0}
+.info h3{font-size:14px;font-weight:500;line-height:1.35}
+.pr{font-size:14px;font-weight:600;margin-top:3px}
+.pr s{color:var(--muted);font-weight:400;margin-left:6px}
+.pr .now{color:var(--sale)}
+.dots{display:flex;gap:5px;margin-top:7px}
+.dots i{width:12px;height:12px;border-radius:50%;border:1px solid rgba(0,0,0,.18)}
+.none{grid-column:1/-1;text-align:center;padding:60px 0;color:var(--muted)}
+
+/* Banda partida */
+.split{display:grid;grid-template-columns:1.4fr 1fr;background:#9b1b1b;color:#fff}
+.split img{width:100%;height:100%;object-fit:cover;min-height:420px}
+.split .tx{padding:clamp(32px,5vw,72px);display:flex;flex-direction:column;justify-content:center;gap:16px}
+.split h2{font-weight:300;font-size:clamp(34px,4vw,60px);line-height:1}
+
+/* Beneficios */
+.ben{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:30px 0}
+.ben div{display:flex;gap:12px;align-items:flex-start;font-size:13px;color:var(--muted)}
+.ben b{display:block;color:var(--ink);font-size:14px;font-weight:600}
+
+/* Boletín */
+.news{text-align:center;max-width:620px;margin:0 auto}
+.news h2{font-weight:300;font-size:clamp(28px,3vw,40px)}
+.news p{color:var(--muted);margin:8px 0 20px}
+.news form{display:flex;border:1px solid var(--ink)}
+.news input{flex:1;min-width:0;border:0;outline:0;padding:0 16px;height:50px}
+.news small{display:block;color:var(--muted);margin-top:10px;font-size:12px}
+
+/* Pie */
+footer{background:var(--soft);padding:50px 0 30px;font-size:13px}
+.fc{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.fc h4{font-size:13px;font-weight:700;margin-bottom:12px}
+.fc a{display:block;color:#444;padding:4px 0}
+.fc a:hover{text-decoration:underline}
+.legal{margin-top:36px;padding-top:20px;border-top:1px solid #ddd;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:var(--muted)}
+.legal a{text-decoration:underline}
+
+/* Capas: fondo oscuro, cajón, ventana */
+.scrim{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:60;opacity:0;pointer-events:none;transition:opacity .25s}
+.scrim.on{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(440px,100%);background:#fff;z-index:70;display:flex;flex-direction:column;transform:translateX(100%);transition:transform .3s}
+.drawer.on{transform:none}
+.drawer.left{right:auto;left:0;transform:translateX(-100%)}
+.drawer.left.on{transform:none}
+.dh{display:flex;justify-content:space-between;align-items:center;padding:18px 20px;border-bottom:1px solid var(--line)}
+.dh h3{font-size:16px;font-weight:700}
+.db{flex:1;overflow:auto;padding:16px 20px}
+.df{border-top:1px solid var(--line);padding:16px 20px;display:grid;gap:10px}
+.ship{font-size:13px}
+.ship .tr{height:4px;background:var(--line);margin-top:6px;overflow:hidden}
+.ship .tr i{display:block;height:100%;background:var(--ink);transform-origin:left;transition:transform .3s}
+.it{display:grid;grid-template-columns:84px 1fr auto;gap:12px;padding:14px 0;border-bottom:1px solid var(--line)}
+.it img{width:84px;aspect-ratio:3/4;object-fit:cover;background:var(--soft)}
+.it b{font-size:14px;font-weight:600;display:block}
+.it small{color:var(--muted);font-size:12px}
+.q{display:flex;align-items:center;gap:6px;margin-top:8px}
+.q button{width:28px;height:28px;border:1px solid var(--line)}
+.q span{min-width:20px;text-align:center;font-size:13px}
+.q .rm{width:auto;border:0;font-size:12px;text-decoration:underline;margin-left:8px;color:var(--muted)}
+.row{display:flex;justify-content:space-between;font-size:14px}
+.row.big{font-size:17px;font-weight:700}
+.row.disc{color:var(--sale)}
+.cpn{display:flex;gap:8px}
+.cpn input{flex:1;min-width:0;height:42px;border:1px solid var(--line);padding:0 12px;text-transform:uppercase}
+.cpn button{height:42px;padding:0 16px;border:1px solid var(--ink);font-weight:600;font-size:13px}
+.cmsg{font-size:12px;min-height:16px}
+.cmsg.ok{color:#137333}.cmsg.bad{color:var(--sale)}
+.empty{text-align:center;color:var(--muted);padding:50px 10px}
+.mnav a{display:block;padding:14px 0;border-bottom:1px solid var(--line);font-size:17px;font-weight:500}
+
+.modal{position:fixed;inset:0;z-index:80;display:grid;place-items:center;padding:20px;opacity:0;pointer-events:none;transition:opacity .25s}
+.modal.on{opacity:1;pointer-events:auto}
+.box{position:relative;background:#fff;width:min(980px,100%);max-height:calc(100vh - 40px);overflow:auto;transform:translateY(14px);transition:transform .3s}
+.modal.on .box{transform:none}
+.x{position:absolute;top:8px;right:8px;width:40px;height:40px;display:grid;place-items:center;z-index:2;background:#fff;border-radius:50%}
+.pv{display:grid;grid-template-columns:1.1fr 1fr}
+.gal{display:grid;grid-template-columns:repeat(2,1fr);gap:4px;background:#fff}
+.gal img{width:100%;aspect-ratio:3/4;object-fit:cover;background:var(--soft)}
+.gal img:only-child{grid-column:1/-1}
+.pi{padding:32px 28px;display:flex;flex-direction:column;gap:18px}
+.pi h2{font-weight:400;font-size:24px;line-height:1.2}
+.pi .pr{font-size:18px}
+.lbl{font-size:13px;font-weight:600;margin-bottom:8px;display:flex;justify-content:space-between}
+.lbl button{font-weight:500;text-decoration:underline;font-size:13px}
+.sw{display:flex;gap:8px;flex-wrap:wrap}
+.sw button{width:34px;height:34px;border-radius:50%;border:1px solid rgba(0,0,0,.15);outline-offset:3px}
+.sw button.on{outline:2px solid var(--ink)}
+.sz{display:grid;grid-template-columns:repeat(auto-fit,minmax(52px,1fr));gap:8px}
+.more{text-align:center;margin-top:36px}
+.more small{display:block;color:var(--muted);font-size:13px;margin-bottom:12px}
+.sz button{height:44px;border:1px solid var(--line);font-size:14px;font-weight:500}
+.sz button.on{border-color:var(--ink);background:var(--ink);color:#fff}
+.sz.err button{border-color:var(--sale)}
+.serr{color:var(--sale);font-size:13px;min-height:18px;margin-top:6px}
+.gt{display:none;font-size:13px;border-collapse:collapse;width:100%}
+.gt.on{display:table}
+.gt th,.gt td{border:1px solid var(--line);padding:6px 8px;text-align:center}
+.gt th{background:var(--soft);font-weight:600}
+.pd{font-size:13px;color:#444;border-top:1px solid var(--line);padding-top:14px}
+
+/* Pago simulado */
+.chk{width:min(1000px,100%)}
+.ck{display:grid;grid-template-columns:1fr 360px}
+.ckm{padding:30px 28px;display:grid;gap:16px;align-content:start}
+.cks{background:var(--soft);padding:30px 24px;display:grid;gap:12px;align-content:start}
+.steps{display:flex;gap:8px;align-items:center;font-size:12px;font-weight:600;color:var(--muted);padding-right:44px}
+.steps span{display:flex;align-items:center;gap:6px}
+.steps i{width:22px;height:22px;border-radius:50%;border:1px solid currentColor;display:grid;place-items:center;font-style:normal;font-size:11px}
+.steps .on{color:var(--ink)}.steps .on i{background:var(--ink);color:#fff;border-color:var(--ink)}
+.steps .dn{color:var(--ink)}
+.steps em{flex:1;max-width:40px;height:1px;background:var(--line)}
+.ckm h3{font-weight:400;font-size:26px}
+.fld label{display:block;font-size:12px;font-weight:600;margin-bottom:6px}
+.fld input,.fld select{width:100%;height:46px;border:1px solid #cfcfcf;padding:0 12px;background:#fff;outline:0}
+.fld input:focus,.fld select:focus{border-color:var(--ink)}
+.fld.bad input,.fld.bad select{border-color:var(--sale)}
+.fld .e{display:block;color:var(--sale);font-size:12px;min-height:16px;margin-top:4px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.demo{background:#fff8d6;border:1px solid #f0dc7a;padding:10px 12px;font-size:13px}
+.ln{display:grid;grid-template-columns:52px 1fr auto;gap:10px;align-items:center;font-size:13px}
+.ln img{width:52px;aspect-ratio:3/4;object-fit:cover}
+.ln small{display:block;color:var(--muted)}
+.sec{display:flex;gap:8px;align-items:center;font-size:12px;color:var(--muted)}
+.sec svg{width:16px;height:16px}
+.done{text-align:center;padding:50px 28px;display:grid;gap:14px;justify-items:center}
+.done .ok{width:64px;height:64px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center}
+.done .ok svg{width:30px;height:30px}
+.done h3{font-weight:400;font-size:30px}
+.done p{color:#444;max-width:440px}
+
+.toast{position:fixed;left:50%;bottom:24px;z-index:90;background:var(--ink);color:#fff;padding:12px 20px;font-size:14px;transform:translate(-50%,120px);transition:transform .3s;max-width:calc(100% - 32px)}
+.toast.on{transform:translate(-50%,0)}
+.waf{position:fixed;right:18px;bottom:18px;z-index:30;width:54px;height:54px;border-radius:50%;background:var(--wa);display:grid;place-items:center;color:#fff;box-shadow:0 4px 14px rgba(0,0,0,.18)}
+.waf svg{width:28px;height:28px}
+
+/* Celular y tablet */
+@media (max-width:1100px){
+  .grid{grid-template-columns:repeat(3,1fr)}
+  .nav{gap:16px}
+}
+@media (max-width:860px){
+  .nav{display:none}
+  .burger{display:grid}
+  .hd{height:56px}
+  .logo{font-size:24px}
+  .bar{top:56px}
+  .grid{grid-template-columns:repeat(2,1fr);gap:22px 8px}
+  .cats{grid-template-columns:repeat(2,1fr);gap:8px}
+  .split{grid-template-columns:1fr}
+  .split img{min-height:0;aspect-ratio:16/10}
+  .ben{grid-template-columns:1fr 1fr}
+  .fc{grid-template-columns:1fr 1fr}
+  .pv{grid-template-columns:1fr}
+  .gal{grid-template-columns:repeat(2,70%);overflow-x:auto;scroll-snap-type:x mandatory}
+  .gal img{scroll-snap-align:start}
+  .gal img:only-child{grid-column:auto;width:100%}
+  .pi{padding:22px 18px}
+  .modal{padding:0;place-items:end stretch}
+  .box{max-height:92vh;width:100%}
+  .ck{grid-template-columns:1fr}
+  .cks{padding:20px 18px}
+  .hero h1{font-size:44px}
+  .hero .tx{right:var(--pad);max-width:320px}
+  .bar .in{gap:8px}
+  .chips{flex:1 1 100%;min-width:0;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}
+  .chips::-webkit-scrollbar{display:none}
+  .chip{flex:none}
+  .ckm{padding:22px 18px}
+  .quick{display:none}
+  .icons .hide-m{display:none}
+  .info h3,.pr{font-size:13px}
+}
+@media (max-width:420px){
+  .bar .sel{flex:1;min-width:0}
+  .bar .sp{display:none}
+  .steps .t{display:none}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<div class="proto"><b>Ejemplo de diseño</b> · LitleJacob Studio Web · marca, productos y precios de ejemplo</div>
+<div class="promo">Envío gratis en Lima desde S/ 150 · <u>Cambios hasta 30 días</u></div>
+
+<header>
+  <div class="wrap hd">
+    <div style="display:flex;align-items:center">
+      <button class="ib burger" id="burger" aria-label="Abrir menú"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+      <nav class="nav" id="nav">
+        <a href="#tienda" data-cat="mujer">Mujer</a>
+        <a href="#tienda" data-cat="hombre">Hombre</a>
+        <a href="#tienda" data-cat="ninos">Niños</a>
+        <a href="#tienda" data-cat="accesorios">Accesorios</a>
+        <a href="#tienda" data-cat="oferta" style="color:var(--sale)">Ofertas</a>
+      </nav>
+    </div>
+    <a href="#" class="logo" aria-label="ALBA, inicio">ALBA</a>
+    <div class="icons">
+      <button class="ib" id="searchBtn" aria-label="Buscar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button>
+      <button class="ib hide-m" id="favBtn" aria-label="Favoritos"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 20s-7-4.4-9-9.2C1.7 7.5 3.8 4 7.3 4c2 0 3.4 1.1 4.7 2.7C13.3 5.1 14.7 4 16.7 4c3.5 0 5.6 3.5 4.3 6.8C19 15.6 12 20 12 20z"/></svg><span class="badge" id="favN">0</span></button>
+      <button class="ib" id="cartBtn" aria-label="Carrito"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 8h14l-1.2 12H6.2z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg><span class="badge" id="cartN">0</span></button>
+    </div>
+  </div>
+  <div class="searchbar" id="searchbar">
+    <div class="wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <label class="sr" for="q">Buscar prendas</label><input id="q" placeholder="Buscar: vestido, polo, jean…" autocomplete="off">
+      <button class="ib" id="qClose" aria-label="Cerrar búsqueda">✕</button></div>
+  </div>
+</header>
+
+<main>
+  <div class="hero">
+    <img src="img/portada-1.webp" alt="Modelo con conjunto rojo y cielo azul" fetchpriority="high">
+    <div class="tx">
+      <div class="kick">Nueva temporada</div>
+      <h1>Color que se siente</h1>
+      <a href="#tienda" class="btn w" data-cat="todo">Ver colección</a>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap">
+      <div class="st"><h2>Compra por categoría</h2></div>
+      <div class="cats">
+        <a href="#tienda" class="cat" data-cat="mujer"><img src="img/cat-mujer.webp" alt="Ropa de mujer" loading="lazy"><span>Mujer</span></a>
+        <a href="#tienda" class="cat" data-cat="hombre"><img src="img/cat-hombre.webp" alt="Ropa de hombre" loading="lazy"><span>Hombre</span></a>
+        <a href="#tienda" class="cat" data-cat="ninos"><img src="img/cat-ninos.webp" alt="Ropa de niños" loading="lazy"><span>Niños</span></a>
+        <a href="#tienda" class="cat" data-cat="accesorios"><img src="img/cat-accesorios.webp" alt="Accesorios" loading="lazy"><span>Accesorios</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section id="tienda" style="padding-top:0">
+    <div class="wrap">
+      <div class="st"><h2 id="tTitle">Novedades</h2></div>
+    </div>
+    <div class="bar">
+      <div class="wrap in">
+        <div class="chips" id="chips"></div>
+        <span class="sp"></span>
+        <label class="sr" for="fTalla">Talla</label>
+        <select class="sel" id="fTalla"><option value="">Talla</option><option>XS</option><option>S</option><option>M</option><option>L</option><option>XL</option><option value="2-4">2-4 años</option><option value="6-8">6-8 años</option><option value="10-12">10-12 años</option></select>
+        <label class="sr" for="fPrecio">Precio</label>
+        <select class="sel" id="fPrecio"><option value="">Precio</option><option value="0-60">Hasta S/ 60</option><option value="60-120">S/ 60 a 120</option><option value="120-9999">Más de S/ 120</option></select>
+        <label class="sr" for="fOrden">Ordenar</label>
+        <select class="sel" id="fOrden"><option value="nuevo">Lo más nuevo</option><option value="asc">Precio: menor a mayor</option><option value="desc">Precio: mayor a menor</option></select>
+        <span class="cnt" id="cnt"></span>
+      </div>
+    </div>
+    <div class="wrap"><div class="grid" id="grid"></div><div class="more" id="more"></div></div>
+  </section>
+
+  <div class="split">
+    <img src="img/portada-2.webp" alt="Cuatro modelos con abrigos oscuros sobre fondo rojo" loading="lazy">
+    <div class="tx">
+      <div class="kick">Edición limitada</div>
+      <h2>Abrigos y cuero para las noches frías</h2>
+      <p>Cortes rectos, telas que duran y colores que combinan con todo.</p>
+      <div><a href="#tienda" class="btn w" data-cat="hombre">Descubrir</a></div>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap">
+      <div class="ben">
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg><span><b>Envío a todo el Perú</b>Gratis en Lima desde S/ 150</span></div>
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 12a8 8 0 0 1 14-5.3M20 12a8 8 0 0 1-14 5.3"/><path d="M18 3v4h-4M6 21v-4h4"/></svg><span><b>Cambios en 30 días</b>Si no te queda, la cambiamos</span></div>
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg><span><b>Pago seguro</b>Tarjeta, Yape o Plin</span></div>
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 12a9 9 0 1 1-4-7.5L21 3v5h-5"/></svg><span><b>Atención por WhatsApp</b>Te ayudamos con tu talla</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:10px">
+    <div class="wrap news">
+      <h2>Entérate primero de lo nuevo</h2>
+      <p>Lanzamientos, ofertas y un 10% de descuento en tu primera compra.</p>
+      <form id="newsF"><label class="sr" for="nEmail">Tu correo</label><input id="nEmail" type="email" placeholder="Tu correo electrónico" required><button class="btn" type="submit">Suscribirme</button></form>
+      <small>Demo: este formulario no guarda ni envía tu correo.</small>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fc">
+      <div><h4>Comprar</h4><a href="#tienda" data-cat="mujer">Mujer</a><a href="#tienda" data-cat="hombre">Hombre</a><a href="#tienda" data-cat="ninos">Niños</a><a href="#tienda" data-cat="accesorios">Accesorios</a></div>
+      <div><h4>Ayuda</h4><a href="#" data-guia>Guía de tallas</a><a href="#">Cambios y devoluciones</a><a href="#">Envíos</a><a href="#">Libro de reclamaciones</a></div>
+      <div><h4>ALBA</h4><a href="#">Nosotros</a><a href="#">Tiendas</a><a href="#">Trabaja con nosotros</a></div>
+      <div><h4>Síguenos</h4><a href="#">Instagram</a><a href="#">TikTok</a><a href="#">Facebook</a></div>
+    </div>
+    <div class="legal">
+      <span>© ALBA (marca de ejemplo). Fotos: Unsplash.</span>
+      <span>Diseño de ejemplo por <a href="https://studio.litlejacob.trade/">LitleJacob Studio Web</a> · ¿Quieres una así? <a href="https://wa.me/51952997030?text=Hola%2C%20vi%20la%20demo%20de%20tienda%20de%20ropa%20y%20quiero%20una%20para%20mi%20marca">Escríbeme</a></span>
+    </div>
+  </div>
+</footer>
+
+<a class="waf" id="waf" href="https://wa.me/51952997030?text=Hola%2C%20vi%20la%20demo%20de%20tienda%20de%20ropa%20y%20quiero%20una%20para%20mi%20marca" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.1 5.1 0 0 0 1.1 2.7 11.6 11.6 0 0 0 4.4 3.9c1.6.7 2.3.8 3.1.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3z"/></svg></a>
+
+<div class="scrim" id="scrim"></div>
+
+<aside class="drawer left" id="menu" aria-label="Menú">
+  <div class="dh"><h3>Menú</h3><button class="ib" data-close aria-label="Cerrar">✕</button></div>
+  <div class="db mnav">
+    <a href="#tienda" data-cat="mujer">Mujer</a><a href="#tienda" data-cat="hombre">Hombre</a><a href="#tienda" data-cat="ninos">Niños</a><a href="#tienda" data-cat="accesorios">Accesorios</a><a href="#tienda" data-cat="oferta" style="color:var(--sale)">Ofertas</a><a href="#tienda" data-cat="fav">Mis favoritos</a>
+  </div>
+</aside>
+
+<aside class="drawer" id="cart" aria-label="Carrito">
+  <div class="dh"><h3 id="cartT">Tu carrito</h3><button class="ib" data-close aria-label="Cerrar">✕</button></div>
+  <div class="db" id="items"></div>
+  <div class="df" id="cartF"></div>
+</aside>
+
+<div class="modal" id="pmodal" role="dialog" aria-modal="true" aria-label="Detalle de la prenda"><div class="box" id="pbox"></div></div>
+<div class="modal" id="cmodal" role="dialog" aria-modal="true" aria-label="Pago"><div class="box chk" id="cbox"></div></div>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+/* ============================================================
+   CATÁLOGO — para un cliente nuevo solo se cambia esta lista.
+   c = categoría (mujer | hombre | ninos | accesorios)
+   p = precio, o = precio antes (si está en oferta), n = nuevo
+   f = fotos (archivo en img/ sin .webp), col = colores, t = tallas
+   ============================================================ */
+const TIENDA = { nombre:'ALBA', whatsapp:'51952997030', envioGratis:150, envio:12, cupones:{ ALBA10:10, BIENVENIDA:15 } };
+const COL = { negro:'#151515', blanco:'#f5f5f2', crudo:'#ece4d4', beige:'#cdb89a', terracota:'#c4613f', lila:'#b9a3d8', azul:'#1f2e4d', celeste:'#a9c4e0', gris:'#9a9a9a', rojo:'#a51d24', verde:'#2f5a3c', mostaza:'#c98a1c', vino:'#6b1e2c', camel:'#b4895a' };
+const ADULTO=['XS','S','M','L','XL'], NINO=['2-4','6-8','10-12'], UNICA=['Única'];
+const P = [
+  {id:'m1', c:'mujer', nm:'Vestido camisero con cinturón', p:119, n:1, f:['m-vestido-camisero','m-vestido-camisero-2'], col:['terracota','negro'], t:ADULTO, d:'Vestido de algodón con cuello camisero, botones al frente y cinturón para ajustar.'},
+  {id:'m2', c:'mujer', nm:'Vestido corto de lino', p:99, o:129, f:['m-vestido-lino'], col:['crudo','celeste'], t:ADULTO, d:'Lino fresco con manga corta y lazo en la cintura. Ideal para el verano.'},
+  {id:'m3', c:'mujer', nm:'Top corto acanalado', p:45, n:1, f:['m-top-lila'], col:['lila','blanco','negro'], t:ADULTO, d:'Tejido acanalado elástico, cuello redondo y largo corto.'},
+  {id:'m4', c:'mujer', nm:'Pantalón ancho a rayas', p:89, f:['m-pantalon-rayas'], col:['blanco','azul'], t:ADULTO, d:'Tiro alto, pierna ancha y tela ligera con caída.'},
+  {id:'m5', c:'mujer', nm:'Jogger de algodón', p:69, o:89, f:['m-jogger'], col:['gris','negro'], t:ADULTO, d:'Jogger de felpa suave con cintura elástica y puños.'},
+  {id:'m6', c:'mujer', nm:'Blusa satinada', p:79, f:['m-blusa-jean'], col:['blanco','beige'], t:ADULTO, d:'Blusa de satén con mangas largas y puño con botón.'},
+  {id:'m7', c:'mujer', nm:'Conjunto de lino terracota', p:159, n:1, f:['m-conjunto'], col:['terracota'], t:ADULTO, d:'Camisa manga corta y pantalón recto de lino. Se venden juntos.'},
+  {id:'m8', c:'mujer', nm:'Vestido de punto ajustado', p:89, f:['m-vestido-blazer'], col:['blanco','negro'], t:ADULTO, d:'Punto elástico que se adapta al cuerpo, largo a la rodilla.'},
+  {id:'m9', c:'mujer', nm:'Jean recto tiro alto', p:109, f:['m-jean'], col:['azul','celeste'], t:ADULTO, d:'Denim con algo de elasticidad, corte recto y cinco bolsillos.'},
+  {id:'h1', c:'hombre', nm:'Polo sin mangas', p:39, n:1, f:['h-polo-sin-mangas'], col:['negro','blanco','gris'], t:ADULTO, d:'Algodón peinado, corte holgado. Para entrenar o para el día a día.'},
+  {id:'h2', c:'hombre', nm:'Polo piqué con cuello', p:69, f:['h-polo-azul'], col:['azul','blanco'], t:ADULTO, d:'Tejido piqué clásico, cuello y tres botones.'},
+  {id:'h3', c:'hombre', nm:'Camiseta oversize', p:49, o:59, f:['h-camiseta-blanca'], col:['blanco','negro'], t:ADULTO, d:'Algodón grueso, hombros caídos y largo amplio.'},
+  {id:'h4', c:'hombre', nm:'Camisa de lino manga corta', p:89, n:1, f:['h-camisa-beige'], col:['beige','blanco'], t:ADULTO, d:'Lino transpirable con cuello camisero.'},
+  {id:'h5', c:'hombre', nm:'Terno slim color mostaza', p:349, f:['h-terno','h-terno-2'], col:['mostaza','azul'], t:ADULTO, d:'Saco y pantalón de corte slim. Incluye ajustes de basta.'},
+  {id:'h6', c:'hombre', nm:'Chaqueta tipo bomber', p:179, o:219, f:['h-chaqueta'], col:['negro'], t:ADULTO, d:'Chaqueta ligera con cierre, puños y cintura elásticos.'},
+  {id:'h7', c:'hombre', nm:'Sweater de cuello redondo', p:99, f:['h-look-negro'], col:['negro','gris'], t:ADULTO, d:'Punto fino que se puede usar solo o debajo de un saco.'},
+  {id:'n1', c:'ninos', nm:'Conjunto de vestir con chaleco', p:129, f:['n-chaleco'], col:['vino'], t:NINO, d:'Camisa, chaleco y pantalón. Perfecto para eventos.'},
+  {id:'n2', c:'ninos', nm:'Camisa a cuadros', p:49, n:1, f:['n-camisa-cuadros'], col:['rojo','azul'], t:NINO, d:'Algodón suave con botones fáciles de abrochar.'},
+  {id:'n3', c:'ninos', nm:'Buzo deportivo bicolor', p:89, o:109, f:['n-buzo'], col:['verde','azul'], t:NINO, d:'Casaca y pantalón de buzo con franja de color.'},
+  {id:'n4', c:'ninos', nm:'Camisa oxford', p:45, f:['n-camisa-lila'], col:['lila','celeste'], t:NINO, d:'Tela oxford resistente, ideal para el colegio o salidas.'},
+  {id:'n5', c:'ninos', nm:'Abrigo con estampado de lunares', p:99, f:['n-abrigo'], col:['verde'], t:NINO, d:'Abrigo acolchado y abrigador con botones a presión.'},
+  {id:'a1', c:'accesorios', nm:'Cartera acolchada con cadena', p:139, n:1, f:['a-cartera-negra'], col:['negro'], t:UNICA, d:'Cartera de cuero sintético acolchado con cadena metálica.'},
+  {id:'a2', c:'accesorios', nm:'Aretes de aro con piedras', p:35, f:['a-aretes'], col:['camel'], t:UNICA, d:'Aretes dorados con detalle de piedras de colores.'},
+  {id:'a3', c:'accesorios', nm:'Lentes de sol cat-eye', p:59, o:79, f:['a-lentes'], col:['negro'], t:UNICA, d:'Montura de acetato con protección UV400.'},
+  {id:'a4', c:'accesorios', nm:'Bolso de mano estructurado', p:149, f:['a-cartera-beige'], col:['beige','negro'], t:UNICA, d:'Bolso rígido con asa corta y correa larga desmontable.'}
+];
+const CATS=[['todo','Todo'],['mujer','Mujer'],['hombre','Hombre'],['ninos','Niños'],['accesorios','Accesorios'],['oferta','Ofertas']];
+const TITULOS={todo:'Novedades',mujer:'Mujer',hombre:'Hombre',ninos:'Niños',accesorios:'Accesorios',oferta:'Ofertas',fav:'Mis favoritos'};
+
+/* ---------- utilidades ---------- */
+const $=s=>document.querySelector(s);
+const S=n=>'S/ '+n.toFixed(2);
+const esc=t=>String(t).replace(/[<>&"]/g,c=>({'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;'}[c]));
+const byId=Object.fromEntries(P.map(x=>[x.id,x]));
+const leer=(k,d)=>{try{return JSON.parse(localStorage.getItem(k))??d}catch(e){return d}};
+const guardar=(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}};
+function toast(t){const el=$('#toast');el.textContent=t;el.classList.add('on');clearTimeout(toast.t);toast.t=setTimeout(()=>el.classList.remove('on'),2000)}
+const HEART='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 20s-7-4.4-9-9.2C1.7 7.5 3.8 4 7.3 4c2 0 3.4 1.1 4.7 2.7C13.3 5.1 14.7 4 16.7 4c3.5 0 5.6 3.5 4.3 6.8C19 15.6 12 20 12 20z"/></svg>';
+const LOCK='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>';
+const precioHTML=p=>p.o?`<span class="now">${S(p.p)}</span><s>${S(p.o)}</s>`:S(p.p);
+const dscto=p=>p.o?Math.round((1-p.p/p.o)*100):0;
+
+/* ---------- estado ---------- */
+let filtro={cat:'todo',q:'',talla:'',precio:'',orden:'nuevo'};
+let favs=new Set(leer('alba_favs',[]));
+let cart=leer('alba_cart',[]); // [{id,talla,color,q}]
+let cupon=leer('alba_cupon',null);
+
+/* ---------- catálogo y filtros ---------- */
+$('#chips').innerHTML=CATS.map(([k,v])=>`<button class="chip" data-cat="${k}">${v}</button>`).join('');
+function lista(){
+  let r=P.filter(p=>{
+    if(filtro.cat==='oferta'&&!p.o) return false;
+    if(filtro.cat==='fav'&&!favs.has(p.id)) return false;
+    if(!['todo','oferta','fav'].includes(filtro.cat)&&p.c!==filtro.cat) return false;
+    if(filtro.talla&&!p.t.includes(filtro.talla)) return false;
+    if(filtro.precio){const [a,b]=filtro.precio.split('-').map(Number); if(p.p<a||p.p>b) return false;}
+    if(filtro.q){const q=filtro.q.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,''); const t=(p.nm+' '+p.c+' '+p.col.join(' ')).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,''); if(!q.split(/\s+/).every(w=>t.includes(w))) return false;}
+    return true;
+  });
+  if(filtro.orden==='asc') r.sort((a,b)=>a.p-b.p);
+  else if(filtro.orden==='desc') r.sort((a,b)=>b.p-a.p);
+  else r.sort((a,b)=>(b.n||0)-(a.n||0));
+  return r;
+}
+let mostrar=12;
+function pintarGrilla(){
+  const todos=lista(), r=todos.slice(0,mostrar);
+  $('#more').innerHTML=todos.length>mostrar?`<small>Viendo ${r.length} de ${todos.length} prendas</small><button class="btn line" id="moreB">Ver más prendas</button>`:'';
+  if($('#moreB')) $('#moreB').onclick=()=>{mostrar+=12; pintarGrilla()};
+  document.querySelectorAll('.chip').forEach(c=>c.classList.toggle('on',c.dataset.cat===filtro.cat));
+  document.querySelectorAll('.nav a').forEach(a=>a.classList.toggle('on',a.dataset.cat===filtro.cat));
+  $('#tTitle').textContent=filtro.q?`Resultados para “${filtro.q}”`:TITULOS[filtro.cat];
+  $('#cnt').textContent=todos.length+(todos.length===1?' prenda':' prendas');
+  $('#grid').innerHTML=r.length?r.map(p=>`
+    <article class="card" data-open="${p.id}">
+      <div class="ph">
+        <img src="img/${p.f[0]}.webp" alt="${esc(p.nm)}" loading="lazy">
+        ${p.f[1]?`<img class="b2" src="img/${p.f[1]}.webp" alt="" loading="lazy">`:''}
+        ${p.o?`<span class="tag s">−${dscto(p)}%</span>`:p.n?'<span class="tag">Nuevo</span>':''}
+        <button class="fav ${favs.has(p.id)?'on':''}" data-fav="${p.id}" aria-label="Guardar en favoritos">${HEART}</button>
+        <button class="quick" data-open="${p.id}">Vista rápida</button>
+      </div>
+      <div class="info"><h3>${esc(p.nm)}</h3><div class="pr">${precioHTML(p)}</div>
+        <div class="dots">${p.col.map(c=>`<i style="background:${COL[c]}" title="${c}"></i>`).join('')}</div></div>
+    </article>`).join(''):`<div class="none">${filtro.cat==='fav'?'Aún no guardas favoritos. Toca el corazón de una prenda.':'No encontramos prendas con esos filtros.'}<br><br><button class="btn line" data-cat="todo">Ver todo</button></div>`;
+}
+function irA(cat){
+  filtro.cat=cat; filtro.q=''; $('#q').value=''; mostrar=12;
+  pintarGrilla(); cerrarTodo();
+  const y=$('#tienda').getBoundingClientRect().top+scrollY-70; scrollTo({top:y,behavior:'smooth'});
+}
+$('#fTalla').onchange=e=>{filtro.talla=e.target.value;pintarGrilla()};
+$('#fPrecio').onchange=e=>{filtro.precio=e.target.value;pintarGrilla()};
+$('#fOrden').onchange=e=>{filtro.orden=e.target.value;pintarGrilla()};
+$('#searchBtn').onclick=()=>{$('#searchbar').classList.toggle('on'); if($('#searchbar').classList.contains('on')) $('#q').focus()};
+$('#qClose').onclick=()=>{$('#searchbar').classList.remove('on'); filtro.q=''; $('#q').value=''; pintarGrilla()};
+let qT; $('#q').addEventListener('input',e=>{clearTimeout(qT); qT=setTimeout(()=>{filtro.q=e.target.value.trim(); if(filtro.q){filtro.cat='todo'} pintarGrilla(); if(filtro.q){const y=$('#tienda').getBoundingClientRect().top+scrollY-130; if(Math.abs(scrollY-y)>200) scrollTo({top:y})}},200)});
+
+/* ---------- favoritos ---------- */
+function pintarFavs(){const n=favs.size,b=$('#favN'); b.textContent=n; b.classList.toggle('on',n>0)}
+function toggleFav(id){ favs.has(id)?favs.delete(id):favs.add(id); guardar('alba_favs',[...favs]); pintarFavs(); toast(favs.has(id)?'Guardado en favoritos':'Quitado de favoritos'); document.querySelectorAll(`[data-fav="${id}"]`).forEach(b=>b.classList.toggle('on',favs.has(id))); if(filtro.cat==='fav') pintarGrilla(); }
+$('#favBtn').onclick=()=>irA('fav');
+
+/* ---------- capas ---------- */
+const scrim=$('#scrim');
+function abrir(el){cerrarTodo(); el.classList.add('on'); scrim.classList.add('on'); document.body.style.overflow='hidden'}
+function cerrarTodo(){document.querySelectorAll('.drawer.on,.modal.on').forEach(e=>e.classList.remove('on')); scrim.classList.remove('on'); document.body.style.overflow=''}
+scrim.onclick=cerrarTodo;
+document.querySelectorAll('.modal').forEach(m=>m.addEventListener('click',e=>{if(e.target===m) cerrarTodo()}));
+addEventListener('keydown',e=>{if(e.key==='Escape') cerrarTodo()});
+$('#burger').onclick=()=>abrir($('#menu'));
+
+/* ---------- ficha de la prenda ---------- */
+let sel={id:null,color:null,talla:null};
+const GUIA=`<table class="gt" id="gt"><tr><th>Talla</th><th>Busto</th><th>Cintura</th><th>Cadera</th></tr><tr><td>XS</td><td>80</td><td>62</td><td>88</td></tr><tr><td>S</td><td>86</td><td>68</td><td>94</td></tr><tr><td>M</td><td>92</td><td>74</td><td>100</td></tr><tr><td>L</td><td>98</td><td>80</td><td>106</td></tr><tr><td>XL</td><td>104</td><td>86</td><td>112</td></tr><tr><td colspan="4" style="color:var(--muted)">Medidas en cm. Niños: 2-4 años (92-104 cm de altura), 6-8 (116-128), 10-12 (140-152).</td></tr></table>`;
+function abrirFicha(id,guia){
+  const p=byId[id]; sel={id,color:p.col[0],talla:p.t.length===1?p.t[0]:null};
+  pintarFicha(guia); abrir($('#pmodal'));
+}
+function pintarFicha(guia){
+  const p=byId[sel.id];
+  $('#pbox').innerHTML=`<button class="x" data-close aria-label="Cerrar">✕</button>
+  <div class="pv">
+    <div class="gal">${p.f.map(f=>`<img src="img/${f}.webp" alt="${esc(p.nm)}">`).join('')}</div>
+    <div class="pi">
+      <div>${p.o?`<span class="tag s" style="position:static;display:inline-block;margin-bottom:10px">−${dscto(p)}%</span>`:p.n?'<span class="tag" style="position:static;display:inline-block;margin-bottom:10px;background:var(--soft)">Nuevo</span>':''}
+        <h2>${esc(p.nm)}</h2><div class="pr" style="margin-top:6px">${precioHTML(p)}</div></div>
+      <div><div class="lbl"><span>Color: <span style="font-weight:400;text-transform:capitalize">${sel.color}</span></span></div>
+        <div class="sw">${p.col.map(c=>`<button class="${c===sel.color?'on':''}" data-color="${c}" style="background:${COL[c]}" aria-label="Color ${c}"></button>`).join('')}</div></div>
+      ${p.t[0]==='Única'?'<div class="lbl">Talla única</div>':`<div><div class="lbl"><span>Talla</span><button data-guia2>Guía de tallas</button></div>
+        <div class="sz" id="sz">${p.t.map(t=>`<button class="${t===sel.talla?'on':''}" data-talla="${t}">${t}</button>`).join('')}</div>
+        <div class="serr" id="serr"></div>${GUIA}</div>`}
+      <button class="btn full" data-addsel>Agregar al carrito</button>
+      <button class="btn line full" data-fav="${p.id}" style="gap:10px">${HEART}<span>${favs.has(p.id)?'En favoritos':'Guardar en favoritos'}</span></button>
+      <div class="pd">${esc(p.d)}<br><br>Envío a todo el Perú · Cambios hasta 30 días.</div>
+    </div>
+  </div>`;
+  if(guia){const g=$('#gt'); if(g) g.classList.add('on')}
+}
+function agregarSel(){
+  const p=byId[sel.id];
+  if(!sel.talla){ $('#sz').classList.add('err'); $('#serr').textContent='Elige tu talla para continuar.'; return; }
+  const k=cart.find(x=>x.id===sel.id&&x.talla===sel.talla&&x.color===sel.color);
+  if(k) k.q++; else cart.push({id:sel.id,talla:sel.talla,color:sel.color,q:1});
+  guardar('alba_cart',cart); pintarCarrito(); abrir($('#cart')); toast('Agregado: '+p.nm);
+}
+
+/* ---------- carrito ---------- */
+const subtotal=()=>cart.reduce((a,x)=>a+byId[x.id].p*x.q,0);
+const unidades=()=>cart.reduce((a,x)=>a+x.q,0);
+const descuento=()=>cupon?Math.round(subtotal()*TIENDA.cupones[cupon])/100:0;
+const envio=()=>!cart.length||subtotal()-descuento()>=TIENDA.envioGratis?0:TIENDA.envio;
+const total=()=>subtotal()-descuento()+envio();
+function textoWA(){
+  const l=cart.map(x=>`• ${byId[x.id].nm} (${x.color}, talla ${x.talla}) x${x.q} = ${S(byId[x.id].p*x.q)}`).join('\n');
+  return `Hola ${TIENDA.nombre}, quiero hacer este pedido:\n${l}\n${cupon?'Cupón '+cupon+': −'+S(descuento())+'\n':''}Envío: ${envio()?S(envio()):'gratis'}\nTotal: ${S(total())}`;
+}
+function pintarCarrito(){
+  const n=unidades(); $('#cartN').textContent=n; $('#cartN').classList.toggle('on',n>0);
+  $('#cartT').textContent=`Tu carrito (${n})`;
+  if(!n){ $('#items').innerHTML='<div class="empty">Tu carrito está vacío.<br><br><button class="btn line" data-cat="todo">Ver novedades</button></div>'; $('#cartF').innerHTML=''; return; }
+  $('#items').innerHTML=cart.map((x,i)=>{const p=byId[x.id];return `<div class="it"><img src="img/${p.f[0]}.webp" alt="">
+    <div><b>${esc(p.nm)}</b><small style="text-transform:capitalize">${x.color} · Talla ${x.talla}</small>
+      <div class="q"><button data-qi="${i}" data-d="-1" aria-label="Menos">−</button><span>${x.q}</span><button data-qi="${i}" data-d="1" aria-label="Más">+</button><button class="rm" data-rm="${i}">Quitar</button></div></div>
+    <div style="font-weight:600;font-size:14px">${S(p.p*x.q)}</div></div>`}).join('');
+  const falta=TIENDA.envioGratis-(subtotal()-descuento());
+  $('#cartF').innerHTML=`
+    <div class="ship">${falta>0?`Te faltan <b>${S(falta)}</b> para el envío gratis`:'<b>¡Tienes envío gratis!</b>'}<div class="tr"><i style="transform:scaleX(${Math.min(1,(subtotal()-descuento())/TIENDA.envioGratis)})"></i></div></div>
+    <div class="cpn"><label class="sr" for="cpIn">Cupón</label><input id="cpIn" placeholder="Cupón (prueba ALBA10)" value="${cupon||''}"><button id="cpB">${cupon?'Quitar':'Aplicar'}</button></div>
+    <div class="cmsg ${cupon?'ok':''}" id="cpM">${cupon?'✓ '+TIENDA.cupones[cupon]+'% de descuento aplicado':''}</div>
+    <div class="row"><span>Subtotal</span><span>${S(subtotal())}</span></div>
+    ${cupon?`<div class="row disc"><span>Descuento</span><span>− ${S(descuento())}</span></div>`:''}
+    <div class="row"><span>Envío (Lima)</span><span>${envio()?S(envio()):'Gratis'}</span></div>
+    <div class="row big"><span>Total</span><span>${S(total())}</span></div>
+    <button class="btn full" id="toPay">${LOCK.replace('<svg','<svg style="width:16px;height:16px"')} Pagar con tarjeta</button>
+    <a class="btn wa full" target="_blank" rel="noopener" href="https://wa.me/${TIENDA.whatsapp}?text=${encodeURIComponent(textoWA())}" id="waOrder">Pedir por WhatsApp</a>`;
+  $('#cpB').onclick=()=>{
+    if(cupon){cupon=null; guardar('alba_cupon',null); pintarCarrito(); return;}
+    const c=$('#cpIn').value.trim().toUpperCase();
+    if(TIENDA.cupones[c]){cupon=c; guardar('alba_cupon',c); pintarCarrito(); toast('Cupón aplicado');}
+    else {$('#cpM').className='cmsg bad'; $('#cpM').textContent='Ese cupón no existe (prueba ALBA10).';}
+  };
+  $('#toPay').onclick=()=>{paso=1; pintarPago(); abrir($('#cmodal'))};
+}
+$('#cartBtn').onclick=()=>{pintarCarrito(); abrir($('#cart'))};
+
+/* ---------- pago simulado (no cobra nada) ---------- */
+const DISTRITOS=['Ate','Barranco','Breña','Callao','Carabayllo','Chorrillos','Comas','Independencia','Jesús María','La Molina','La Victoria','Lima Cercado','Lince','Los Olivos','Magdalena','Miraflores','Pueblo Libre','Puente Piedra','Rímac','San Borja','San Isidro','San Juan de Lurigancho','San Juan de Miraflores','San Martín de Porres','San Miguel','Santiago de Surco','Surquillo','Villa El Salvador','Villa María del Triunfo','Otro (provincia)'];
+let paso=1, comprador={nombre:'',tel:'',email:'',distrito:'',dir:''}, tarjeta={num:'',exp:'',cvv:'',name:''};
+const campo=(id,lbl,ph,val,extra='')=>`<div class="fld" id="f_${id}"><label for="${id}">${lbl}</label><input id="${id}" placeholder="${ph}" value="${esc(val)}" autocomplete="off" ${extra}><span class="e"></span></div>`;
+function err(id,msg){const f=$('#f_'+id); if(!f) return; f.classList.toggle('bad',!!msg); f.querySelector('.e').textContent=msg||''}
+function luhn(n){let s=0,d=false;for(let i=n.length-1;i>=0;i--){let x=+n[i];if(d){x*=2;if(x>9)x-=9}s+=x;d=!d}return s%10===0}
+function resumen(){
+  return `<aside class="cks"><b style="font-size:15px">Resumen · ${unidades()} prenda(s)</b>
+    ${cart.map(x=>{const p=byId[x.id];return `<div class="ln"><img src="img/${p.f[0]}.webp" alt=""><div>${esc(p.nm)}<small style="text-transform:capitalize">${x.color} · ${x.talla}${x.q>1?' · x'+x.q:''}</small></div><b>${S(p.p*x.q)}</b></div>`}).join('')}
+    <div style="border-top:1px solid #ddd;padding-top:12px;display:grid;gap:6px">
+      <div class="row"><span>Subtotal</span><span>${S(subtotal())}</span></div>
+      ${cupon?`<div class="row disc"><span>Cupón ${cupon}</span><span>− ${S(descuento())}</span></div>`:''}
+      <div class="row"><span>Envío</span><span>${envio()?S(envio()):'Gratis'}</span></div>
+      <div class="row big"><span>Total</span><span>${S(total())}</span></div></div>
+    <div class="sec">${LOCK} En la web real el pago lo procesa Culqi</div></aside>`;
+}
+function pasos(){const s=(n,t)=>`<span class="${paso===n?'on':paso>n?'dn':''}"><i>${paso>n?'✓':n}</i><span class="t">${t}</span></span>`;return `<div class="steps">${s(1,'Envío')}<em></em>${s(2,'Pago')}<em></em>${s(3,'Listo')}</div>`}
+function pintarPago(){
+  let m;
+  if(paso===1){
+    m=`${pasos()}<h3>¿A dónde lo enviamos?</h3>
+      ${campo('cNombre','Nombre y apellido','Nombre Apellido',comprador.nombre,'autocomplete="name"')}
+      <div class="two">${campo('cTel','Celular','9XX XXX XXX',comprador.tel,'inputmode="tel" maxlength="11"')}${campo('cEmail','Correo','tucorreo@gmail.com',comprador.email,'type="email" inputmode="email"')}</div>
+      <div class="fld" id="f_cDist"><label for="cDist">Distrito</label><select id="cDist"><option value="">Elige tu distrito</option>${DISTRITOS.map(d=>`<option ${d===comprador.distrito?'selected':''}>${d}</option>`).join('')}</select><span class="e"></span></div>
+      ${campo('cDir','Dirección','Av. / Calle, número, referencia',comprador.dir)}
+      <button class="btn full" id="go2">Continuar al pago</button>`;
+  } else if(paso===2){
+    m=`${pasos()}<h3>Pago con tarjeta</h3>
+      <div class="demo"><b>Modo demostración:</b> no se cobra nada. Prueba con la tarjeta 4111 1111 1111 1111, una fecha futura y cualquier CVV.</div>
+      ${campo('tNum','Número de tarjeta','0000 0000 0000 0000',tarjeta.num,'inputmode="numeric" maxlength="23"')}
+      <div class="two">${campo('tExp','Vencimiento','MM/AA',tarjeta.exp,'inputmode="numeric" maxlength="5"')}${campo('tCvv','CVV','123',tarjeta.cvv,'inputmode="numeric" maxlength="4"')}</div>
+      ${campo('tName','Nombre en la tarjeta','NOMBRE APELLIDO',tarjeta.name)}
+      <button class="btn full" id="payNow">${LOCK.replace('<svg','<svg style="width:16px;height:16px"')} Pagar ${S(total())}</button>
+      <button class="btn line full" id="back1">Volver a mis datos</button>`;
+  }
+  if(paso===3){
+    $('#cbox').innerHTML=`<button class="x" data-close aria-label="Cerrar">✕</button><div class="done">
+      <div class="ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m5 12 5 5 9-10"/></svg></div>
+      <h3>¡Pedido confirmado!</h3>
+      <p>Pedido <b>N.° ${pedidoN}</b>. Te escribiremos al ${esc(comprador.tel)} para coordinar la entrega en ${esc(comprador.distrito)}.</p>
+      <p style="font-size:13px;color:var(--muted)">Esto es una demostración: no se cobró nada ni se envió ningún dato.</p>
+      <button class="btn" data-close>Seguir comprando</button></div>`;
+    return;
+  }
+  $('#cbox').innerHTML=`<button class="x" data-close aria-label="Cerrar">✕</button><div class="ck"><div class="ckm">${m}</div>${resumen()}</div>`;
+  if(paso===1){
+    const t=$('#cTel'); t.addEventListener('input',()=>{const d=t.value.replace(/\D/g,'').slice(0,9); t.value=d.replace(/(\d{3})(?=\d)/g,'$1 ').trim()});
+    $('#go2').onclick=()=>{
+      comprador={nombre:$('#cNombre').value.trim(),tel:t.value.trim(),email:$('#cEmail').value.trim(),distrito:$('#cDist').value,dir:$('#cDir').value.trim()};
+      let ok=true; const e=(id,cond,msg)=>{err(id,cond?'':msg); if(!cond) ok=false};
+      e('cNombre',comprador.nombre.split(/\s+/).length>=2,'Escribe tu nombre y apellido.');
+      e('cTel',/^9\d{8}$/.test(comprador.tel.replace(/\s/g,'')),'Celular de 9 dígitos que empiece con 9.');
+      e('cEmail',/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(comprador.email),'Revisa tu correo.');
+      e('cDist',!!comprador.distrito,'Elige tu distrito.');
+      e('cDir',comprador.dir.length>=6,'Escribe tu dirección.');
+      if(ok){paso=2; pintarPago()}
+    };
+  } else {
+    const n=$('#tNum'),x=$('#tExp'),c=$('#tCvv');
+    n.addEventListener('input',()=>{const d=n.value.replace(/\D/g,'').slice(0,19); n.value=d.replace(/(.{4})/g,'$1 ').trim(); err('tNum','')});
+    x.addEventListener('input',()=>{const d=x.value.replace(/\D/g,'').slice(0,4); x.value=d.length>2?d.slice(0,2)+'/'+d.slice(2):d; err('tExp','')});
+    c.addEventListener('input',()=>{c.value=c.value.replace(/\D/g,''); err('tCvv','')});
+    $('#back1').onclick=()=>{paso=1; pintarPago()};
+    $('#payNow').onclick=()=>{
+      tarjeta={num:n.value,exp:x.value,cvv:c.value,name:$('#tName').value.trim()};
+      const d=tarjeta.num.replace(/\D/g,''); let ok=true; const e=(id,cond,msg)=>{err(id,cond?'':msg); if(!cond) ok=false};
+      const mm=tarjeta.exp.match(/^(0[1-9]|1[0-2])\/(\d\d)$/), now=new Date(), yy=now.getFullYear()%100;
+      e('tNum',d.length>=14&&luhn(d),'Ese número de tarjeta no es válido.');
+      e('tExp',mm&&(+mm[2]>yy||(+mm[2]===yy&&+mm[1]>=now.getMonth()+1)),'Fecha vencida o incompleta.');
+      e('tCvv',tarjeta.cvv.length>=3,'CVV incompleto.');
+      e('tName',tarjeta.name.length>=4,'Escribe el nombre del titular.');
+      if(!ok) return;
+      const b=$('#payNow'); b.disabled=true; b.textContent='Procesando…';
+      setTimeout(()=>{pedidoN='AL-'+String(Date.now()).slice(-6); paso=3; cart=[]; cupon=null; tarjeta={num:'',exp:'',cvv:'',name:''}; guardar('alba_cart',cart); guardar('alba_cupon',null); pintarCarrito(); pintarPago()},1200);
+    };
+  }
+}
+let pedidoN='';
+
+/* ---------- clics generales ---------- */
+document.addEventListener('click',e=>{
+  const t=e.target;
+  const fav=t.closest('[data-fav]'); if(fav){e.stopPropagation(); toggleFav(fav.dataset.fav); if($('#pmodal').classList.contains('on')) pintarFicha(); return;}
+  const cat=t.closest('[data-cat]'); if(cat){e.preventDefault(); irA(cat.dataset.cat); return;}
+  if(t.closest('[data-close]')){cerrarTodo(); return;}
+  const op=t.closest('[data-open]'); if(op){abrirFicha(op.dataset.open); return;}
+  const co=t.closest('[data-color]'); if(co){sel.color=co.dataset.color; pintarFicha(); return;}
+  const ta=t.closest('[data-talla]'); if(ta){sel.talla=ta.dataset.talla; pintarFicha(); return;}
+  if(t.closest('[data-guia2]')){$('#gt').classList.toggle('on'); return;}
+  if(t.closest('[data-guia]')){e.preventDefault(); abrirFicha('m1',true); return;}
+  if(t.closest('[data-addsel]')){agregarSel(); return;}
+  const qi=t.closest('[data-qi]'); if(qi){const x=cart[+qi.dataset.qi]; x.q+= +qi.dataset.d; if(x.q<=0) cart.splice(+qi.dataset.qi,1); guardar('alba_cart',cart); pintarCarrito(); return;}
+  const rm=t.closest('[data-rm]'); if(rm){cart.splice(+rm.dataset.rm,1); guardar('alba_cart',cart); pintarCarrito(); return;}
+});
+$('#newsF').onsubmit=e=>{e.preventDefault(); $('#nEmail').value=''; toast('¡Listo! (Demo: no se guardó tu correo)')};
+
+/* ---------- inicio ---------- */
+cart=cart.filter(x=>byId[x.id]); if(cupon&&!TIENDA.cupones[cupon]) cupon=null;
+pintarGrilla(); pintarFavs(); pintarCarrito();
+</script>
+</body>
+</html>
