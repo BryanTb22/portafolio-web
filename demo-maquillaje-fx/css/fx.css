@@ -1,0 +1,168 @@
+/* Sombra FX · capa v3 (15/11/2026): nivel "web del estudio v2"
+   Referencias: Legacy Effects (manifiesto "Practical FX", trabajos por categoría), Wētā Workshop
+   ("We design. We build..." + tarjetas con imagen y lema), Fractured FX (portada en video).
+   Animaciones: js/fx.js (GSAP + ScrollTrigger + Lenis). Sin JS todo se ve igual, solo sin movimiento. */
+:root{--ease:cubic-bezier(.2,.7,.2,1);--hair:rgba(239,232,221,.10)}
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+.lenis.lenis-smooth [data-lenis-prevent]{overscroll-behavior:contain}
+::selection{background:var(--red);color:#fff}
+a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible{outline:2px solid var(--red2);outline-offset:3px}
+
+/* Grano de película (fijo, sin animación: no cuesta al bajar) */
+body::after{content:"";position:fixed;inset:0;z-index:70;pointer-events:none;opacity:.06;mix-blend-mode:overlay;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* Menú: línea fina al bajar */
+header{transition:border-color .3s,background .3s;border-bottom-color:transparent}
+header.scrolled{border-bottom-color:var(--line);background:rgba(11,10,9,.95)}
+.links a:not(.cta):after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:2px;background:var(--red);border-radius:2px;transform:scaleX(0);transform-origin:left;transition:transform .3s var(--ease)}
+.links a:not(.cta):hover:after,.links a.on:after{transform:scaleX(1)}
+.menu-btn svg path{transition:transform .25s}
+
+/* Botones: más finos y con flecha */
+.btn{border-radius:6px;letter-spacing:.01em;transition:background .2s,border-color .2s,color .2s,transform .25s var(--ease)}
+.btn:active{transform:scale(.98)}
+.btn .arr{display:inline-block;transition:transform .25s var(--ease)}
+.btn:hover .arr{transform:translateX(4px)}
+
+/* Encabezados de sección: número y filete */
+.eyebrow[data-n]:after{content:attr(data-n);order:-1;font-family:Anton,Impact,sans-serif;font-size:13px;letter-spacing:.06em;color:var(--soft)}
+.head{position:relative}
+.head h2{line-height:.95;letter-spacing:.005em}
+
+/* PORTADA */
+.hero2 h1 .w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.06em;margin-bottom:-.06em}
+.hero2 h1 .w > span{display:inline-block}
+.hero2 .meta{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:26px;padding-top:18px;border-top:1px solid var(--hair);font-size:11.5px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);max-width:620px}
+.hero2 .meta span{display:inline-flex;align-items:center;gap:8px}
+.hero2 .meta span:before{content:"";width:5px;height:5px;background:var(--red);transform:rotate(45deg)}
+.hero2:before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:radial-gradient(120% 90% at 50% 40%,transparent 55%,rgba(0,0,0,.55) 100%)}
+.hero-clip{will-change:transform}
+.hero-clip:after{content:"";position:absolute;inset:0;border-radius:inherit;box-shadow:inset 0 0 0 1px rgba(239,232,221,.08);pointer-events:none}
+.hero-clip .tc{position:absolute;top:12px;left:12px;right:12px;display:flex;justify-content:space-between;font:800 10.5px/1 Manrope,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#d8cfc3;z-index:2}
+.hero-clip .tc i{font-style:normal;display:inline-flex;align-items:center;gap:6px}
+.hero-clip .tc i:before{content:"";width:7px;height:7px;border-radius:50%;background:var(--red2)}
+@media (max-width:640px){
+  .hero2{padding-bottom:104px}
+  .hero2 .meta{display:none}
+}
+
+/* Cinta de especialidades (se mueve con transform) */
+.strip{display:block;padding:0;overflow:hidden;background:var(--bg)}
+.strip .rail{display:flex;width:max-content;animation:cinta 40s linear infinite}
+.strip span{padding:22px 0;white-space:nowrap;gap:0}
+.strip span:before{content:"";width:5px;height:5px;border-radius:50%;background:var(--red);margin:0 28px}
+.strip span+span:before{content:"";width:5px;height:5px;border-radius:50%;background:var(--red)}
+@keyframes cinta{to{transform:translateX(-50%)}}
+.strip:hover .rail{animation-play-state:paused}
+
+/* Manifiesto (ref. Wētā "We design. We build." y Legacy "Practical FX") */
+.manif{padding:120px 0 40px}
+.manif .big{font-size:clamp(44px,8.2vw,128px);line-height:.98;letter-spacing:.005em}
+.manif .big span{display:block}
+.manif .big span:nth-child(2){color:transparent;-webkit-text-stroke:1.5px var(--bone)}
+.manif .big span:nth-child(3){color:var(--red2)}
+.manif-g{display:grid;grid-template-columns:1fr;gap:32px}
+.manif-g > div{justify-self:end;max-width:520px}
+.manif-g > *{min-width:0}
+.manif p.intro{color:var(--muted);font-size:17px;max-width:46ch}
+.pilares{display:grid;grid-template-columns:repeat(3,1fr);margin-top:64px;border-top:1px solid var(--line)}
+.pilares div{padding:24px 24px 4px 0;border-right:1px solid var(--line);margin-right:24px}
+.pilares div:last-child{border-right:0;margin-right:0}
+.pilares small{font:400 14px/1 Anton,Impact,sans-serif;color:var(--red2);letter-spacing:.06em}
+.pilares b{display:block;font:400 26px/1.05 Anton,Impact,sans-serif;text-transform:uppercase;margin:10px 0 8px}
+.pilares p{color:var(--muted);font-size:14.5px}
+@media (max-width:960px){.manif-g{gap:24px}.manif-g > div{justify-self:start}}
+@media (max-width:640px){
+  .manif{padding:76px 0 20px}
+  .pilares{grid-template-columns:1fr;margin-top:40px}
+  .pilares div{border-right:0;margin-right:0;border-bottom:1px solid var(--line);padding:20px 0}
+  .pilares div:last-child{border-bottom:0}
+}
+
+/* Mosaico "Explora": número y reveal del texto */
+.tile{border-color:var(--hair)}
+.tile img{transition:transform .9s var(--ease)}
+.tile .n{position:absolute;top:16px;left:18px;z-index:2;font:400 14px/1 Anton,Impact,sans-serif;letter-spacing:.06em;color:var(--bone);opacity:.8}
+.tile span{transition:transform .35s var(--ease)}
+.tile:hover span{transform:translateX(4px)}
+.tile:before{content:"";position:absolute;inset:0;z-index:3;border:1px solid var(--red);border-radius:inherit;opacity:0;transition:opacity .3s}
+.tile:hover:before{opacity:1}
+
+/* Tarjetas */
+.card{border-color:var(--hair);transition:border-color .3s,transform .4s var(--ease)}
+.card:hover{transform:translateY(-4px);border-color:#4a4239}
+.card .ph img{transition:transform .9s var(--ease)}
+.card:hover .ph img{transform:scale(1.05)}
+.card h3{letter-spacing:-.005em}
+.price b{font-variant-numeric:tabular-nums}
+.bar i{transform-origin:left}
+
+/* Proceso de trabajo (ref. Legacy / Wētā: diseño → fabricación → set) */
+.proc{margin-top:72px}
+.proc-h{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:34px}
+.proc-h h3{font-size:clamp(28px,4vw,40px)}
+.proc-h p{color:var(--muted);font-size:15px;max-width:46ch}
+.pasos{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:28px;position:relative;counter-reset:p}
+.pasos li.track:before{content:none}
+.pasos .track{display:block;padding:0;position:absolute;left:0;right:0;top:21px;height:1px;background:var(--line)}
+.pasos .track i{position:absolute;inset:0;background:var(--red);transform-origin:left}
+.pasos li{position:relative;display:grid;gap:6px;align-content:start}
+.pasos li:before{counter-increment:p;content:counter(p,decimal-leading-zero);font:400 16px/1 Anton,Impact,sans-serif;color:var(--red2);width:44px;height:44px;border-radius:50%;border:1px solid var(--red);background:var(--bg2);display:grid;place-items:center;margin-bottom:12px}
+.pasos b{font-size:16px}
+.pasos p{color:var(--muted);font-size:14px}
+@media (max-width:860px){
+  .pasos{grid-template-columns:1fr;gap:26px}
+  .pasos .track{left:22px;right:auto;top:0;bottom:0;width:1px;height:auto}
+  .pasos .track i{transform-origin:top}
+  .pasos li{grid-template-columns:44px 1fr;column-gap:18px}
+  .pasos li:before{grid-row:span 2;margin:0}
+}
+
+/* Galería */
+.gallery .ph{border-color:var(--hair)}
+.gallery .ph img{transition:transform .9s var(--ease)}
+.gallery .ph:hover img{transform:scale(1.04)}
+.f{transition:background .2s,color .2s,border-color .2s}
+.f:hover{border-color:#4a4239;color:var(--bone)}
+.ba .knob{transition:transform .2s var(--ease)}
+.ba:hover .knob{transform:scale(1.08)}
+
+/* Profesor y casos */
+.teacher,.case,.plan,.list div{border-color:var(--hair)}
+.case .ph img{transition:transform .9s var(--ease)}
+.case:hover .ph img{transform:scale(1.04)}
+
+/* Membresía */
+.plan{transition:transform .4s var(--ease),border-color .3s}
+.plan:not(.top):hover{transform:translateY(-4px);border-color:#4a4239}
+.plan .pr{font-family:Anton,Impact,sans-serif;font-weight:400;letter-spacing:.01em}
+
+/* Empresas: imagen con marco */
+.biz > .ph{aspect-ratio:4/5;max-height:640px}
+
+/* Contacto cinematográfico */
+#contacto{overflow:hidden;padding:140px 0;background:#070605}
+#contacto .bgc{position:absolute;inset:-12% 0;background:url(../img/zombie.webp) center 30%/cover no-repeat;opacity:.22;will-change:transform}
+#contacto:before{content:"";position:absolute;inset:0;z-index:1;background:radial-gradient(70% 80% at 50% 50%,rgba(11,10,9,.35),var(--bg) 85%)}
+#contacto .wrap{position:relative;z-index:2}
+#contacto h2{font-size:clamp(46px,8vw,112px);line-height:.92}
+#contacto h2 em{font-style:normal;color:var(--red2)}
+#contacto .row2{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+@media (max-width:640px){#contacto{padding:96px 0}#contacto .row2 .btn{flex:1 1 100%}}
+
+/* Pie */
+footer{border-top-color:var(--hair)}
+
+/* Sin GSAP: la portada entra con CSS; con GSAP, js/fx.js se encarga */
+@keyframes rise{from{opacity:.001;transform:translateY(16px)}to{opacity:1;transform:none}}
+html:not(.gs) .hero2 .wrap > *{animation:rise .9s var(--ease) both}
+html:not(.gs) .hero2 .bottom{animation-delay:.15s}
+
+@media (prefers-reduced-motion:reduce){
+  *,*:before,*:after{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+  .strip .rail{width:auto;flex-wrap:wrap;justify-content:center}
+  .strip span[aria-hidden]{display:none}
+}

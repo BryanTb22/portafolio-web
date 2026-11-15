@@ -22,19 +22,29 @@
   --blue:#0ea5e9; --blue2:#0284c7; --blue-soft:#e6f6fd;
   --wa:#25d366; --wa2:#15803d;
   --r:16px; --sh:0 1px 2px rgba(16,24,40,.04),0 8px 24px rgba(16,24,40,.06);
+  --ease:cubic-bezier(.2,.7,.2,1);
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+body{font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 h1,h2,h3,h4{font-family:Manrope,Inter,sans-serif;line-height:1.15;letter-spacing:-.02em;font-weight:800}
 a{color:inherit;text-decoration:none}
 img{max-width:100%;height:auto;display:block}
+:focus-visible{outline:2px solid var(--blue);outline-offset:3px;border-radius:6px}
 .wrap{max-width:1200px;margin:0 auto;padding:0 24px}
-.eyebrow{display:inline-block;color:var(--blue2);font-weight:600;font-size:12px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:10px}
-.head{max-width:620px;margin-bottom:40px}
-.head h2{font-size:clamp(26px,3.4vw,36px);margin-bottom:10px}
-.head p{color:var(--muted);font-size:16px}
-section{padding:88px 0}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;color:var(--blue2);font-weight:600;font-size:12px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:14px}
+.eyebrow i{font-style:normal;font-family:Manrope;font-weight:800;color:var(--navy);letter-spacing:.04em}
+.out .eyebrow,.reco-out .eyebrow{color:#7dd3fc}
+.out .eyebrow i{color:#fff}
+.eyebrow i::after{content:"";display:inline-block;width:28px;height:1px;background:currentColor;opacity:.35;vertical-align:middle;margin-left:10px}
+.head{max-width:640px;margin-bottom:44px}
+.head h2{font-size:clamp(28px,3.4vw,40px);margin-bottom:12px;letter-spacing:-.03em}
+.head p{color:var(--muted);font-size:17px;max-width:560px}
+.head-row{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;max-width:none}
+.head-row>div{max-width:640px}
+section{padding:104px 0}
 .alt{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 
 .proto{background:#fff6d6;color:#6b4e00;font-size:13px;text-align:center;padding:7px 16px}
@@ -51,35 +61,49 @@ section{padding:88px 0}
 .btn-sm{padding:9px 16px;font-size:14px;border-radius:8px}
 .ic{width:18px;height:18px;flex:none}
 
-header{position:sticky;top:0;z-index:20;background:rgba(11,31,58,.97);backdrop-filter:blur(8px);color:#fff}
+header{position:sticky;top:0;z-index:20;background:var(--navy);color:#fff;border-bottom:1px solid rgba(255,255,255,.06);transition:box-shadow .3s}
+header.scrolled{box-shadow:0 12px 30px -18px rgba(5,14,30,.6)}
 .nav{display:flex;align-items:center;justify-content:space-between;height:68px;gap:16px}
 .brand{display:flex;align-items:center;gap:12px;line-height:1.1}
 .mono{width:40px;height:40px;border-radius:10px;background:var(--blue);display:grid;place-items:center;font:800 15px Manrope;color:#fff;flex:none}
 .brand b{font-family:Manrope;font-weight:800;font-size:16px;display:block}
 .brand small{font-size:12px;color:#9fb0c9;margin-top:3px;display:block}
 .links{display:flex;gap:26px;font-size:14px;color:#c9d4e6;font-weight:500}
+.links a{position:relative;padding:6px 0}
+.links a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1.5px;background:#7dd3fc;transform:scaleX(0);transform-origin:left;transition:transform .3s var(--ease)}
 .links a:hover{color:#fff}
+.links a:hover::after{transform:scaleX(1)}
 .hright{display:flex;align-items:center;gap:6px}
 .burger{display:none;background:none;border:0;color:#fff;cursor:pointer;padding:8px}
 .mnav{display:none;background:var(--navy2);border-top:1px solid rgba(255,255,255,.08)}
 .mnav.open{display:block}
 .mnav a{display:block;padding:14px 24px;border-bottom:1px solid rgba(255,255,255,.06);color:#dbe4ef;font-size:15px}
 
-.hero{background:var(--navy);color:#fff;padding:80px 0 96px;overflow:hidden;position:relative}
-.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(700px 400px at 100% 0%,rgba(14,165,233,.25),transparent 60%);pointer-events:none}
-.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;position:relative}
+.hero{background:var(--navy);color:#fff;padding:96px 0 0;overflow:hidden;position:relative}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(760px 460px at 92% 8%,rgba(14,165,233,.24),transparent 62%);pointer-events:none}
+.hero::after{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);background-size:64px 64px;-webkit-mask-image:radial-gradient(ellipse 70% 80% at 75% 30%,#000 20%,transparent 75%);mask-image:radial-gradient(ellipse 70% 80% at 75% 30%,#000 20%,transparent 75%);pointer-events:none}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;position:relative;z-index:1}
 .hero .eyebrow{color:#7dd3fc}
-.hero h1{font-size:clamp(32px,4.1vw,48px);margin-bottom:18px;letter-spacing:-.03em}
-.hero h1 span{color:#7dd3fc}
-.hero p{color:#c3cedf;font-size:18px;max-width:520px;margin-bottom:28px}
+.hero h1{font-size:clamp(34px,4.3vw,56px);margin-bottom:22px;letter-spacing:-.035em;line-height:1.06}
+.hero h1 .w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.12em;margin-bottom:-.12em}
+.hero h1 .w>span{display:inline-block}
+.hero h1 .c{color:#7dd3fc}
+.hero p{color:#c3cedf;font-size:18px;max-width:520px;margin-bottom:32px}
 .cta{display:flex;flex-wrap:wrap;gap:12px}
 .trust{display:flex;gap:18px;flex-wrap:wrap;margin-top:28px;font-size:13px;color:#9fb0c9}
 .trust span{display:inline-flex;align-items:center;gap:6px}
 .trust svg{width:16px;height:16px;color:#7dd3fc}
+.facts{position:relative;z-index:1;display:grid;grid-template-columns:repeat(4,1fr);margin-top:80px;border-top:1px solid rgba(255,255,255,.1)}
+.facts>div{padding:26px 24px 30px;border-left:1px solid rgba(255,255,255,.1)}
+.facts>div:first-child{border-left:0;padding-left:0}
+.facts b{display:block;font-family:Manrope;font-weight:800;font-size:clamp(28px,3vw,38px);letter-spacing:-.03em;line-height:1;color:#fff}
+.facts b small{font-size:.5em;color:#7dd3fc;margin-left:2px}
+.facts>div>span{display:block;margin-top:8px;font-size:13px;color:#9fb0c9}
 
-.collage{position:relative;height:440px}
+.collage{position:relative;height:460px}
 .ph{position:absolute;background:#fff;border-radius:16px;box-shadow:0 30px 60px rgba(0,0,0,.35);overflow:hidden}
 .ph img{width:100%;height:100%;object-fit:cover}
+.ph::after{content:"";position:absolute;inset:0;border-radius:inherit;box-shadow:inset 0 0 0 1px rgba(16,24,40,.06);pointer-events:none}
 .p1{left:0;top:30px;width:58%;height:320px;z-index:2}
 .p2{right:0;top:0;width:42%;height:200px;z-index:1}
 .p3{right:4%;bottom:0;width:46%;height:220px;z-index:3}
@@ -92,14 +116,25 @@ header{position:sticky;top:0;z-index:20;background:rgba(11,31,58,.97);backdrop-f
 .brands .wrap{display:flex;align-items:center;gap:34px;padding:22px 24px;overflow-x:auto;scrollbar-width:none}
 .brands .wrap::-webkit-scrollbar{display:none}
 .brands small{font-size:11px;text-transform:uppercase;letter-spacing:.14em;color:var(--soft);white-space:nowrap;font-weight:600}
-.brands b{font-family:Manrope;font-size:17px;color:#aab3c2;white-space:nowrap;font-weight:800}
+.brands b{font-family:Manrope;font-size:17px;color:#aab3c2;white-space:nowrap;font-weight:800;transition:color .2s}
+.brands b:hover{color:var(--navy)}
 
-.vol{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:24px}
-.vol button{background:#fff;border:1.5px solid var(--line);border-radius:14px;padding:18px 20px;text-align:left;cursor:pointer;font:inherit;transition:.18s}
+.vol{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:18px}
+.vol button{position:relative;background:#fff;border:1.5px solid var(--line);border-radius:14px;padding:20px 22px 20px 52px;text-align:left;cursor:pointer;font:inherit;color:var(--ink);transition:border-color .2s,background-color .2s,transform .2s var(--ease)}
+.vol button::before{content:"";position:absolute;left:20px;top:23px;width:18px;height:18px;border-radius:50%;border:1.5px solid #c3cad6;background:#fff;transition:border-color .2s,box-shadow .2s}
+.vol button:hover{border-color:#b9c3d3;transform:translateY(-2px)}
 .vol button b{display:block;font-family:Manrope;font-weight:800;font-size:17px;margin-bottom:4px}
 .vol button span{font-size:13px;color:var(--muted)}
 .vol button.on{border-color:var(--blue);background:var(--blue-soft)}
-.reco-out{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center;background:var(--navy);color:#fff;border-radius:20px;padding:36px}
+.vol button.on::before{border-color:var(--blue);box-shadow:inset 0 0 0 4px #fff,inset 0 0 0 9px var(--blue)}
+.meter{margin:0 0 22px;display:grid;gap:8px}
+.meter .bar{height:6px;border-radius:6px;background:#e4e8ef;overflow:hidden}
+.meter .bar i{display:block;height:100%;background:linear-gradient(90deg,var(--blue),var(--blue2));transform-origin:left;transform:scaleX(.2);transition:transform .7s var(--ease)}
+.meter .lab{display:flex;justify-content:space-between;font-size:12px;color:var(--soft);font-weight:600;letter-spacing:.04em}
+.reco-out{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center;background:var(--navy);color:#fff;border-radius:20px;padding:40px;position:relative;overflow:hidden}
+.reco-out::before{content:"";position:absolute;inset:0;background:radial-gradient(500px 300px at 100% 100%,rgba(14,165,233,.2),transparent 65%);pointer-events:none}
+.reco-out>*{position:relative}
+.reco-out .tag{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#7dd3fc;margin-bottom:10px}
 .reco-out h3{font-size:22px;margin-bottom:8px}
 .reco-out p{color:#c3cedf;margin-bottom:16px;font-size:15px}
 .reco-out ul{list-style:none;display:grid;gap:8px;margin-bottom:22px}
@@ -117,8 +152,10 @@ header{position:sticky;top:0;z-index:20;background:rgba(11,31,58,.97);backdrop-f
 .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 .prod{background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;transition:.18s;position:relative;box-shadow:var(--sh)}
 .prod:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(16,24,40,.1)}
-.prod .thumb{aspect-ratio:5/4;background:#fff;display:grid;place-items:center;padding:18px;border-bottom:1px solid var(--line)}
-.prod .thumb img{width:100%;height:100%;object-fit:contain}
+.prod{transition:transform .3s var(--ease),box-shadow .3s}
+.prod .thumb{aspect-ratio:5/4;background:#fff;display:grid;place-items:center;padding:18px;border-bottom:1px solid var(--line);overflow:hidden}
+.prod .thumb img{width:100%;height:100%;object-fit:contain;transition:transform .6s var(--ease)}
+.prod:hover .thumb img{transform:scale(1.05)}
 .prod .cat{position:absolute;left:14px;top:14px;font-size:11px;color:var(--blue2);background:var(--blue-soft);font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:4px 9px;border-radius:6px}
 .prod .body{padding:18px 20px 20px;display:flex;flex-direction:column;gap:6px;flex:1}
 .prod .brandname{font-size:12px;color:var(--soft);font-weight:600;text-transform:uppercase;letter-spacing:.08em}
@@ -141,7 +178,15 @@ table.cmp{width:100%;border-collapse:collapse;font-size:14px;min-width:720px}
 .cmp th{background:var(--bg);text-align:left;padding:12px 16px;font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;font-weight:600;border-bottom:1px solid var(--line)}
 .cmp td{padding:13px 16px;border-bottom:1px solid var(--line);vertical-align:middle}
 .cmp tr:last-child td{border-bottom:0}
+.cmp tbody tr{transition:background-color .2s}
+.cmp tbody tr:hover{background:#f8fafc}
 .cmp td:first-child{font-weight:600;font-family:Manrope}
+.cmp th:first-child,.cmp td:first-child{position:sticky;left:0;z-index:1;background:inherit}
+.cmp th:first-child{background:var(--bg)}
+.cmp tbody td:first-child{background:#fff;box-shadow:1px 0 0 var(--line)}
+.cmp tbody tr:hover td:first-child{background:#f8fafc}
+.cmp td b{font-family:Manrope;font-weight:800}
+.cmp-note{margin-top:12px;font-size:12px;color:var(--soft)}
 .cmp td small{display:block;color:var(--soft);font-weight:400;font-family:Inter}
 .cmp .pill{display:inline-block;padding:3px 8px;border-radius:6px;font-size:12px;font-weight:600;background:var(--blue-soft);color:var(--blue2)}
 .cmp .pill.k{background:#eef0f4;color:var(--muted)}
@@ -184,7 +229,7 @@ table.cmp{width:100%;border-collapse:collapse;font-size:14px;min-width:720px}
 .ctable th,.ctable td{padding:9px 6px;border-bottom:1px solid var(--line);text-align:left}
 .ctable th{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;font-weight:600}
 .ctable td b{font-family:Manrope}
-.ctable .good{color:var(--wa2)}
+.ctable .good{color:var(--blue2)}
 .ctable small{display:block;margin-top:10px;font-size:11px;color:var(--soft)}
 
 .ins{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:28px 32px;margin-top:24px;box-shadow:var(--sh)}
@@ -199,15 +244,24 @@ table.cmp{width:100%;border-collapse:collapse;font-size:14px;min-width:720px}
 .faq p{color:var(--muted);font-size:14px;margin-top:10px}
 
 .contact{text-align:center}
-.contact .box{background:var(--navy);color:#fff;border-radius:20px;padding:60px 24px}
+.contact .box{background:var(--navy);color:#fff;border-radius:24px;padding:80px 24px;position:relative;overflow:hidden}
+.contact .box::before{content:"";position:absolute;inset:0;background:radial-gradient(600px 300px at 50% 0%,rgba(14,165,233,.28),transparent 70%);pointer-events:none}
+.contact .box>*{position:relative}
+.contact .eyebrow{color:#7dd3fc}
 .contact h2{font-size:clamp(26px,4vw,40px);margin-bottom:10px}
 .contact p{color:#c3cedf;margin-bottom:26px}
 .contact .btn-wa{font-size:17px;padding:15px 28px}
 .contact .info{display:flex;justify-content:center;gap:28px;flex-wrap:wrap;margin-top:26px;font-size:14px;color:#c3cedf}
 
-footer{padding:32px 0 100px;text-align:center;color:var(--soft);font-size:13px}
-footer a{color:var(--ink);font-weight:600}
-.float{position:fixed;right:18px;bottom:18px;width:58px;height:58px;border-radius:50%;background:var(--wa);display:grid;place-items:center;box-shadow:0 10px 26px rgba(37,211,102,.45);z-index:30}
+footer{padding:40px 0 100px;color:var(--soft);font-size:13px}
+footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:28px}
+footer .fb{display:flex;align-items:center;gap:10px;color:var(--ink);font-family:Manrope;font-weight:800;font-size:14px}
+footer .fb .mono{width:32px;height:32px;font-size:12px;border-radius:8px}
+footer nav{display:flex;gap:20px;flex-wrap:wrap}
+footer nav a:hover{color:var(--ink)}
+footer a.by{color:var(--ink);font-weight:600}
+.float{position:fixed;right:18px;bottom:18px;width:58px;height:58px;border-radius:50%;background:var(--wa);display:grid;place-items:center;box-shadow:0 10px 26px rgba(37,211,102,.45);z-index:30;transition:transform .2s var(--ease)}
+.float:hover{transform:scale(1.06)}
 
 @media(max-width:960px){
   .hero-grid,.out,.reco-out,.quick{grid-template-columns:1fr}
@@ -221,12 +275,23 @@ footer a{color:var(--ink);font-weight:600}
   .more{display:inline-flex}
   .grid.collapsed .prod:nth-child(n+7){display:none}
   .ins{grid-template-columns:1fr}
+  .facts{grid-template-columns:repeat(2,1fr);margin-top:56px}
+  .facts>div:nth-child(3){border-left:0;padding-left:0}
+  .facts>div:nth-child(n+3){border-top:1px solid rgba(255,255,255,.1)}
+  .head-row{flex-direction:column;align-items:flex-start}
 }
 @media(max-width:600px){
   .wrap{padding:0 18px}
-  section{padding:60px 0}
-  .hero{padding:48px 0 60px}
+  section{padding:72px 0}
+  .hero{padding:52px 0 0}
   .hero p{font-size:16px}
+  .facts>div{padding:20px 0 22px 18px}
+  .facts>div:nth-child(odd){padding-left:0}
+  .vol button{padding:16px 18px 16px 48px}
+  .vol button::before{left:18px;top:19px}
+  .reco-out .btn{white-space:normal;text-align:center}
+  .contact .box{padding:56px 20px}
+  footer .wrap{flex-direction:column;align-items:flex-start}
   .grid,.vol,.plus{grid-template-columns:1fr}
   .sectors{grid-template-columns:repeat(2,1fr)}
   .out,.reco-out{padding:26px 20px}
@@ -238,19 +303,31 @@ footer a{color:var(--ink);font-weight:600}
   .p3{height:150px}
   .badge{display:none}
 }
+/* Movimiento: sin JS (o si GSAP no carga) la portada entra con CSS; con GSAP se encarga js/asesor.js */
+@keyframes rise{from{opacity:.001;transform:translateY(16px)}to{opacity:1;transform:none}}
+html:not(.gs) .hero-grid > *{animation:rise .9s var(--ease) both}
+html:not(.gs) .hero-grid > .collage{animation-delay:.15s}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+}
 </style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/lenis@1.3.4/dist/lenis.min.js"></script>
+<script defer src="js/asesor.js?v=1"></script>
 </head>
 <body>
 
 <div class="proto">Ejemplo de diseño hecho por LitleJacob Studio Web · ¿Quieres una así para tu negocio? Escríbenos</div>
 
-<header>
+<header id="top">
   <div class="wrap nav">
     <a class="brand" href="#inicio"><div class="mono">AC</div><div><b>Asesor Comercial</b><small>Asesor en impresión y digitalización</small></div></a>
     <nav class="links"><a href="#reco">Asesoría</a><a href="#equipos">Equipos</a><a href="#comparar">Comparar</a><a href="#outsourcing">Outsourcing</a><a href="#faq">Preguntas</a></nav>
     <div class="hright">
       <a class="btn btn-wa btn-sm wa" href="#"><svg class="ic" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.8 14.2c-.2.7-1.4 1.3-2 1.4-.5.1-1.2.1-1.9-.1-.4-.1-1-.3-1.7-.6-3-1.3-4.9-4.3-5.1-4.5-.1-.2-1.2-1.6-1.2-3s.7-2.2 1-2.5c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .5l-.3.5-.4.5c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.6-.1l2 1c.3.1.5.2.5.3.1.2.1.7-.1 1.3Z"/></svg><span>Cotizar</span></a>
-      <button class="burger" id="burger" aria-label="Menú"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+      <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="mnav"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
     </div>
   </div>
   <nav class="mnav" id="mnav"><a href="#reco">Asesoría rápida</a><a href="#equipos">Equipos</a><a href="#comparar">Comparar equipos</a><a href="#cotiza">Cotización rápida</a><a href="#outsourcing">Outsourcing</a><a href="#faq">Preguntas</a></nav>
@@ -260,7 +337,7 @@ footer a{color:var(--ink);font-weight:600}
   <div class="wrap hero-grid">
     <div>
       <span class="eyebrow">Impresión · Digitalización · Insumos</span>
-      <h1>Equipos de impresión para tu empresa, <span>con un asesor que sí responde.</span></h1>
+      <h1><span class="w"><span>Equipos</span></span> <span class="w"><span>de</span></span> <span class="w"><span>impresión</span></span> <span class="w"><span>para</span></span> <span class="w"><span>tu</span></span> <span class="w"><span>empresa,</span></span> <span class="w"><span class="c">con</span></span> <span class="w"><span class="c">un</span></span> <span class="w"><span class="c">asesor</span></span> <span class="w"><span class="c">que</span></span> <span class="w"><span class="c">sí</span></span> <span class="w"><span class="c">responde.</span></span></h1>
       <p>Te ayudo a elegir la impresora, multifuncional o escáner correcto según cuánto imprimes al mes. Cotización el mismo día, equipos originales con garantía y entrega en todo el Perú.</p>
       <div class="cta">
         <a class="btn btn-wa wa" href="#"><svg class="ic" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.8 14.2c-.2.7-1.4 1.3-2 1.4-.5.1-1.2.1-1.9-.1-.4-.1-1-.3-1.7-.6-3-1.3-4.9-4.3-5.1-4.5-.1-.2-1.2-1.6-1.2-3s.7-2.2 1-2.5c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .5l-.3.5-.4.5c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.6-.1l2 1c.3.1.5.2.5.3.1.2.1.7-.1 1.3Z"/></svg>Cotizar por WhatsApp</a>
@@ -279,6 +356,14 @@ footer a{color:var(--ink);font-weight:600}
       <div class="badge"><div class="av">AC</div><div><b>Asesor Comercial</b>Ejemplo de diseño</div></div>
     </div>
   </div>
+  <div class="wrap">
+    <div class="facts" data-stagger>
+      <div><b><span data-count="13">13</span></b><span>equipos de muestra en el catálogo</span></div>
+      <div><b><span data-count="11">11</span></b><span>marcas con las que trabajo</span></div>
+      <div><b><span data-count="3">3</span></b><span>rangos de volumen para recomendarte</span></div>
+      <div><b><span data-count="24">24</span><small>h</small></b><span>o menos para tu cotización</span></div>
+    </div>
+  </div>
 </section>
 
 <div class="brands"><div class="wrap">
@@ -288,28 +373,29 @@ footer a{color:var(--ink);font-weight:600}
 
 <section id="reco">
   <div class="wrap">
-    <div class="head">
-      <span class="eyebrow">Asesoría rápida</span>
+    <div class="head" data-reveal>
+      <span class="eyebrow"><i>01</i>Asesoría rápida</span>
       <h2>¿Cuánto imprime tu empresa al mes?</h2>
       <p>Elige un rango y te muestro por dónde empezar. Después afinamos juntos por WhatsApp.</p>
     </div>
-    <div class="vol">
+    <div class="vol" data-stagger>
       <button class="on" data-v="a"><b>Menos de 1.000 páginas</b><span>Negocio pequeño, consultorio, emprendimiento</span></button>
       <button data-v="b"><b>1.000 a 5.000 páginas</b><span>Oficina, estudio contable, colegio pequeño</span></button>
       <button data-v="c"><b>Más de 5.000 páginas</b><span>Corporativo, imprenta, institución, municipalidad</span></button>
     </div>
-    <div class="reco-out" id="recoOut"></div>
+    <div class="meter" aria-hidden="true" data-reveal><div class="bar"><i id="meterBar"></i></div><div class="lab"><span>Bajo volumen</span><span>Medio</span><span>Alto volumen</span></div></div>
+    <div class="reco-out" id="recoOut" aria-live="polite" data-reveal></div>
   </div>
 </section>
 
 <section class="alt" id="equipos">
   <div class="wrap">
-    <div class="head">
-      <span class="eyebrow">Catálogo</span>
+    <div class="head" data-reveal>
+      <span class="eyebrow"><i>02</i>Catálogo</span>
       <h2>Equipos que más me piden</h2>
       <p>Una muestra de lo que puedo cotizarte. ¿Buscas otro modelo? Mándame el nombre y te respondo con precio y stock.</p>
     </div>
-    <div class="toolbar">
+    <div class="toolbar" data-reveal>
       <div class="filters">
         <button class="on" data-f="all">Todos</button>
         <button data-f="imp">Impresión</button>
@@ -319,10 +405,10 @@ footer a{color:var(--ink);font-weight:600}
       </div>
       <a class="btn btn-line btn-sm" href="#comparar">Ver tabla comparativa</a>
     </div>
-    <div class="grid collapsed" id="grid"></div>
+    <div class="grid collapsed" id="grid" data-stagger></div>
     <div style="text-align:center"><button class="btn btn-dark more" id="more">Ver más equipos</button></div>
 
-    <div class="ins">
+    <div class="ins" data-reveal>
       <div>
         <h3>¿Ya tienes tus equipos? Hazme tu pedido mensual de tinta y tóner.</h3>
         <p>Consumibles originales para Canon, Epson, HP, Riso y más. Me dices el modelo de tu impresora y te mando el precio; si quieres, lo programamos cada mes para que nunca te quedes sin tinta.</p>
@@ -334,32 +420,33 @@ footer a{color:var(--ink);font-weight:600}
 
 <section id="comparar">
   <div class="wrap">
-    <div class="head">
-      <span class="eyebrow">Comparar</span>
+    <div class="head" data-reveal>
+      <span class="eyebrow"><i>03</i>Comparar</span>
       <h2>Los equipos de un vistazo</h2>
       <p>Lo que un comprador de empresa realmente mira: velocidad, tecnología y para quién es cada equipo.</p>
     </div>
-    <div class="cmp-wrap">
+    <div class="cmp-wrap" data-reveal>
       <table class="cmp">
         <thead><tr><th>Equipo</th><th>Velocidad</th><th>Tecnología</th><th>Color</th><th>Ideal para</th><th></th></tr></thead>
         <tbody id="cmpBody"></tbody>
       </table>
     </div>
+    <p class="cmp-note">Datos del fabricante. En el celular, desliza la tabla hacia el costado para ver todas las columnas.</p>
   </div>
 </section>
 
 <section class="alt" id="como">
   <div class="wrap">
-    <div class="head">
-      <span class="eyebrow">Cómo trabajamos</span>
+    <div class="head" data-reveal>
+      <span class="eyebrow"><i>04</i>Cómo trabajamos</span>
       <h2>De la consulta a la instalación en 3 pasos</h2>
     </div>
-    <div class="guide">
+    <div class="guide" data-stagger>
       <div class="g"><div class="n">1</div><h3>Cuéntame qué necesitas</h3><p>Cuántas páginas imprimes o escaneas al mes, si necesitas color y tu presupuesto. Si no lo sabes, lo vemos juntos.</p></div>
       <div class="g"><div class="n">2</div><h3>Recibe 2 o 3 opciones comparadas</h3><p>Cotización formal el mismo día, en soles o dólares, con precio, stock y tiempo de entrega.</p></div>
       <div class="g"><div class="n">3</div><h3>Entrega, instalación y soporte</h3><p>Coordinamos la entrega en Lima o el envío a provincia, y te acompaño después de la compra.</p></div>
     </div>
-    <div class="plus">
+    <div class="plus" data-stagger>
       <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><b>Respuesta en el día</b>Cotización en 24 h o menos.</div></div>
       <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/><path d="M9 12l2 2 4-4"/></svg><div><b>Garantía oficial</b>Equipos originales y servicio técnico autorizado.</div></div>
       <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7"/><circle cx="7" cy="18" r="1.8"/><circle cx="17" cy="18" r="1.8"/></svg><div><b>Lima y provincias</b>Delivery y envío por agencia.</div></div>
@@ -370,9 +457,9 @@ footer a{color:var(--ink);font-weight:600}
 
 <section id="cotiza">
   <div class="wrap">
-    <div class="quick">
+    <div class="quick" data-reveal>
       <div>
-        <span class="eyebrow">Cotización en 30 segundos</span>
+        <span class="eyebrow"><i>05</i>Cotización en 30 segundos</span>
         <h2>Dime qué necesitas y te respondo hoy</h2>
         <p>Llena estos 3 datos y se arma tu mensaje de WhatsApp solo. No tienes que pensar qué escribir.</p>
       </div>
@@ -389,11 +476,11 @@ footer a{color:var(--ink);font-weight:600}
 
 <section class="alt" id="sectores">
   <div class="wrap">
-    <div class="head">
-      <span class="eyebrow">Sectores</span>
+    <div class="head" data-reveal>
+      <span class="eyebrow"><i>06</i>Sectores</span>
       <h2>Con quién trabajo</h2>
     </div>
-    <div class="sectors">
+    <div class="sectors" data-stagger>
       <div class="sector"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21V7l9-4 9 4v14"/><path d="M9 21v-6h6v6M9 11h.01M15 11h.01"/></svg></div><h3>Oficinas y empresas</h3><p>Multifuncionales en red y escaneo a correo.</p></div>
       <div class="sector"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 1 3 3 6 3s6-2 6-3v-5"/></svg></div><h3>Colegios e institutos</h3><p>Duplicadoras y proyectores para aulas.</p></div>
       <div class="sector"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V10l7-6 7 6v11M10 21v-5h4v5"/></svg></div><h3>Municipalidades</h3><p>Digitalización de archivos y expedientes.</p></div>
@@ -405,8 +492,9 @@ footer a{color:var(--ink);font-weight:600}
 
 <section id="outsourcing">
   <div class="wrap">
-    <div class="out">
+    <div class="out" data-reveal>
       <div>
+        <span class="eyebrow"><i>07</i>Outsourcing</span>
         <h2>¿Tu empresa imprime mucho? Pásate al outsourcing.</h2>
         <p>En lugar de comprar equipos, pagas solo por lo que imprimes. El equipo, el tóner, el mantenimiento y el soporte van incluidos.</p>
         <ul><li>Equipos instalados en tu oficina sin inversión inicial</li><li>Tóner, repuestos y técnico incluidos</li><li>Reportes de uso y control de costos por área</li></ul>
@@ -429,11 +517,11 @@ footer a{color:var(--ink);font-weight:600}
 
 <section class="alt" id="faq">
   <div class="wrap">
-    <div class="head">
-      <span class="eyebrow">Preguntas frecuentes</span>
+    <div class="head" data-reveal>
+      <span class="eyebrow"><i>08</i>Preguntas frecuentes</span>
       <h2>Lo que siempre me preguntan</h2>
     </div>
-    <div class="faq">
+    <div class="faq" data-stagger>
       <details open><summary>¿Los equipos tienen garantía?</summary><p>Sí. Todos son equipos originales con garantía oficial de la marca en el Perú y servicio técnico autorizado.</p></details>
       <details><summary>¿Emiten factura?</summary><p>Sí, factura electrónica a nombre de tu empresa. También boleta si compras como persona natural.</p></details>
       <details><summary>¿Cuánto demora la entrega?</summary><p>En Lima Metropolitana, normalmente de 24 a 48 horas si hay stock. A provincias, de 2 a 5 días por agencia.</p></details>
@@ -445,7 +533,8 @@ footer a{color:var(--ink);font-weight:600}
 
 <section class="contact" id="contacto">
   <div class="wrap">
-    <div class="box">
+    <div class="box" data-reveal>
+      <span class="eyebrow">Contacto</span>
       <h2>¿Qué equipo estás buscando?</h2>
       <p>Escríbeme el modelo o cuéntame qué necesitas y te respondo hoy mismo.</p>
       <a class="btn btn-wa wa" href="#"><svg class="ic" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.8 14.2c-.2.7-1.4 1.3-2 1.4-.5.1-1.2.1-1.9-.1-.4-.1-1-.3-1.7-.6-3-1.3-4.9-4.3-5.1-4.5-.1-.2-1.2-1.6-1.2-3s.7-2.2 1-2.5c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .5l-.3.5-.4.5c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.6-.1l2 1c.3.1.5.2.5.3.1.2.1.7-.1 1.3Z"/></svg>Hablar por WhatsApp</a>
@@ -455,8 +544,11 @@ footer a{color:var(--ink);font-weight:600}
 </section>
 
 <footer>
-  Asesor Comercial · Asesor comercial en impresión y digitalización<br>
-  Diseño web por <a href="https://studio.litlejacob.trade" target="_blank" rel="noopener">LitleJacob Studio Web</a>
+  <div class="wrap">
+    <div class="fb"><div class="mono">AC</div>Asesor Comercial</div>
+    <nav aria-label="Pie de página"><a href="#reco">Asesoría</a><a href="#equipos">Equipos</a><a href="#comparar">Comparar</a><a href="#cotiza">Cotizar</a><a href="#faq">Preguntas</a></nav>
+    <div>Diseño web por <a class="by" href="https://studio.litlejacob.trade" target="_blank" rel="noopener">LitleJacob Studio Web</a></div>
+  </div>
 </footer>
 
 <a class="float wa" href="#" aria-label="WhatsApp"><svg width="30" height="30" viewBox="0 0 24 24" fill="#fff"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.8 14.2c-.2.7-1.4 1.3-2 1.4-.5.1-1.2.1-1.9-.1-.4-.1-1-.3-1.7-.6-3-1.3-4.9-4.3-5.1-4.5-.1-.2-1.2-1.6-1.2-3s.7-2.2 1-2.5c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .5l-.3.5-.4.5c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.6-.1l2 1c.3.1.5.2.5.3.1.2.1.7-.1 1.3Z"/></svg></a>
@@ -511,8 +603,9 @@ document.querySelectorAll(".filters button").forEach(b => b.onclick = () => {
   document.querySelectorAll(".filters button").forEach(x => x.classList.remove("on"));
   b.classList.add("on"); render(b.dataset.f);
   grid.classList.toggle("collapsed", b.dataset.f==="all" && !expanded);
+  if(window.animar) animar(grid.children);
 });
-document.getElementById("more").onclick=e=>{expanded=true;grid.classList.remove("collapsed");e.target.style.display="none"};
+document.getElementById("more").onclick=e=>{expanded=true;grid.classList.remove("collapsed");e.target.style.display="none";if(window.animar) animar([].slice.call(grid.children,6));};
 
 document.getElementById("cmpBody").innerHTML = PRODUCTS.filter(p=>p.speed).map(p=>`
   <tr><td>${p.brand} ${p.name}<small>${p.cat}</small></td><td><b>${p.speed}</b></td><td><span class="pill k">${p.tech}</span></td><td><span class="pill ${p.color==="Color"?"":"k"}">${p.color}</span></td><td>${p.ideal}</td><td><a target="_blank" rel="noopener" href="${waLink(DEF)}">Cotizar →</a></td></tr>`).join("");
@@ -523,16 +616,21 @@ const RECO = {
   c:{t:"Alto volumen u outsourcing", d:"Con más de 5.000 páginas al mes el costo por página manda. Te conviene un equipo corporativo A3, una duplicadora Riso o directamente el servicio de outsourcing.", l:["Canon imageRUNNER ADVANCE DX (A3, 70 ppm)","Duplicadora Riso SF5430 EII para copias masivas","Outsourcing: pagas por página, todo incluido"], imgs:[["ir6870","imageRUNNER ADV DX"],["riso5430","Riso SF5430 EII"]], msg:"Hola, imprimo más de 5.000 páginas al mes. Quiero que me asesores."}
 };
 function reco(k){
-  const r=RECO[k];
-  document.getElementById("recoOut").innerHTML=`<div><h3>${r.t}</h3><p>${r.d}</p><ul>${r.l.map(x=>`<li>${x}</li>`).join("")}</ul><a class="btn btn-wa" target="_blank" rel="noopener" href="${waLink(DEF)}">Pedir esta recomendación</a></div>
+  const r=RECO[k], out=document.getElementById("recoOut");
+  document.getElementById("meterBar").style.transform="scaleX("+({a:.22,b:.58,c:.96})[k]+")";
+  out.innerHTML=`<div><span class="tag">Mi recomendación</span><h3>${r.t}</h3><p>${r.d}</p><ul>${r.l.map(x=>`<li>${x}</li>`).join("")}</ul><a class="btn btn-wa" target="_blank" rel="noopener" href="${waLink(DEF)}">Pedir esta recomendación</a></div>
   <div class="reco-imgs">${r.imgs.map(([i,n])=>`<div><img src="img/${i}.webp" alt="${n}" width="720" height="720"><span>${n}</span></div>`).join("")}</div>`;
+  if(window.animar) animar(out.children);
 }
 reco("a");
 document.querySelectorAll(".vol button").forEach(b=>b.onclick=()=>{document.querySelectorAll(".vol button").forEach(x=>x.classList.remove("on"));b.classList.add("on");reco(b.dataset.v)});
+document.querySelectorAll(".vol button,.filters button").forEach(b=>b.setAttribute("aria-pressed",b.classList.contains("on")));
+document.addEventListener("click",e=>{const b=e.target.closest(".vol button,.filters button");if(b)b.parentNode.querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed",x===b));});
 
 const burger=document.getElementById("burger"), mnav=document.getElementById("mnav");
-burger.onclick=()=>mnav.classList.toggle("open");
-mnav.querySelectorAll("a").forEach(a=>a.onclick=()=>mnav.classList.remove("open"));
+function menu(abrir){mnav.classList.toggle("open",abrir);burger.setAttribute("aria-expanded",abrir);burger.setAttribute("aria-label",abrir?"Cerrar menú":"Abrir menú");}
+burger.onclick=()=>menu(!mnav.classList.contains("open"));
+mnav.querySelectorAll("a").forEach(a=>a.onclick=()=>menu(false));
 
 document.getElementById("qform").onsubmit=e=>{
   e.preventDefault();

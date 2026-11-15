@@ -490,6 +490,11 @@ section,#explora{scroll-margin-top:78px}
 }
 @media (max-width:640px){ .tile b{font-size:24px} .tile div{left:12px;right:12px;bottom:12px} .tile span{font-size:12.5px} }
 </style>
+<link rel="stylesheet" href="css/fx.css?v=3">
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/lenis@1.3.4/dist/lenis.min.js"></script>
+<script defer src="js/fx.js?v=2"></script>
 </head>
 <body>
 
@@ -523,32 +528,50 @@ section,#explora{scroll-margin-top:78px}
 <!-- INICIO -->
 <section class="hero2" id="inicio" data-page="inicio">
   <video class="bgv" src="img/transformacion.mp4" poster="img/zombie.webp" autoplay muted loop playsinline></video>
-  <div class="hero-clip"><video src="img/transformacion.mp4" poster="img/zombie.webp" autoplay muted loop playsinline></video><span class="lb">Transformación real · acelerada</span></div>
+  <div class="hero-clip"><video data-src="img/transformacion.mp4" poster="img/zombie.webp" preload="none" muted loop playsinline></video><span class="tc"><i>Rec</i><span>Toma 01</span></span><span class="lb">Transformación real · acelerada</span></div>
   <div class="wrap">
     <span class="live"><i></i> Transformación real del Studio</span>
-    <h1 class="d">Personajes que <em>no se olvidan</em></h1>
+    <h1 class="d"><span class="w"><span>Personajes</span></span> <span class="w"><span>que</span></span> <em><span class="w"><span>no</span></span> <span class="w"><span>se</span></span> <span class="w"><span>olvidan</span></span></em></h1>
     <div class="bottom">
       <div>
         <p class="lead">Maquillaje FX hiperrealista para cine, teatro, eventos y marcas. Y cursos para que aprendas a crearlos.</p>
         <div class="hero-cta">
-          <a href="#servicios" class="btn btn-red">Contratar un servicio</a>
+          <a href="#servicios" class="btn btn-red">Contratar un servicio <span class="arr">→</span></a>
           <a href="#cursos" class="btn btn-line" style="background:rgba(11,10,9,.5)">Ver cursos</a>
         </div>
+        <div class="meta"><span>Cine y TV</span><span>Teatro y shows</span><span>Marcas</span><span>Cursos</span></div>
       </div>
       <a href="#portafolio" class="scroll">Ver trabajos</a>
     </div>
   </div>
 </section>
-<div class="strip" data-page="inicio"><span>Cine y cortometrajes</span><span>Prótesis</span><span>Criaturas</span><span>Teatro y shows</span><span>Kryolan · Pros-Aide</span></div>
+<div class="strip" data-page="inicio"><div class="rail"><span>Cine y cortometrajes</span><span>Prótesis</span><span>Criaturas</span><span>Teatro y shows</span><span>Envejecimiento</span><span>Heridas y quemaduras</span><span>Kryolan · Pros-Aide</span><span aria-hidden="true">Cine y cortometrajes</span><span aria-hidden="true">Prótesis</span><span aria-hidden="true">Criaturas</span><span aria-hidden="true">Teatro y shows</span><span aria-hidden="true">Envejecimiento</span><span aria-hidden="true">Heridas y quemaduras</span><span aria-hidden="true">Kryolan · Pros-Aide</span></div></div>
+
+<section class="manif" data-page="inicio">
+  <div class="wrap">
+    <div class="manif-g">
+      <h2 class="d big" data-reveal><span>Diseñamos.</span><span>Esculpimos.</span><span>Transformamos.</span></h2>
+      <div data-reveal>
+        <span class="eyebrow">Efectos prácticos</span>
+        <p class="intro">Todo lo que ves está hecho a mano, sobre la piel: sin filtros ni efectos digitales. Del boceto a la prótesis terminada, cada personaje se prueba frente a la cámara antes del rodaje.</p>
+      </div>
+    </div>
+    <div class="pilares" data-stagger>
+      <div><small>01</small><b>Diseño</b><p>Referencias, bocetos y prueba de color pensados para el personaje y la luz de la escena.</p></div>
+      <div><small>02</small><b>Fabricación</b><p>Moldes, prótesis, transfers y piezas a la medida de cada actor.</p></div>
+      <div><small>03</small><b>Aplicación</b><p>En set, en escenario o en tienda, con productos profesionales que aguantan horas.</p></div>
+    </div>
+  </div>
+</section>
 
 <section id="explora" data-page="inicio">
   <div class="wrap">
-    <div class="head"><span class="eyebrow">Explora el Studio</span><h2 class="d">¿Qué estás buscando?</h2></div>
-    <div class="tiles">
-      <a class="tile" href="#servicios"><img src="img/tutorial-heridas.webp" alt="" loading="lazy"><div><small>Para producciones</small><b class="d">Servicios</b><span>Cine, teatro, eventos y marcas →</span></div></a>
-      <a class="tile" href="#portafolio"><img src="img/zombie.webp" alt="" loading="lazy"><div><small>Trabajos reales</small><b class="d">Portafolio</b><span>Personajes, prótesis y criaturas →</span></div></a>
-      <a class="tile" href="#cursos"><img src="img/curso-salon.webp" alt="" loading="lazy"><div><small>Aprende en el Studio</small><b class="d">Cursos</b><span>Programa, taller y masterclass →</span></div></a>
-      <a class="tile" href="#empresas"><img src="img/show-noche.webp" alt="" loading="lazy"><div><small>Para marcas y eventos</small><b class="d">Empresas</b><span>Charlas, shows y activaciones →</span></div></a>
+    <div class="head" data-reveal><span class="eyebrow">Explora el Studio</span><h2 class="d">¿Qué estás buscando?</h2></div>
+    <div class="tiles" data-stagger>
+      <a class="tile" href="#servicios"><span class="n">01</span><img src="img/tutorial-heridas.webp" alt="" loading="lazy"><div><small>Para producciones</small><b class="d">Servicios</b><span>Cine, teatro, eventos y marcas →</span></div></a>
+      <a class="tile" href="#portafolio"><span class="n">02</span><img src="img/zombie.webp" alt="" loading="lazy"><div><small>Trabajos reales</small><b class="d">Portafolio</b><span>Personajes, prótesis y criaturas →</span></div></a>
+      <a class="tile" href="#cursos"><span class="n">03</span><img src="img/curso-salon.webp" alt="" loading="lazy"><div><small>Aprende en el Studio</small><b class="d">Cursos</b><span>Programa, taller y masterclass →</span></div></a>
+      <a class="tile" href="#empresas"><span class="n">04</span><img src="img/show-noche.webp" alt="" loading="lazy"><div><small>Para marcas y eventos</small><b class="d">Empresas</b><span>Charlas, shows y activaciones →</span></div></a>
     </div>
   </div>
 </section>
@@ -556,21 +579,30 @@ section,#explora{scroll-margin-top:78px}
 <!-- SERVICIOS -->
 <section class="alt" id="servicios" data-page="servicios">
   <div class="wrap">
-    <div class="head">
-      <span class="eyebrow">Servicios</span>
+    <div class="head" data-reveal>
+      <span class="eyebrow" data-n="01">Servicios</span>
       <h2 class="d">Lo que hacemos por tu producción</h2>
       <p>Efectos hiperrealistas que aguantan el gesto, el movimiento y la cámara. Reserva desde la web o pide una cotización a medida.</p>
     </div>
-    <div class="grid3" id="svcGrid"></div>
+    <div class="grid3" id="svcGrid" data-stagger></div>
     <p class="note">* Precios de ejemplo.</p>
+    <div class="proc">
+      <div class="proc-h" data-reveal><div><span class="eyebrow">Cómo trabajamos</span><h3 class="d">Del guion al set</h3></div><p>Así avanza un personaje desde que nos escribes hasta el día de grabación.</p></div>
+      <ol class="pasos" data-reveal><li class="track" aria-hidden="true"><i></i></li>
+        <li><b>Brief y referencias</b><p>Nos cuentas el personaje, la escena y la fecha. Te enviamos la cotización.</p></li>
+        <li><b>Diseño y prueba</b><p>Bocetos y prueba de maquillaje con el actor, frente a la cámara.</p></li>
+        <li><b>Fabricación</b><p>Moldes, prótesis, transfers y sangres listos para el rodaje.</p></li>
+        <li><b>Día de rodaje</b><p>Aplicación, retoques entre tomas y retiro seguro al terminar.</p></li>
+      </ol>
+    </div>
   </div>
 </section>
 
 <!-- PORTAFOLIO -->
 <section id="portafolio" data-page="portafolio">
   <div class="wrap">
-    <div class="head">
-      <span class="eyebrow">Portafolio</span>
+    <div class="head" data-reveal>
+      <span class="eyebrow" data-n="02">Portafolio</span>
       <h2 class="d">Nuestros personajes</h2>
       <p>Heridas, prótesis, criaturas, shows y activaciones hechos por el Studio. Toca ▶ para ver los videos o desliza en «Proceso → resultado».</p>
     </div>
@@ -582,43 +614,44 @@ section,#explora{scroll-margin-top:78px}
       <button class="f" data-f="bts">Detrás de cámaras</button>
       <button class="f" data-f="ba">Proceso → resultado</button>
     </div>
-    <div class="gallery" id="gallery"></div>
+    <div class="gallery" id="gallery" data-stagger></div>
   </div>
 </section>
 
 <!-- CURSOS -->
 <section class="alt" id="cursos" data-page="cursos">
   <div class="wrap">
-    <div class="head">
-      <span class="eyebrow">Cursos de makeup FX</span>
+    <div class="head" data-reveal>
+      <span class="eyebrow" data-n="03">Cursos de makeup FX</span>
       <h2 class="d">Aprende a crear tus propios personajes</h2>
       <p>Aprende con los mismos productos que usa el cine: Kryolan, Pros-Aide, transfers y sangres profesionales. Cupos limitados por grupo.</p>
     </div>
-    <div class="teacher">
+    <div class="teacher" data-reveal>
       <div class="ph media"><img src="img/curso-pantalla.webp" alt="Clase de maquillaje FX"></div>
       <div><small>Tu profesor</small><h3 class="d">Artistas en activo</h3><p>Aprendes con maquilladores FX que trabajan en cine, cortometrajes, teatro y marcas, con los mismos productos que usan en rodaje.</p></div>
       <div class="lvl" id="lvl"><span class="on" data-l="all">Todos</span><span data-l="Inicial">Inicial</span><span data-l="Intermedio">Intermedio</span><span data-l="Avanzado">Avanzado</span></div>
     </div>
-    <div class="grid3" id="courseGrid"></div>
+    <div class="grid3" id="courseGrid" data-stagger></div>
     <p class="note">* Precios, fechas y cupos de referencia: de ejemplo para la demo.</p>
-    <div class="cases-h"><div><span class="eyebrow">Casos de alumnos</span><h3 class="d">Lo que se llevan de la masterclass</h3></div></div>
-    <div class="cases" style="margin-top:24px">
+    <div class="cases-h" data-reveal><div><span class="eyebrow">Casos de alumnos</span><h3 class="d">Lo que se llevan de la masterclass</h3></div></div>
+    <div class="cases" style="margin-top:24px" data-stagger>
       <article class="case"><div class="ph media"><img src="img/curso-protesis.webp" alt="Alumna aplicando una prótesis" loading="lazy"></div><div class="bd"><span class="k">Productos del cine</span><p>Excelente poder conocer productos nuevos que realmente sirvan para crear un maquillaje que resalte.</p><small>Asistente a la masterclass</small></div></article>
       <article class="case"><div class="ph media"><img src="img/criatura-masterclass.webp" alt="Criatura creada en vivo" loading="lazy"></div><div class="bd"><span class="k">La criatura en vivo</span><p>Uno cree que sale de la nada, pero de verdad es un proceso de años. Es impresionante.</p><small>Asistente a la masterclass</small></div></article>
       <article class="case"><div class="ph media"><img src="img/curso-alumnos.webp" alt="Alumnos en clase" loading="lazy"></div><div class="bd"><span class="k">Comunidad y contactos</span><p>Nos ayuda a convivir, conocer gente y hacer contactos para diferentes proyectos.</p><small>Asistente a la masterclass</small></div></article>
     </div>
+    <p class="note">* Comentarios de ejemplo para la demo.</p>
   </div>
 </section>
 
 <!-- MEMBRESÍA -->
 <section id="membresia" data-page="cursos">
   <div class="wrap">
-    <div class="head">
-      <span class="eyebrow">Membresía</span>
+    <div class="head" data-reveal>
+      <span class="eyebrow" data-n="04">Membresía</span>
       <h2 class="d">Únete al Studio</h2>
       <p>Clases grabadas, descuentos en cursos presenciales y comunidad privada. Cancela cuando quieras.</p>
     </div>
-    <div class="plans" id="plans"></div>
+    <div class="plans" id="plans" data-stagger></div>
     <p class="note">* Planes y beneficios de ejemplo.</p>
   </div>
 </section>
@@ -627,10 +660,10 @@ section,#explora{scroll-margin-top:78px}
 <section class="alt" id="empresas" data-page="empresas">
   <div class="wrap biz">
     <div>
-      <span class="eyebrow">Para empresas</span>
+      <span class="eyebrow" data-n="05">Para empresas</span>
       <h2 class="d" style="font-size:clamp(34px,5vw,54px);margin-bottom:12px">Masterclasses, charlas y activaciones</h2>
       <p style="color:var(--muted)">Llevamos el maquillaje FX a tu evento: masterclasses con demostración en vivo, charlas para equipos y personajes para tiendas y lanzamientos de marca.</p>
-      <div class="list">
+      <div class="list" data-stagger>
         <div><span class="num d">1</span><p><b>Masterclasses y charlas</b><span>Presentación, productos del cine y una criatura creada frente al público.</span></p></div>
         <div><span class="num d">2</span><p><b>Shows y eventos nocturnos</b><span>Personajes caracterizados para escenario, recorridos y experiencias.</span></p></div>
         <div><span class="num d">3</span><p><b>Activaciones en tienda</b><span>Transformaciones en vivo para marcas de maquillaje y centros comerciales.</span></p></div>
@@ -640,19 +673,19 @@ section,#explora{scroll-margin-top:78px}
         Cotizar para mi empresa
       </a>
     </div>
-    <div class="ph media"><img src="img/show-simio.webp" alt="Personaje para show nocturno"><span class="lb">Show nocturno</span></div>
+    <div class="ph media" data-reveal><img src="img/show-simio.webp" alt="Personaje para show nocturno" loading="lazy"><span class="lb">Show nocturno</span></div>
   </div>
 </section>
 
 <!-- SOBRE -->
 <section id="sobre" data-page="nosotros">
   <div class="wrap about">
-    <div class="ph media"><img src="img/mascara.webp" alt="Prótesis de máscara"><button class="play" data-video="img/video-mascara.mp4" aria-label="Ver video"><svg viewBox="0 0 24 24" fill="#fff"><path d="M6 4l14 8-14 8z"/></svg></button><span class="lb">Mira el video</span></div>
+    <div class="ph media" data-reveal><img src="img/mascara.webp" alt="Prótesis de máscara" loading="lazy"><button class="play" data-video="img/video-mascara.mp4" aria-label="Ver video"><svg viewBox="0 0 24 24" fill="#fff"><path d="M6 4l14 8-14 8z"/></svg></button><span class="lb">Mira el video</span></div>
     <div>
-      <span class="eyebrow">Sobre el Studio</span>
+      <span class="eyebrow" data-n="06">Sobre el Studio</span>
       <h2 class="d">Detrás de cada personaje</h2>
       <p><b style="color:var(--bone)">Sombra FX</b> es un estudio de maquillaje de efectos especiales. Crea heridas, prótesis, criaturas y personajes completos para cine, cortometrajes, teatro, eventos y marcas, con productos profesionales como Kryolan y Pros-Aide.</p>
-      <ol class="tl">
+      <ol class="tl" data-stagger>
         <li><small>Inicios</small><b>Maquillaje FX y caracterización</b><span>Heridas, quemaduras y envejecimiento con productos profesionales.</span></li>
         <li><small>En rodaje</small><b>Cine y cortometrajes</b><span>Efectos hiperrealistas con Kryolan y Pros-Aide que aguantan la cámara.</span></li>
         <li><small>En escena</small><b>Shows, eventos y marcas</b><span>Personajes para eventos nocturnos y transformaciones en vivo en tiendas.</span></li>
@@ -666,12 +699,16 @@ section,#explora{scroll-margin-top:78px}
 </section>
 
 <!-- CONTACTO -->
-<section class="alt" id="contacto">
-  <div class="wrap contact">
+<section id="contacto">
+  <div class="bgc" aria-hidden="true"></div>
+  <div class="wrap contact" data-reveal>
     <span class="eyebrow">Contacto</span>
-    <h2 class="d">¿Tienes un proyecto?</h2>
-    <p>Escríbenos por WhatsApp. Respondemos el mismo día.</p>
-    <a class="btn btn-wa" target="_blank" rel="noopener" href="https://wa.me/51952997030?text=Hola%20Bryan%2C%20vi%20la%20demo%20de%20maquillaje%20FX%20y%20quiero%20una%20p%C3%A1gina%20as%C3%AD">Escribir por WhatsApp</a>
+    <h2 class="d">¿Tienes un <em>personaje</em> en mente?</h2>
+    <p>Cuéntanos la escena, la fecha y el lugar. Te respondemos por WhatsApp con una propuesta.</p>
+    <div class="row2">
+      <a class="btn btn-wa" target="_blank" rel="noopener" href="https://wa.me/51952997030?text=Hola%20Bryan%2C%20vi%20la%20demo%20de%20maquillaje%20FX%20y%20quiero%20una%20p%C3%A1gina%20as%C3%AD">Escribir por WhatsApp <span class="arr">→</span></a>
+      <a class="btn btn-line" href="#portafolio">Ver portafolio</a>
+    </div>
   </div>
 </section>
 
@@ -1033,12 +1070,14 @@ const TITLES={inicio:'Maquillaje FX y creación de personajes',servicios:'Servic
 let cur=null;
 function route(){
   const h=decodeURIComponent((location.hash||'#inicio').slice(1));
-  if(h==='contacto'){ document.getElementById('contacto').scrollIntoView({behavior:'smooth'}); return; }
+  const L=window.SFX_LENIS;
+  if(h==='contacto'){ const c=document.getElementById('contacto'); L?L.scrollTo(c,{offset:-70}):c.scrollIntoView({behavior:'smooth'}); return; }
   const pg=MAP[h]||'inicio', changed=pg!==cur; cur=pg;
   document.querySelectorAll('[data-page]').forEach(el=>el.classList.toggle('pg-hide',el.dataset.page!==pg));
   document.querySelectorAll('#links a').forEach(a=>a.classList.toggle('on',MAP[a.getAttribute('href').slice(1)]===pg));
   const el=document.getElementById(h), first=document.querySelector('[data-page="'+pg+'"]');
-  if(!el||el===first){ if(changed) window.scrollTo({top:0,behavior:'instant'}); }
+  if(!el||el===first){ if(changed){ L?L.scrollTo(0,{immediate:true,force:true}):window.scrollTo({top:0,behavior:'instant'}); } }
+  else if(L) L.scrollTo(el,{offset:-78,immediate:changed,force:true});
   else el.scrollIntoView({behavior:changed?'instant':'smooth'});
   document.title=(pg==='inicio'?'Sombra FX · ':TITLES[pg]+' · Sombra FX · ')+(pg==='inicio'?TITLES.inicio:'Maquillaje FX');
 }
