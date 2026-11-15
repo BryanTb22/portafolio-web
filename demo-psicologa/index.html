@@ -1,0 +1,596 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lic. Andrea Salas · Psicóloga clínica en Lima | Ejemplo de diseño</title>
+<meta name="description" content="Web de ejemplo para psicólogos: presentación personal, servicios, trayectoria, tarifas y citas por WhatsApp. Diseño de LitleJacob Studio Web.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#f4efe6">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Psicóloga en Lima · web de ejemplo">
+<meta property="og:description" content="Así se vería tu web si eres psicólogo: tu presentación, servicios, tarifas y citas por WhatsApp.">
+<meta property="og:image" content="https://studio.litlejacob.trade/demo-psicologa/og.jpg">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="img/hero.webp">
+<style>
+:root{
+  --cream:#f4efe6; --paper:#fbf8f2; --sand:#e8dfcf; --forest:#1e2b1f; --forest2:#2b3b2c; --sage:#a9b79c;
+  --ink:#1c1c19; --muted:#6b675e; --line:#ddd5c6; --terra:#a95f3b; --wa:#25d366;
+  --serif:'Newsreader',Georgia,serif; --sans:'Inter',system-ui,sans-serif;
+  --pad:clamp(16px,4vw,48px); --max:1240px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);color:var(--ink);background:var(--cream);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button,input,select,textarea{font:inherit;color:inherit}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
+em{font-style:italic;font-family:var(--serif)}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;border:1px solid currentColor;border-radius:999px;padding:5px 12px;opacity:.85}
+h1,h2,h3{font-family:var(--serif);font-weight:400;letter-spacing:-.015em;line-height:1.08}
+h2{font-size:clamp(34px,4.6vw,58px)}
+.lead{font-size:17px;color:var(--muted);max-width:560px}
+section{padding:clamp(64px,9vw,120px) 0}
+
+/* Botones */
+.btn{display:inline-flex;align-items:center;gap:10px;background:var(--forest);color:var(--paper);font-size:14.5px;font-weight:500;padding:13px 14px 13px 22px;border-radius:999px;border:0;cursor:pointer;transition:transform .25s,background .25s;white-space:nowrap}
+.btn .ar{width:28px;height:28px;border-radius:50%;background:var(--paper);color:var(--forest);display:grid;place-items:center;transition:transform .25s}
+.btn:hover{transform:translateY(-2px)}
+.btn:hover .ar{transform:rotate(-45deg)}
+.btn.light{background:var(--paper);color:var(--forest)}
+.btn.light .ar{background:var(--forest);color:var(--paper)}
+.btn.line{background:transparent;color:var(--ink);border:1px solid var(--ink);padding:12px 22px}
+.btn svg{width:14px;height:14px}
+
+/* Franja de ejemplo */
+.proto{background:var(--forest);color:#e9e4d8;font-size:12.5px;text-align:center;padding:8px var(--pad)}
+.proto a{text-decoration:underline;color:#fff}
+
+/* Menú */
+.nav{position:sticky;top:0;z-index:20;background:rgba(244,239,230,.95);border-bottom:1px solid transparent;transition:border-color .3s}
+.nav.solid{border-color:var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:74px;gap:16px}
+.logo b{font-family:var(--serif);font-weight:400;font-size:24px;display:block;line-height:1}
+.logo small{font-size:11px;color:var(--muted);letter-spacing:.04em}
+.links{display:flex;gap:30px;font-size:14px}
+.links a{position:relative}
+.links a::after{content:"";position:absolute;left:0;bottom:-4px;width:100%;height:1px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .3s}
+.links a:hover::after{transform:scaleX(1)}
+
+/* Portada */
+.hero{padding:clamp(36px,6vw,72px) 0 clamp(56px,7vw,90px)}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(30px,5vw,70px);align-items:center}
+.hero h1{font-size:clamp(44px,6.4vw,86px);margin:22px 0 22px}
+.hero h1 em{color:var(--terra)}
+.ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.creds{display:flex;gap:26px;flex-wrap:wrap;margin-top:40px;padding-top:24px;border-top:1px solid var(--line)}
+.creds div{font-size:13px;color:var(--muted)}
+.creds b{display:block;font-family:var(--serif);font-weight:400;font-size:21px;color:var(--ink)}
+.photo{position:relative}
+.photo .main{width:100%;aspect-ratio:9/11;object-fit:cover;border-radius:clamp(20px,3vw,34px)}
+.float{position:absolute;left:-28px;bottom:36px;background:var(--paper);border-radius:18px;padding:14px 18px;box-shadow:0 20px 40px rgba(30,43,31,.14);display:flex;gap:12px;align-items:center;max-width:270px}
+.float .dot{width:10px;height:10px;border-radius:50%;background:#3fb56b;flex:none;box-shadow:0 0 0 5px rgba(63,181,107,.18)}
+.float p{font-size:13px;line-height:1.4}
+.float b{display:block;font-size:14px}
+.stamp{position:absolute;right:-18px;top:30px;width:116px;height:116px;border-radius:50%;background:var(--sage);color:var(--forest);display:grid;place-items:center;text-align:center;font-family:var(--serif);font-size:15px;line-height:1.15;padding:14px;transform:rotate(-8deg)}
+
+/* Cinta de frases */
+.tape{background:var(--forest);color:var(--paper);overflow:hidden;padding:20px 0;white-space:nowrap}
+.tape .track{display:inline-flex;gap:46px;animation:tape 38s linear infinite;font-family:var(--serif);font-size:clamp(20px,2.4vw,28px);font-style:italic}
+.tape span::after{content:"✦";font-style:normal;font-size:14px;margin-left:46px;color:var(--sage);vertical-align:middle}
+@keyframes tape{to{transform:translateX(-50%)}}
+
+/* Temas */
+.temas{background:var(--sand)}
+.temas .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(30px,5vw,70px);align-items:center}
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chips span{font-family:var(--serif);font-size:clamp(17px,1.8vw,22px);border:1px solid var(--ink);border-radius:999px;padding:7px 18px;transition:background .25s,color .25s;cursor:default}
+.chips span:hover{background:var(--forest);color:var(--paper);border-color:var(--forest)}
+
+/* Sobre mí (carta de presentación) */
+.about .top{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(30px,6vw,90px);align-items:start}
+.about .pic{position:sticky;top:100px}
+.about .pic img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:28px}
+.about .pic figcaption{font-size:12.5px;color:var(--muted);margin-top:12px}
+.about h2{margin:18px 0 26px}
+.about p{font-size:17px;margin-bottom:16px;color:#3b3a35}
+.sign{font-family:var(--serif);font-style:italic;font-size:34px;margin:10px 0 34px;color:var(--forest)}
+.facts{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line)}
+.facts div{padding:18px 0;border-bottom:1px solid var(--line)}
+.facts div:nth-child(odd){padding-right:20px;border-right:1px solid var(--line)}
+.facts div:nth-child(even){padding-left:20px}
+.facts small{display:block;font-size:11.5px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted)}
+.facts b{font-family:var(--serif);font-weight:400;font-size:20px}
+
+/* Enfoque */
+.values{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:clamp(50px,7vw,90px)}
+.val{background:var(--paper);border-radius:22px;padding:30px 26px}
+.val svg{width:34px;height:34px;stroke:var(--forest);fill:none;stroke-width:1.4;margin-bottom:26px}
+.val h3{font-size:26px;margin-bottom:10px}
+.val p{font-size:14.5px;color:var(--muted)}
+
+/* Servicios (panel oscuro) */
+.serv{background:var(--forest);color:var(--paper)}
+.serv .wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(30px,6vw,90px);align-items:start}
+.serv .pic img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:26px}
+.serv .pic p{font-size:13px;opacity:.7;margin-top:14px;max-width:320px}
+.serv h2{margin:18px 0 30px}
+.list{border-top:1px solid rgba(251,248,242,.18)}
+.item{border-bottom:1px solid rgba(251,248,242,.18)}
+.item button{width:100%;background:none;border:0;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:20px 0;text-align:left;color:var(--paper)}
+.item .nm{font-family:var(--serif);font-size:clamp(28px,3.4vw,44px);line-height:1.1;transition:transform .35s,color .35s}
+.item .nm i{font-family:var(--sans);font-style:normal;font-size:12px;opacity:.55;vertical-align:super;margin-right:10px}
+.item:hover .nm{transform:translateX(10px);color:var(--sage)}
+.item .pl{width:36px;height:36px;border-radius:50%;border:1px solid rgba(251,248,242,.4);display:grid;place-items:center;flex:none;transition:transform .3s,background .3s}
+.item.open .pl{transform:rotate(45deg);background:var(--paper);color:var(--forest)}
+.item .a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s}
+.item.open .a{grid-template-rows:1fr}
+.item .a>div{overflow:hidden}
+.item .a p{font-size:15px;opacity:.8;padding:0 60px 8px 0}
+.item .meta{display:flex;gap:10px;flex-wrap:wrap;padding-bottom:22px}
+.item .meta span{font-size:12px;border:1px solid rgba(251,248,242,.35);border-radius:999px;padding:4px 12px}
+
+/* Pasos */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,3vw,40px);margin-top:48px}
+.step{border-left:1px solid var(--ink);padding:0 0 0 22px;margin-left:18px}
+.step .n{width:36px;height:36px;border-radius:50%;background:var(--forest);color:var(--paper);display:grid;place-items:center;font-size:14px;margin:0 0 20px -40px}
+.step h3{font-size:26px;margin-bottom:10px}
+.step p{font-size:14.5px;color:var(--muted)}
+
+/* Trayectoria */
+.tray{background:var(--paper)}
+.tray .cols{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,70px);margin-top:44px}
+.tray h3{font-size:24px;margin-bottom:6px}
+.tl .r{display:grid;grid-template-columns:110px 1fr;gap:18px;padding:18px 0;border-bottom:1px solid var(--line)}
+.tl .r span{font-size:13px;color:var(--muted);padding-top:3px}
+.tl .r b{display:block;font-weight:500;font-size:16px}
+.tl .r small{font-size:13.5px;color:var(--muted)}
+.talks{margin-top:56px;background:var(--sand);border-radius:28px;padding:clamp(26px,4vw,46px);display:grid;grid-template-columns:1fr 1.2fr;gap:30px;align-items:center}
+.talks h3{font-size:clamp(28px,3vw,38px)}
+.talks ul{list-style:none;display:grid;gap:12px;margin-bottom:24px}
+.talks li{display:flex;gap:12px;font-size:15px}
+.talks li::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--terra);margin-top:8px;flex:none}
+
+/* Espacio */
+.space{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:14px;margin-top:44px}
+.space figure{border-radius:22px;overflow:hidden;position:relative}
+.space img{width:100%;height:100%;object-fit:cover;aspect-ratio:3/4;transition:transform 1s}
+.space figure:hover img{transform:scale(1.04)}
+.space figcaption{position:absolute;left:14px;bottom:14px;background:var(--paper);font-size:12.5px;padding:6px 12px;border-radius:999px}
+.addr{display:flex;justify-content:space-between;gap:10px 20px;flex-wrap:wrap;margin-top:22px;font-size:14px;color:var(--muted)}
+
+/* Tarifas */
+.prices{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:44px}
+.price{background:var(--paper);border-radius:26px;padding:30px 26px;display:flex;flex-direction:column;gap:16px}
+.price.hot{background:var(--forest);color:var(--paper)}
+.price .t{font-size:13px;text-transform:uppercase;letter-spacing:.07em;opacity:.7}
+.price .v{font-family:var(--serif);font-size:52px;line-height:1}
+.price .v small{font-family:var(--sans);font-size:14px;opacity:.6;margin-left:6px}
+.price ul{list-style:none;font-size:14.5px;display:grid;gap:9px;opacity:.88;padding-top:16px;border-top:1px solid rgba(128,128,128,.25)}
+.price li::before{content:"✓";margin-right:10px;color:var(--terra)}
+.price.hot li::before{color:var(--sage)}
+.price .btn{margin-top:auto;justify-content:space-between}
+.price:not(.hot) .btn{background:var(--forest);color:var(--paper)}
+.price:not(.hot) .btn .ar{background:var(--paper);color:var(--forest)}
+.note{font-size:13px;color:var(--muted);margin-top:16px}
+
+/* Reseñas */
+.revs{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:44px}
+.rev{background:var(--paper);border-radius:24px;padding:28px 26px;display:flex;flex-direction:column;gap:22px}
+.rev q{font-family:var(--serif);font-size:21px;line-height:1.4;quotes:"“" "”"}
+.rev .who{margin-top:auto;font-size:13px;color:var(--muted);display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.rev .stars{color:var(--terra);letter-spacing:2px}
+.badge{font-size:12px;border:1px solid var(--line);background:var(--paper);padding:6px 12px;border-radius:999px;color:var(--muted)}
+
+/* Preguntas */
+.faq .wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(30px,6vw,90px);align-items:start}
+.faq .side{position:sticky;top:110px}
+.faq .side p{margin:18px 0 26px}
+.qs{display:grid;gap:12px}
+.q{background:var(--paper);border-radius:18px}
+.q button{width:100%;background:none;border:0;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:22px 24px;text-align:left;font-size:16px;font-weight:500}
+.q button span{font-size:24px;font-weight:300;transition:transform .3s;flex:none}
+.q.open button span{transform:rotate(45deg)}
+.q .a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .35s}
+.q.open .a{grid-template-rows:1fr}
+.q .a>div{overflow:hidden}
+.q .a p{font-size:14.5px;color:var(--muted);padding:0 24px 22px}
+
+/* Contacto */
+.contact{background:var(--paper)}
+.contact .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,6vw,90px)}
+.info{margin-top:30px;display:grid;gap:20px}
+.info small{display:block;font-size:11.5px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin-bottom:3px}
+.info div{font-size:16px}
+.sos{margin-top:30px;background:var(--sand);border-radius:16px;padding:16px 18px;font-size:14px;color:#3b3a35}
+form{display:grid;gap:4px;background:var(--cream);border-radius:28px;padding:clamp(22px,3vw,36px);align-self:start}
+.f{display:block;border-bottom:1px solid var(--line);padding:14px 0 10px}
+.f label{display:block;font-size:12px;color:var(--muted);margin-bottom:6px}
+.f input,.f select,.f textarea{width:100%;border:0;outline:0;background:transparent;font-size:15.5px;resize:vertical}
+.f:focus-within{border-color:var(--forest)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+form .btn{margin-top:24px;justify-content:space-between}
+.priv{font-size:12px;color:var(--muted);margin-top:10px}
+
+/* Cierre */
+.cta{position:relative;min-height:clamp(420px,52vw,600px);display:grid;place-items:center;text-align:center;color:var(--paper);overflow:hidden;padding:0}
+.cta img{position:absolute;inset:-6% 0;width:100%;height:112%;object-fit:cover}
+.cta::after{content:"";position:absolute;inset:0;background:linear-gradient(rgba(20,30,21,.35),rgba(20,30,21,.65))}
+.cta .in{position:relative;z-index:1;padding:0 var(--pad)}
+.cta h2{font-size:clamp(40px,6vw,76px);margin:20px 0 30px}
+
+/* Pie */
+footer{background:var(--forest);color:var(--paper);padding:clamp(56px,7vw,90px) 0 0}
+.fcols{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:30px;font-size:14px}
+.fcols h4{font-size:11.5px;text-transform:uppercase;letter-spacing:.08em;opacity:.6;font-weight:500;margin-bottom:14px}
+.fcols a,.fcols p{display:block;opacity:.85;margin-bottom:8px}
+.fcols a:hover{opacity:1;text-decoration:underline}
+.fname{font-family:var(--serif);font-size:clamp(56px,13vw,190px);line-height:1;letter-spacing:-.03em;white-space:nowrap;margin-top:clamp(40px,6vw,70px);overflow:hidden}
+.fname em{color:var(--sage)}
+.fbar{display:flex;justify-content:space-between;gap:10px 20px;flex-wrap:wrap;border-top:1px solid rgba(251,248,242,.18);padding:22px 0 28px;margin-top:20px;font-size:12.5px;opacity:.75}
+.fbar a{text-decoration:underline}
+
+/* WhatsApp flotante */
+.wa-fab{position:fixed;right:18px;bottom:18px;z-index:25;width:56px;height:56px;border-radius:50%;background:var(--wa);display:grid;place-items:center;box-shadow:0 10px 24px rgba(0,0,0,.2);transition:transform .2s}
+.wa-fab:hover{transform:scale(1.06)}
+.wa-fab svg{width:28px;height:28px;fill:#fff}
+
+/* Celular y tablet */
+@media (max-width:960px){
+  .links{display:none}
+  .hero .wrap,.temas .wrap,.about .top,.serv .wrap,.faq .wrap,.contact .wrap,.talks{grid-template-columns:1fr}
+  .about .pic,.faq .side{position:static}
+  .serv .pic img{aspect-ratio:4/3}
+  .photo{max-width:520px}
+  .values,.steps,.prices,.revs{grid-template-columns:1fr}
+  .tray .cols{grid-template-columns:1fr}
+  .space{grid-template-columns:1fr 1fr}
+  .space figure:first-child{grid-column:1/-1}
+  .space figure:first-child img{aspect-ratio:4/3}
+  .fcols{grid-template-columns:1fr 1fr}
+  .steps{gap:34px}
+}
+@media (max-width:560px){
+  .nav .btn{padding:9px 9px 9px 15px;font-size:13px;gap:8px}
+  .nav .btn .ar{width:24px;height:24px}
+  .logo b{font-size:20px}
+  .logo small{font-size:10px}
+  .float{left:12px;right:12px;bottom:12px;max-width:none}
+  .stamp{width:92px;height:92px;font-size:12.5px;right:-4px;top:-14px}
+  .creds{gap:18px}
+  .two{grid-template-columns:1fr;gap:0}
+  .facts{grid-template-columns:1fr}
+  .facts div:nth-child(odd){padding-right:0;border-right:0}
+  .facts div:nth-child(even){padding-left:0}
+  .tl .r{grid-template-columns:86px 1fr}
+  .item .a p{padding-right:0}
+  .fcols{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<div class="proto"><b>Ejemplo de diseño</b> · LitleJacob Studio Web · persona, datos y reseñas de ejemplo · <a href="https://studio.litlejacob.trade/?utm_source=demo-psicologa">Quiero una web así</a></div>
+
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a class="logo" href="#"><b>Andrea Salas</b><small>Psicóloga clínica · C.Ps.P. 00000</small></a>
+    <nav class="links">
+      <a href="#sobre">Sobre mí</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#trayectoria">Trayectoria</a>
+      <a href="#tarifas">Tarifas</a>
+      <a href="#preguntas">Preguntas</a>
+    </nav>
+    <a class="btn" data-wa="Hola Andrea, quisiera agendar una cita" href="#contacto">Agenda tu cita <span class="ar"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></a>
+  </div>
+</header>
+
+<main>
+<!-- PORTADA -->
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow rv">Psicóloga clínica · Miraflores y online</span>
+      <h1 class="rv">Te acompaño a <em>entender</em> lo que sientes y a volver a sentirte bien.</h1>
+      <p class="lead rv">Terapia para adultos, parejas y adolescentes. Un espacio seguro, sin juicios, con herramientas que puedes usar desde la primera sesión.</p>
+      <div class="ctas rv">
+        <a class="btn" data-wa="Hola Andrea, quisiera agendar mi primera cita" href="#contacto">Agenda tu primera cita <span class="ar"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></a>
+        <a class="btn line" href="#sobre">Conóceme</a>
+      </div>
+      <div class="creds rv">
+        <div><b>C.Ps.P. 00000</b>Colegiada y habilitada</div>
+        <div><b>Cognitivo-conductual</b>Enfoque de trabajo</div>
+        <div><b>Presencial y online</b>Miraflores · todo el Perú</div>
+      </div>
+    </div>
+    <div class="photo">
+      <img class="main" src="img/hero.webp" alt="Lic. Andrea Salas, psicóloga clínica" width="900" height="1100">
+      <div class="stamp">Primera cita<br><i>sin compromiso</i></div>
+      <div class="float"><span class="dot"></span><p><b>Respondo el mismo día</b>Escríbeme por WhatsApp y coordinamos tu horario.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="tape" aria-hidden="true"><div class="track">
+  <span>Está bien pedir ayuda</span><span>Un paso a la vez</span><span>Tu salud mental importa</span><span>No tienes que hacerlo solo</span><span>Mereces sentirte en paz</span>
+  <span>Está bien pedir ayuda</span><span>Un paso a la vez</span><span>Tu salud mental importa</span><span>No tienes que hacerlo solo</span><span>Mereces sentirte en paz</span>
+</div></div>
+
+<!-- TEMAS -->
+<section class="temas">
+  <div class="wrap">
+    <div class="rv">
+      <span class="eyebrow">¿Te identificas?</span>
+      <h2 style="margin-top:18px">Lo que vivimos tiene <em>nombre</em>, y tiene salida.</h2>
+      <p class="lead" style="margin-top:18px">Estos son algunos de los temas con los que trabajo a diario. Si alguno te suena, conversemos.</p>
+    </div>
+    <div class="chips rv">
+      <span>Ansiedad</span><span>Estrés laboral</span><span>Ataques de pánico</span><span>Tristeza</span><span>Duelo</span><span>Autoestima</span><span>Problemas de pareja</span><span>Insomnio</span><span>Cambios de vida</span><span>Adolescencia</span><span>Dependencia emocional</span><span>Límites</span>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE MÍ: CARTA DE PRESENTACIÓN -->
+<section class="about" id="sobre">
+  <div class="wrap">
+    <div class="top">
+      <figure class="pic rv"><img src="img/retrato-2.webp" alt="Andrea Salas" loading="lazy" width="800" height="1000"><figcaption>Lic. Andrea Salas · Psicóloga clínica</figcaption></figure>
+      <div>
+        <span class="eyebrow rv">Sobre mí</span>
+        <h2 class="rv">Hola, soy <em>Andrea</em>.</h2>
+        <p class="rv">Soy psicóloga clínica y hace varios años acompaño a personas que llegan cansadas de sentirse igual: con ansiedad, con el corazón roto, con dudas sobre quiénes son o hacia dónde van.</p>
+        <p class="rv">Trabajo con el enfoque cognitivo-conductual, que te da herramientas concretas para entender tus pensamientos y cambiar lo que te hace daño. Pero antes que cualquier técnica, creo en el vínculo: que te sientas escuchado, sin juicios y a tu ritmo.</p>
+        <p class="rv">Atiendo en mi consultorio de Miraflores y por videollamada a todo el Perú y a peruanos que viven fuera.</p>
+        <div class="sign rv">Andrea Salas</div>
+        <div class="facts rv">
+          <div><small>Colegiatura</small><b>C.Ps.P. 00000</b></div>
+          <div><small>Formación</small><b>Maestría en Psicología Clínica</b></div>
+          <div><small>Enfoque</small><b>Cognitivo-conductual</b></div>
+          <div><small>Atiendo a</small><b>Adultos, parejas y adolescentes</b></div>
+        </div>
+        <div class="ctas rv">
+          <a class="btn" data-wa="Hola Andrea, quisiera agendar una cita" href="#contacto">Agenda tu cita <span class="ar"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></a>
+          <a class="btn line" href="#trayectoria">Ver mi trayectoria</a>
+        </div>
+      </div>
+    </div>
+    <div class="values">
+      <div class="val rv"><svg viewBox="0 0 34 34"><path d="M17 29s-11-6.6-11-14a6 6 0 0 1 11-3.3A6 6 0 0 1 28 15c0 7.4-11 14-11 14z"/></svg><h3>Escucha sin juicios</h3><p>Aquí puedes decir lo que sientes tal cual es. Todo lo que hablamos es confidencial.</p></div>
+      <div class="val rv"><svg viewBox="0 0 34 34"><circle cx="17" cy="17" r="11"/><circle cx="17" cy="17" r="5"/><path d="M17 3v4M17 27v4M3 17h4M27 17h4"/></svg><h3>Objetivos claros</h3><p>Desde la primera sesión definimos juntos qué quieres lograr y revisamos tu avance.</p></div>
+      <div class="val rv"><svg viewBox="0 0 34 34"><path d="M6 26c5-1 8-5 9-11M15 15c1 6 5 10 13 11M15 15V5M11 9l4-4 4 4"/></svg><h3>Herramientas prácticas</h3><p>Ejercicios sencillos para tu día a día, para que el cambio no se quede solo en la sesión.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICIOS -->
+<section class="serv" id="servicios">
+  <div class="wrap">
+    <div class="pic rv"><img src="img/manos.webp" alt="Manos sosteniendo una taza" loading="lazy" width="800" height="1000"><p>Cada proceso es distinto. En la primera sesión vemos juntos cuál es el mejor camino para ti.</p></div>
+    <div>
+      <span class="eyebrow rv">Servicios</span>
+      <h2 class="rv">¿En qué te puedo <em>acompañar</em>?</h2>
+      <div class="list">
+        <div class="item rv"><button aria-expanded="false"><span class="nm"><i>01</i>Terapia individual</span><span class="pl">+</span></button><div class="a"><div><p>Para adultos que atraviesan ansiedad, estrés, tristeza, duelos o dudas personales. Un espacio solo para ti.</p><div class="meta"><span>50 minutos</span><span>Presencial u online</span><span>S/ 120</span></div></div></div></div>
+        <div class="item rv"><button aria-expanded="false"><span class="nm"><i>02</i>Terapia de pareja</span><span class="pl">+</span></button><div class="a"><div><p>Para mejorar la comunicación, resolver conflictos que se repiten y tomar decisiones juntos.</p><div class="meta"><span>70 minutos</span><span>Presencial u online</span><span>S/ 160</span></div></div></div></div>
+        <div class="item rv"><button aria-expanded="false"><span class="nm"><i>03</i>Adolescentes</span><span class="pl">+</span></button><div class="a"><div><p>De 12 a 17 años, con participación de los padres. Autoestima, ansiedad, presión escolar y relaciones.</p><div class="meta"><span>50 minutos</span><span>Con orientación a padres</span><span>S/ 120</span></div></div></div></div>
+        <div class="item rv"><button aria-expanded="false"><span class="nm"><i>04</i>Terapia online</span><span class="pl">+</span></button><div class="a"><div><p>Por videollamada, desde cualquier parte del Perú o del mundo. La misma calidad que en el consultorio.</p><div class="meta"><span>Videollamada</span><span>Peruanos en el extranjero</span><span>S/ 120</span></div></div></div></div>
+        <div class="item rv"><button aria-expanded="false"><span class="nm"><i>05</i>Charlas y talleres</span><span class="pl">+</span></button><div class="a"><div><p>Para empresas, colegios y universidades: manejo del estrés, bienestar laboral, escuela de padres.</p><div class="meta"><span>Presencial o virtual</span><span>Cotización a medida</span></div></div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PASOS -->
+<section>
+  <div class="wrap">
+    <span class="eyebrow rv">Cómo empezar</span>
+    <h2 class="rv" style="margin-top:18px">Empezar terapia es más <em>simple</em> de lo que crees.</h2>
+    <div class="steps">
+      <div class="step rv"><div class="n">1</div><h3>Escríbeme</h3><p>Cuéntame en pocas palabras qué te trae. Te respondo el mismo día por WhatsApp.</p></div>
+      <div class="step rv"><div class="n">2</div><h3>Elegimos tu horario</h3><p>Coordinamos día, hora y si prefieres venir al consultorio o conectarte online.</p></div>
+      <div class="step rv"><div class="n">3</div><h3>Primera sesión</h3><p>Nos conocemos, entiendo tu situación y definimos juntos los objetivos.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- TRAYECTORIA -->
+<section class="tray" id="trayectoria">
+  <div class="wrap">
+    <span class="eyebrow rv">Trayectoria</span>
+    <h2 class="rv" style="margin-top:18px">Formación y <em>experiencia</em>.</h2>
+    <div class="cols">
+      <div class="tl rv">
+        <h3>Formación</h3>
+        <div class="r"><span>2019 – 2021</span><div><b>Maestría en Psicología Clínica</b><small>Universidad (ejemplo)</small></div></div>
+        <div class="r"><span>2020</span><div><b>Curso de Terapia de Pareja</b><small>Centro de formación (ejemplo)</small></div></div>
+        <div class="r"><span>2019</span><div><b>Diplomado en Terapia Cognitivo-Conductual</b><small>Instituto (ejemplo)</small></div></div>
+        <div class="r"><span>2011 – 2016</span><div><b>Licenciatura en Psicología</b><small>Universidad (ejemplo) · C.Ps.P. 00000</small></div></div>
+      </div>
+      <div class="tl rv">
+        <h3>Experiencia</h3>
+        <div class="r"><span>2021 – hoy</span><div><b>Consulta privada</b><small>Miraflores y online</small></div></div>
+        <div class="r"><span>2019 – 2021</span><div><b>Psicóloga en clínica privada</b><small>Área de salud mental (ejemplo)</small></div></div>
+        <div class="r"><span>2017 – 2019</span><div><b>Psicóloga en centro comunitario</b><small>Centro de salud mental comunitario</small></div></div>
+        <div class="r"><span>2016 – 2017</span><div><b>Internado clínico</b><small>Hospital (ejemplo)</small></div></div>
+      </div>
+    </div>
+    <div class="talks rv">
+      <div><span class="eyebrow">Para empresas y colegios</span><h3 style="margin-top:14px">Charlas y talleres de <em>bienestar</em></h3></div>
+      <div>
+        <ul><li>Manejo del estrés y prevención del agotamiento laboral</li><li>Escuela de padres: cómo acompañar a un adolescente</li><li>Inteligencia emocional para equipos de trabajo</li></ul>
+        <a class="btn" data-wa="Hola Andrea, quisiera cotizar una charla o taller" href="#contacto">Solicitar una charla <span class="ar"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONSULTORIO -->
+<section>
+  <div class="wrap">
+    <span class="eyebrow rv">El consultorio</span>
+    <h2 class="rv" style="margin-top:18px">Un espacio <em>tranquilo</em>, pensado para ti.</h2>
+    <div class="space">
+      <figure class="rv"><img src="img/consultorio.webp" alt="Sillón del consultorio junto a la ventana" loading="lazy" width="800" height="1000"><figcaption>Sala de terapia</figcaption></figure>
+      <figure class="rv"><img src="img/espacio-1.webp" alt="Rincón del consultorio" loading="lazy" width="800" height="600"><figcaption>Privado y cómodo</figcaption></figure>
+      <figure class="rv"><img src="img/lima.webp" alt="Costa Verde de Miraflores" loading="lazy" width="800" height="1000"><figcaption>Miraflores, Lima</figcaption></figure>
+    </div>
+    <div class="addr rv"><span>Miraflores, Lima · dirección exacta al confirmar tu cita</span><span>Lunes a viernes 9:00 – 21:00 · Sábados 9:00 – 13:00</span></div>
+  </div>
+</section>
+
+<!-- TARIFAS -->
+<section id="tarifas" style="padding-top:0">
+  <div class="wrap">
+    <span class="eyebrow rv">Tarifas</span>
+    <h2 class="rv" style="margin-top:18px">Precios <em>claros</em>, desde el inicio.</h2>
+    <div class="prices">
+      <div class="price rv"><span class="t">Sesión individual</span><span class="v">S/ 120<small>/ sesión</small></span><ul><li>50 minutos</li><li>Presencial u online</li><li>Adultos y adolescentes</li></ul><a class="btn" data-wa="Hola Andrea, quisiera una sesión individual" href="#contacto">Reservar <span class="ar"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></a></div>
+      <div class="price hot rv"><span class="t">Paquete 4 sesiones</span><span class="v">S/ 420<small>/ mes</small></span><ul><li>Ahorras S/ 60</li><li>Una sesión por semana</li><li>Seguimiento por WhatsApp</li></ul><a class="btn light" data-wa="Hola Andrea, me interesa el paquete de 4 sesiones" href="#contacto">Reservar <span class="ar"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></a></div>
+      <div class="price rv"><span class="t">Terapia de pareja</span><span class="v">S/ 160<small>/ sesión</small></span><ul><li>70 minutos</li><li>Presencial u online</li><li>Ambos miembros de la pareja</li></ul><a class="btn" data-wa="Hola Andrea, quisiera información sobre terapia de pareja" href="#contacto">Reservar <span class="ar"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></a></div>
+    </div>
+    <p class="note">Pago con Yape, Plin o transferencia antes de la sesión. Emito boleta. Precios de ejemplo.</p>
+  </div>
+</section>
+
+<!-- RESEÑAS -->
+<section style="padding-top:0">
+  <div class="wrap">
+    <div style="display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap">
+      <div><span class="eyebrow rv">Testimonios</span><h2 class="rv" style="margin-top:18px">Lo que <em>dicen</em> mis pacientes.</h2></div>
+      <span class="badge rv">Reseñas de ejemplo · anónimas por confidencialidad</span>
+    </div>
+    <div class="revs">
+      <div class="rev rv"><span class="stars">★★★★★</span><q>Llegué con mucha ansiedad por el trabajo. Me ayudó a entender qué me pasaba y hoy duermo mucho mejor.</q><div class="who"><span>Paciente anónima, 32 años</span><span>Terapia individual</span></div></div>
+      <div class="rev rv"><span class="stars">★★★★★</span><q>Aprendimos a conversar sin pelear. Las sesiones online nos facilitaron mucho los horarios.</q><div class="who"><span>Pareja anónima</span><span>Terapia de pareja</span></div></div>
+      <div class="rev rv"><span class="stars">★★★★★</span><q>Vivo fuera del Perú y quería terapia con alguien que entienda de dónde vengo. Fue justo lo que necesitaba.</q><div class="who"><span>Paciente anónimo, Madrid</span><span>Terapia online</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PREGUNTAS -->
+<section class="faq" id="preguntas" style="padding-top:0">
+  <div class="wrap">
+    <div class="side rv">
+      <span class="eyebrow">Preguntas frecuentes</span>
+      <h2 style="margin-top:18px">Tú preguntas, <em>yo respondo</em>.</h2>
+      <p class="lead">¿Tienes otra duda? Escríbeme y te respondo sin compromiso.</p>
+      <a class="btn" data-wa="Hola Andrea, tengo una consulta" href="#contacto">Hacer una pregunta <span class="ar"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></a>
+    </div>
+    <div class="qs">
+      <div class="q rv"><button aria-expanded="false">¿Cómo sé si necesito terapia?<span>+</span></button><div class="a"><div><p>Si algo te está quitando la tranquilidad, el sueño o las ganas de hacer cosas, vale la pena conversarlo. No hace falta estar "muy mal" para empezar.</p></div></div></div>
+      <div class="q rv"><button aria-expanded="false">¿La terapia online funciona igual?<span>+</span></button><div class="a"><div><p>Sí. Las sesiones por videollamada tienen la misma estructura que las presenciales. Solo necesitas un lugar privado y buena conexión.</p></div></div></div>
+      <div class="q rv"><button aria-expanded="false">¿Lo que cuento es confidencial?<span>+</span></button><div class="a"><div><p>Siempre. Lo que hablamos queda entre nosotros, según el secreto profesional del Código de Ética del Colegio de Psicólogos del Perú.</p></div></div></div>
+      <div class="q rv"><button aria-expanded="false">¿Cuántas sesiones voy a necesitar?<span>+</span></button><div class="a"><div><p>Depende de cada persona y de lo que quieras trabajar. En la primera sesión te doy una idea del camino y lo revisamos juntos.</p></div></div></div>
+      <div class="q rv"><button aria-expanded="false">¿Cómo se paga?<span>+</span></button><div class="a"><div><p>Con Yape, Plin o transferencia, antes de la sesión. Emito boleta.</p></div></div></div>
+      <div class="q rv"><button aria-expanded="false">¿Atiendes a menores de edad?<span>+</span></button><div class="a"><div><p>Atiendo adolescentes de 12 a 17 años, con autorización y participación de sus padres o tutores.</p></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section class="contact" id="contacto">
+  <div class="wrap">
+    <div class="rv">
+      <span class="eyebrow">Contacto</span>
+      <h2 style="margin-top:18px">Dar el primer paso es lo más difícil. <em>Démoslo juntos.</em></h2>
+      <div class="info">
+        <div><small>WhatsApp</small>952 997 030</div>
+        <div><small>Correo</small>andrea.salas@ejemplo.pe</div>
+        <div><small>Consultorio</small>Miraflores, Lima · online a todo el Perú</div>
+        <div><small>Horario</small>Lunes a viernes 9:00 – 21:00 · Sábados 9:00 – 13:00</div>
+      </div>
+      <div class="sos"><b>¿Estás en una crisis?</b> Esta web no atiende emergencias. Llama gratis a la <b>Línea 113, opción 5</b> (salud mental del MINSA) o acude a emergencias.</div>
+    </div>
+    <form id="form" class="rv" novalidate>
+      <div class="two">
+        <div class="f"><label for="fn">Tu nombre</label><input id="fn" required autocomplete="given-name" placeholder="Nombre"></div>
+        <div class="f"><label for="fm">Modalidad</label><select id="fm"><option>Presencial</option><option>Online</option><option>Aún no sé</option></select></div>
+      </div>
+      <div class="f"><label for="fs">¿Qué buscas?</label><select id="fs"><option>Terapia individual</option><option>Terapia de pareja</option><option>Adolescentes</option><option>Terapia online</option><option>Charla o taller</option><option>No estoy seguro</option></select></div>
+      <div class="f"><label for="fx">Cuéntame brevemente (opcional)</label><textarea id="fx" rows="3" placeholder="Lo que quieras compartir"></textarea></div>
+      <button class="btn" type="submit">Enviar por WhatsApp <span class="ar"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></button>
+      <p class="priv">Se abrirá WhatsApp con tu mensaje listo; tú decides si lo envías. Demo: el mensaje llega a LitleJacob Studio Web.</p>
+    </form>
+  </div>
+</section>
+
+<!-- CIERRE -->
+<section class="cta">
+  <img src="img/bosque.webp" alt="" loading="lazy" width="1600" height="900">
+  <div class="in rv">
+    <span class="eyebrow">Tu bienestar importa</span>
+    <h2>Puedes sentirte <em>mejor</em>.<br>Empecemos hoy.</h2>
+    <a class="btn light" data-wa="Hola Andrea, quisiera empezar terapia" href="#contacto">Agenda tu primera cita <span class="ar"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></a>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fcols">
+      <div><h4>Lic. Andrea Salas</h4><p>Psicóloga clínica · C.Ps.P. 00000</p><p>Terapia presencial en Miraflores y online a todo el Perú.</p></div>
+      <div><h4>Navegación</h4><a href="#sobre">Sobre mí</a><a href="#servicios">Servicios</a><a href="#trayectoria">Trayectoria</a><a href="#tarifas">Tarifas</a><a href="#preguntas">Preguntas</a></div>
+      <div><h4>Contacto</h4><a data-wa="Hola Andrea, quisiera agendar una cita" href="#contacto">WhatsApp 952 997 030</a><p>andrea.salas@ejemplo.pe</p><p>Miraflores, Lima</p></div>
+      <div><h4>Emergencias</h4><p>Línea 113, opción 5 (MINSA), gratuita.</p></div>
+    </div>
+    <div class="fname" aria-hidden="true">Andrea <em>Salas</em></div>
+    <div class="fbar">
+      <span>Diseño de <a href="https://studio.litlejacob.trade/?utm_source=demo-psicologa">LitleJacob Studio Web</a> · fotos de Unsplash · persona de ejemplo</span>
+      <a href="https://wa.me/51952997030?text=Hola%20Bryan%2C%20vi%20la%20demo%20de%20psic%C3%B3loga%20y%20quiero%20una%20web%20as%C3%AD">¿Eres psicólogo y quieres una web así? →</a>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-fab" data-wa="Hola Andrea, quisiera agendar una cita" href="#contacto" aria-label="Escribir por WhatsApp"><svg viewBox="0 0 32 32"><path d="M16 3C9 3 3.3 8.6 3.3 15.6c0 2.5.7 4.8 1.9 6.8L3 29l6.8-2.1a12.7 12.7 0 0 0 6.2 1.6c7 0 12.7-5.7 12.7-12.6S23 3 16 3zm0 23.1c-2 0-3.9-.6-5.5-1.6l-.4-.2-4 1.2 1.3-3.9-.3-.4a10.4 10.4 0 0 1-1.6-5.6C5.5 9.9 10.2 5.3 16 5.3s10.5 4.6 10.5 10.3S21.8 26.1 16 26.1zm5.8-7.7c-.3-.2-1.900-.9-2.2-1s-.5-.2-.7.2-.8 1-1 1.2-.4.2-.7.1a8.6 8.6 0 0 1-4.3-3.7c-.3-.6.3-.5.9-1.7.1-.2 0-.4 0-.5l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4s-1.2 1.1-1.2 2.8 1.2 3.2 1.4 3.5c.2.2 2.4 3.6 5.8 5 2.1.9 3 1 4 .8.7-.1 1.900-.8 2.200-1.5s.3-1.3.2-1.5c0-.1-.3-.2-.6-.3z"/></svg></a>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js" defer></script>
+<script>
+const WA = '51952997030';
+const waLink = t => 'https://wa.me/' + WA + '?text=' + encodeURIComponent('[Demo psicóloga] ' + t);
+
+// Botones que abren WhatsApp
+document.querySelectorAll('[data-wa]').forEach(a => { a.href = waLink(a.dataset.wa); a.target = '_blank'; a.rel = 'noopener'; });
+
+// Formulario → WhatsApp
+document.getElementById('form').addEventListener('submit', e => {
+  e.preventDefault();
+  const n = document.getElementById('fn');
+  if (!n.value.trim()) { n.focus(); n.closest('.f').style.borderColor = '#a33'; return; }
+  const t = `Hola Andrea, soy ${n.value.trim()}. Me interesa: ${fs.value} (${fm.value}).` + (fx.value.trim() ? ` ${fx.value.trim()}` : '');
+  window.open(waLink(t), '_blank', 'noopener');
+});
+
+// Acordeones (servicios y preguntas)
+document.querySelectorAll('.item button, .q button').forEach(b => b.addEventListener('click', () => {
+  const box = b.parentElement, open = box.classList.toggle('open');
+  b.setAttribute('aria-expanded', open);
+}));
+// El primer servicio empieza abierto
+const first = document.querySelector('.item'); first.classList.add('open'); first.querySelector('button').setAttribute('aria-expanded', true);
+
+// Menú con borde al bajar
+const nav = document.getElementById('nav');
+addEventListener('scroll', () => nav.classList.toggle('solid', scrollY > 10), { passive: true });
+
+// Animaciones suaves (solo si GSAP cargó y la persona no pidió menos movimiento)
+addEventListener('load', () => {
+  if (!window.gsap || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  gsap.registerPlugin(ScrollTrigger);
+  gsap.from('.photo .main', { scale: 1.08, opacity: 0, duration: 1.4, ease: 'power3.out', clearProps: 'transform' });
+  gsap.from('.stamp', { scale: 0, duration: 1, delay: .7, ease: 'back.out(1.8)' });
+  gsap.from('.float', { y: 30, opacity: 0, duration: .9, delay: .9, ease: 'power3.out', clearProps: 'transform' });
+  gsap.utils.toArray('.rv').forEach(el => gsap.from(el, { y: 28, opacity: 0, duration: .9, ease: 'power2.out', clearProps: 'transform', scrollTrigger: { trigger: el, start: 'top 90%' } }));
+  gsap.to('.cta img', { yPercent: 8, ease: 'none', scrollTrigger: { trigger: '.cta', start: 'top bottom', end: 'bottom top', scrub: true } });
+});
+</script>
+</body>
+</html>

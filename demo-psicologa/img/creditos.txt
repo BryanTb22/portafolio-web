@@ -1,0 +1,17 @@
+Fotos de Unsplash (licencia Unsplash: uso gratis, comercial incluido, sin pedir permiso).
+archivo | id de Unsplash | autor (@usuario en unsplash.com)
+retrato | 1581065178047-8ee15951ede6 | palmariannika
+lima | 1577587230708-187fdbef4d91 | creatorsproduce
+consultorio | 1754037783933-c25ff9f68f87 | elsatkw
+s-individual | 1714976694468-ff722f34d0b6 | silverkblack
+s-ansiedad | 1714976694810-85add1a29c96 | silverkblack
+s-pareja | 1757792859308-b8d2115a0010 | claybanks
+s-ninos | 1758273241078-8eec353836be | silverkblack
+s-online | 1669846125517-6ea5fd9dc9af | evanthewise
+espacio-1 | 1662059360197-a3271676d3d6 | haybagwell
+espacio-2 | 1520605728164-b6a5c6814203 | mindyj
+La persona de la demo (Lic. Andrea Salas) es inventada; las fotos son ilustrativas.
+retrato-2 | 1581065178026-390bc4e78dad | palmariannika
+hero | 1581065178047-8ee15951ede6 | palmariannika
+bosque | 1542273917363-3b1817f69a2d | maritaextrabold
+manos | 1639391725470-9b77ae12c12a | sneha14
