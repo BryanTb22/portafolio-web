@@ -51,7 +51,8 @@ a:hover .arrow{transform:translateX(4px)}
 /* NAV */
 nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:rgba(244,239,230,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:66px}
-.brand{font-family:var(--serif);font-size:clamp(1.2rem,4.6vw,1.55rem);text-decoration:none;white-space:nowrap}
+.brand{font-family:var(--serif);font-size:clamp(1.2rem,4.6vw,1.55rem);text-decoration:none;white-space:nowrap;display:inline-flex;align-items:center;gap:.5rem}
+.brand img{width:1.6em;height:1.6em;border-radius:6px;flex:none}
 .brand i{color:var(--gold)}
 .links{display:flex;align-items:center;gap:30px;font-size:.92rem}
 .links a{text-decoration:none;color:var(--muted);transition:color .2s}
@@ -184,9 +185,8 @@ section > .wrap{padding-block:96px}
 .about{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;align-items:center}
 .about > *{min-width:0}
 @media (max-width:760px){.about{grid-template-columns:1fr;gap:32px}}
-.mono{aspect-ratio:4/5;max-width:340px;width:100%;border-radius:6px;background:var(--ink);color:var(--cream);display:grid;place-items:center;position:relative;overflow:hidden}
-.mono b{font-family:var(--serif);font-weight:400;font-size:clamp(7rem,30vw,10rem);line-height:1}
-.mono b i{color:var(--gold)}
+.mono{aspect-ratio:4/5;max-width:340px;width:100%;border-radius:6px;background:#000;color:var(--cream);display:grid;place-items:center;position:relative;overflow:hidden}
+.mono img{width:62%;height:auto;margin-top:-8%}
 .mono span{position:absolute;left:20px;right:20px;bottom:18px;display:flex;justify-content:space-between;font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:#b8ae9d}
 .about h2{font-size:clamp(2.3rem,8vw,3.6rem);margin:14px 0 20px}
 .about p{color:var(--muted);margin:0 0 16px;max-width:52ch}
@@ -242,7 +242,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 1
 <body>
 <nav>
   <div class="wrap">
-    <a class="brand" href="#inicio">LitleJacob <i>Studio</i> Web</a>
+    <a class="brand" href="#inicio"><img src="img/logo-lj-mini.webp" alt="" width="48" height="48">LitleJacob <i>Studio</i> Web</a>
     <div class="links">
       <a href="#proyectos">Proyectos</a>
       <a href="#opiniones">Opiniones</a>
@@ -376,7 +376,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 1
 
   <section id="sobre-mi" class="alt">
     <div class="wrap about">
-      <div class="mono" aria-hidden="true"><b>L<i>J</i></b><span><em>Studio Web</em><em>Lima</em></span></div>
+      <div class="mono" aria-hidden="true"><img src="img/logo-lj.webp" alt="" width="480" height="540" loading="lazy"><span><em>Studio Web</em><em>Lima</em></span></div>
       <div>
         <span class="eyebrow">Sobre mí</span>
         <h2>Hola, soy <em>Bryan</em></h2>
