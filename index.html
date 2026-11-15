@@ -113,7 +113,7 @@ section > .wrap{padding-block:96px}
 
 /* PROYECTOS */
 .projects{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
-@media (max-width:1000px){.projects{grid-template-columns:1fr 1fr}.projects .project:first-child{grid-column:1/-1}}
+@media (max-width:1000px){.projects{grid-template-columns:1fr 1fr}}
 @media (max-width:760px){.projects{grid-template-columns:1fr;gap:40px}}
 .project{display:grid;gap:18px;text-decoration:none}
 .shot{aspect-ratio:16/10;max-width:100%;border:1px solid var(--line);border-radius:6px;overflow:hidden;background:var(--cream-2);box-shadow:0 18px 40px -28px rgba(20,18,16,.5);transition:border-color .3s}
@@ -318,6 +318,13 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 1
         <p>Plataformas reales con usuarios, pagos y pedidos en funcionamiento.</p>
       </div>
       <div class="projects">
+        <a class="project" href="demo-ropa/" target="_blank" rel="noopener">
+          <div class="shot"><img src="img/ropa.webp" alt="Página de inicio de la tienda de ropa ALBA" width="1200" height="750" loading="lazy"></div>
+          <div class="p-meta">
+            <div><h3>Tienda de ropa</h3><p>Tienda online de moda con catálogo por categorías, filtros por talla y precio, buscador, favoritos, carrito con cupones y pago con tarjeta o por WhatsApp</p></div>
+            <span class="go">Ver proyecto <span class="arrow">→</span></span>
+          </div>
+        </a>
         <a class="project" href="https://bryantb22.github.io/diseno-pagina-web-cliente-marinera/" target="_blank" rel="noopener">
           <div class="shot"><img src="img/marinera.webp" alt="Página de inicio de Alis Marinera" width="1200" height="750" loading="lazy"></div>
           <div class="p-meta">
